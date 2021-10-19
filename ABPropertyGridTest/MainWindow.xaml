@@ -1,0 +1,26 @@
+﻿<Window x:Class="ABPropertyGridTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ABPropertyGridTest" 
+        xmlns:pg="clr-namespace:AllplanBridge;assembly=AllplanBridge"
+        mc:Ignorable="d"
+        FontFamily="{StaticResource abmGeneralFontFamily}"
+        FontWeight="{StaticResource abmGeneralFontWeight}"
+        FontSize="{StaticResource abmGeneralFontSize}"
+        Title="Property Grid Demo" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Click="OnPropGridOpen" Margin="10,3" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center">Open</Button>
+            <Button Click="OnPropGridClear" Margin="10,3" Width="100" VerticalAlignment="Center" HorizontalAlignment="Center">Clear</Button>
+        </StackPanel>
+
+        <pg:ABPropertyGrid Grid.Row="1" x:Name="pg"/>
+    </Grid>
+</Window>
