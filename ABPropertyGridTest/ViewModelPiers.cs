@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace ABPropertyGridTest
 {
+	/// <summary>
+	/// View model.
+	/// </summary>
 	public class ViewModelPiers
 	{
 		public string Project { get; set; }
