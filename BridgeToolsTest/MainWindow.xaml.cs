@@ -1,5 +1,4 @@
-﻿using BridgeTools.PropertyGrid;
-using System.Windows;
+﻿using System.Windows;
 
 namespace BridgeToolsTest
 {
@@ -65,7 +64,7 @@ namespace BridgeToolsTest
 						vm.Pier1,
 						nameof( vm.Pier1.Description ) );
 
-					// list of properties at level 2
+					// dynamic list of properties at level 2
 					foreach( var animal in vm.Pier1.Animals )
 					{
 						if( animal is ViewModelCat cat )
