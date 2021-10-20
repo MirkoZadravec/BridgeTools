@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace AllplanBridge
+namespace BridgeTools.PropertyGrid
 {
-	class ABLevelToSplitterOffsetConverter : IMultiValueConverter
+	class ABLevelToExpanderSplitterOffsetConverter : IMultiValueConverter
 	{
 		#region IMultiValueConverter Members
 
@@ -15,7 +15,7 @@ namespace AllplanBridge
 			double spaceLevel = 10 + 5;
 
 			if( values[0] is int valLevel )
-				width += -( valLevel * spaceLevel );
+				width += -( ( valLevel + 1 ) * spaceLevel );
 
 			if( values[1] is double valSplitter )
 				width += valSplitter;

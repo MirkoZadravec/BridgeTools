@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ABPropertyGridTest
+namespace BridgeToolsTest
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

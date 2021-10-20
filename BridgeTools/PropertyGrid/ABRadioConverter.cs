@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace AllplanBridge
+namespace BridgeTools.PropertyGrid
 {
 	//------------------------------------------------------------------------------------------
 	/// <summary>

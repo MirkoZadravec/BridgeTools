@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="BridgeTools.PropertyGrid.ABPropertyGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BridgeTools.PropertyGrid"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    
+    <UserControl.Resources>
+        <ResourceDictionary Source="PropertyGrid.xaml" />
+    </UserControl.Resources>
+    
+    <Grid Background="{StaticResource ABPropGridBackgroundColor}">
+
+        <Grid Panel.ZIndex="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border IsHitTestVisible="False" x:Name="ABSplitter" Background="Transparent" BorderThickness="0"/>
+            <GridSplitter Grid.Column="1" Width="5" Foreground="Transparent" Background="Transparent" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"/>
+            <Border IsHitTestVisible="False" Background="Transparent" BorderThickness="0"/>
+        </Grid>
+        <!--ScrollViewer.CanContentScroll="False" turns virtualisation OFF!!!-->
+        <local:ABCategory
+            ScrollViewer.CanContentScroll="False"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+            x:Name="Root"
+            ItemContainerStyle="{StaticResource ABListViewItemContainerStyle}"/>
+
+    </Grid>
+</UserControl>

@@ -1,8 +1,8 @@
-﻿<Application x:Class="ABPropertyGridTest.App"
+﻿<Application x:Class="BridgeToolsTest.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
-             xmlns:local="clr-namespace:ABPropertyGridTest"
+             xmlns:local="clr-namespace:BridgeToolsTest"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 

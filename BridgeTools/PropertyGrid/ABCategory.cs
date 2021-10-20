@@ -4,86 +4,50 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-// TODO
-//   - Tooltips
-//   - Validation Rules
-//   - Color picker
-//   - Tab stop
-//   - Visibility
-//   - IsEnabled
-
-namespace AllplanBridge
+namespace BridgeTools.PropertyGrid
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
-    public partial class ABPropertyGrid : UserControl
-    {
-        public ABPropertyGrid()
-        {
-            InitializeComponent();
-        }
-
-		public void Clear()
-		{
-			Root.Items.Clear();
-		}
-
+	public class ABCategory : ListView
+	{
 		public ABCategory AddCategory(
 			string key,
 			bool isExpanded )
 		{
-			return AddCategory( null, key, isExpanded );
-		}
-
-		public ABCategory AddCategory(
-			ABCategory parent,
-			string key,
-			bool isExpanded )
-		{
-			if( parent == null )
-				parent = Root;
-
 			var child = new ABCategory()
 			{
-				Style = Resources["ABListViewStyle"] as Style,
-				ItemContainerStyle = Resources["ABListViewItemContainerStyle"] as Style,
+				Style = this.FindResource( "ABListViewStyle" ) as Style,
+				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
 
-			var lvItem = new ABProperty()
+			var propItem = new ABProperty()
 			{
 				Content = new ABExpander()
 				{
-					Style = Resources["ABExpanderStyle"] as Style,
+					Style = this.FindResource( "ABExpanderStyle" ) as Style,
 					IsExpanded = isExpanded,
 					Header = new TextBlock()
 					{
 						Text = key,
-						Style = Resources["ABExpanderKeyStyle"] as Style,
+						Style = this.FindResource( "ABExpanderKeyStyle" ) as Style,
 					},
 					Content = child,
 				},
 			};
 
-			parent.Items.Add( lvItem );
+			this.Items.Add( propItem );
 
 			return child;
 		}
 
 		public ABCategory AddCheckCategory(
-			ABCategory parent,
 			string key,
 			bool isExpanded,
 			object bSource,
 			string bPath )
 		{
-			if( parent == null )
-				parent = Root;
-
 			var child = new ABCategory()
 			{
-				Style = Resources["ABListViewStyle"] as Style,
-				ItemContainerStyle = Resources["ABListViewItemContainerStyle"] as Style,
+				Style = this.FindResource( "ABListViewStyle" ) as Style,
+				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
 
 			var dockPanel = new DockPanel()
@@ -94,7 +58,7 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABExpanderKeyValStyle"] as Style,
+				Style = this.FindResource( "ABExpanderKeyValStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -110,24 +74,23 @@ namespace AllplanBridge
 
 			dockPanel.Children.Add( propVal );
 
-			var lvItem = new ABProperty()
+			var propItem = new ABProperty()
 			{
 				Content = new ABExpander()
 				{
-					Style = Resources["ABExpanderStyle"] as Style,
+					Style = this.FindResource( "ABExpanderStyle" ) as Style,
 					IsExpanded = isExpanded,
 					Header = dockPanel,
 					Content = child,
 				},
 			};
 
-			parent.Items.Add( lvItem );
+			this.Items.Add( propItem );
 
 			return child;
 		}
 
 		public ABProperty AddCheckProperty(
-			ABCategory parent,
 			string key,
 			object bSource,
 			string bPath )
@@ -140,7 +103,7 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABPropItemKeyStyle"] as Style,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -156,20 +119,19 @@ namespace AllplanBridge
 
 			dockPanel.Children.Add( propVal );
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
-				Style = Resources["ABPropItemLevelStyle"] as Style,
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
 			};
 
-			item.Content = dockPanel;
+			propItem.Content = dockPanel;
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 
 		public ABProperty AddRadioProperty<T>(
-			ABCategory parent,
 			string groupName,
 			bool addBorder,
 			string key,
@@ -185,7 +147,7 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABPropItemKeyStyle"] as Style,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -233,20 +195,19 @@ namespace AllplanBridge
 				propVal.Children.Add( border );
 			}
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
-				Style = Resources["ABPropItemLevelStyle"] as Style,
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
 			};
 
-			item.Content = dockPanel;
+			propItem.Content = dockPanel;
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 
 		public ABProperty AddComboProperty<T>(
-			ABCategory parent,
 			string key,
 			List<ComboItem<T>> values,
 			object bSource,
@@ -260,7 +221,7 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABPropItemKeyStyle"] as Style,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -273,7 +234,7 @@ namespace AllplanBridge
 
 			var propCombo = new ComboBox()
 			{
-				Style = Resources["ComboBoxStyle"] as Style,
+				Style = this.FindResource( "ComboBoxStyle" ) as Style,
 				VerticalAlignment = VerticalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Bottom,
 				ItemsSource = values,
@@ -287,20 +248,19 @@ namespace AllplanBridge
 
 			propVal.Children.Add( propCombo );
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
-				Style = Resources["ABPropItemLevelStyle"] as Style,
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
 			};
 
-			item.Content = dockPanel;
+			propItem.Content = dockPanel;
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 
 		public ABProperty AddSliderProperty(
-			ABCategory parent,
 			string key,
 			string symbol,
 			double sliderMin,
@@ -317,7 +277,7 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABPropItemKeyStyle"] as Style,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -362,7 +322,8 @@ namespace AllplanBridge
 				IsSnapToTickEnabled = true,
 				Minimum = sliderMin,
 				Maximum = sliderMax,
-				Style = Application.Current.Resources["ABPropItemSliderStyle"] as Style,
+				MinHeight = 16,
+				Style = this.FindResource( "ABPropItemSliderStyle" ) as Style,
 			};
 
 			// binding (selected slider item)
@@ -371,20 +332,19 @@ namespace AllplanBridge
 
 			propVal.Children.Add( propSlider );
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
-				Style = Resources["ABPropItemLevelStyle"] as Style,
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
 			};
 
-			item.Content = dockPanel;
+			propItem.Content = dockPanel;
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 
 		public ABProperty AddTextProperty(
-			ABCategory parent,
 			string key,
 			object bSource,
 			string bPath )
@@ -397,14 +357,14 @@ namespace AllplanBridge
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = Resources["ABPropItemKeyStyle"] as Style,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
 			var propVal = new TextBox()
 			{
-				Style = Resources["ABPropItemValStyle"] as Style,
+				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
 			};
 
 			// binding (text)
@@ -413,45 +373,44 @@ namespace AllplanBridge
 
 			dockPanel.Children.Add( propVal );
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
-				Style = Resources["ABPropItemLevelStyle"] as Style,
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
 			};
 
-			item.Content = dockPanel;
+			propItem.Content = dockPanel;
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 
 		public ABProperty AddTextFullRowProperty(
-			ABCategory parent,
 			bool ignoreLevel,
 			object bSource,
 			string bPath )
 		{
 			var propVal = new TextBox()
 			{
-				Style = Resources["ABPropItemValStyle"] as Style,
+				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
 			};
 
 			// binding (text)
 			var b = new Binding( bPath ) { Source = bSource };
 			propVal.SetBinding( TextBox.TextProperty, b );
 
-			var item = new ABProperty()
+			var propItem = new ABProperty()
 			{
 				Style =
 					ignoreLevel ?
-					Resources["ABPropItemFullRowStyle"] as Style :
-					Resources["ABPropItemLevelStyle"] as Style,
+					this.FindResource( "ABPropItemFullRowStyle" ) as Style :
+					this.FindResource( "ABPropItemLevelStyle" ) as Style,
 				Content = propVal,
 			};
 
-			parent.Items.Add( item );
+			this.Items.Add( propItem );
 
-			return item;
+			return propItem;
 		}
 	}
 }

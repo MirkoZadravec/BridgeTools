@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A97DB1F9-13EA-480B-840B-013CFD579252}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ABPropertyGridTest</RootNamespace>
-    <AssemblyName>ABPropertyGridTest</AssemblyName>
+    <RootNamespace>BridgeToolsTest</RootNamespace>
+    <AssemblyName>BridgeToolsTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -98,9 +98,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ABPropertyGrid\ABPropertyGrid.csproj">
+    <ProjectReference Include="..\BridgeTools\BridgeTools.csproj">
       <Project>{624ec533-eece-448a-abb4-10edba07c6db}</Project>
-      <Name>ABPropertyGrid</Name>
+      <Name>BridgeTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

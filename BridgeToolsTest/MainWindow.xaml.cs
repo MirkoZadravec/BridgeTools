@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ABPropertyGridTest
+namespace BridgeToolsTest
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -14,7 +14,7 @@ namespace ABPropertyGridTest
 
 		private void OnPropGridClear( object sender, RoutedEventArgs e )
 		{
-			pg.Clear();
+			propGrid.Clear();
 		}
 
 		private void OnPropGridOpen( object sender, RoutedEventArgs e )
@@ -22,19 +22,17 @@ namespace ABPropertyGridTest
 			var vm = new ViewModelPiers() { Project = "Project 1" };
 
 			// container at level 1
-			var catPiers = pg.AddCategory( "Piers", true );
+			var catPiers = propGrid.AddCategory( "Piers", true );
 			{
 				// property at level 1 ( key/value pair )
-				pg.AddTextProperty(
-					catPiers,
+				catPiers.AddTextProperty(
 					"Project",
 					// bindings
 					vm,
 					nameof( vm.Project ) );
 
 				// container at level 2 (with checkbox)
-				var catPier1 = pg.AddCheckCategory(
-					catPiers,
+				var catPier1 = catPiers.AddCheckCategory(
 					"Pier 1",
 					true,
 					// bindings
@@ -42,19 +40,17 @@ namespace ABPropertyGridTest
 					nameof( vm.Pier1.IsReady ) );
 				{
 					// property at level 2 ( key/value pair )
-					pg.AddTextProperty(
-						catPier1,
+					catPier1.AddTextProperty(
 						"Name",
 						// bindings
 						vm.Pier1,
 						nameof( vm.Pier1.Name ) );
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = pg.AddCategory( catPier1, "Geometric position", false );
+					var catGeoPos = catPier1.AddCategory( "Geometric position", false );
 					{
 						// property at level 3 ( occupies full row )
-						pg.AddTextFullRowProperty(
-							catGeoPos,
+						catGeoPos.AddTextFullRowProperty(
 							false,
 							// bindings
 							vm.Pier1.GeoPos,
@@ -62,8 +58,7 @@ namespace ABPropertyGridTest
 					}
 
 					// property at level 2 ( key/value pair )
-					pg.AddTextProperty(
-						catPier1,
+					catPier1.AddTextProperty(
 						"Description",
 						// bindings
 						vm.Pier1,
@@ -75,8 +70,7 @@ namespace ABPropertyGridTest
 						if( animal is ViewModelCat cat )
 						{
 							// property at level 2 ( key/value pair )
-							pg.AddTextProperty(
-								catPier1,
+							catPier1.AddTextProperty(
 								"Age",
 								// bindings
 								cat,
@@ -86,8 +80,7 @@ namespace ABPropertyGridTest
 						if( animal is ViewModelDog dog )
 						{
 							// property at level 2 ( key/value pair )
-							pg.AddTextProperty(
-								catPier1,
+							catPier1.AddTextProperty(
 								"Name",
 								// bindings
 								dog,
@@ -99,8 +92,7 @@ namespace ABPropertyGridTest
 					vm.Pier1.RadioOption = vm.Pier1.RadioOptions[1];
 
 					// property at level 2 ( radio buttons )
-					pg.AddRadioProperty(
-						catPier1,
+					catPier1.AddRadioProperty(
 						"grp",
 						false,
 						"Radio Option",
@@ -113,8 +105,7 @@ namespace ABPropertyGridTest
 					vm.Pier1.ComboOption = vm.Pier1.ComboOptions[1];
 
 					// property at level 2 ( combo box )
-					pg.AddComboProperty(
-						catPier1,
+					catPier1.AddComboProperty(
 						"Combo Option",
 						vm.Pier1.ComboOptions,
 						// bindings
@@ -125,8 +116,7 @@ namespace ABPropertyGridTest
 					vm.Pier1.Darkness = 30;
 
 					// property at level 2 ( slider )
-					pg.AddSliderProperty(
-						catPier1,
+					catPier1.AddSliderProperty(
 						"Darkness",
 						"%",
 						1, 
@@ -138,38 +128,34 @@ namespace ABPropertyGridTest
 				}
 
 				// container at level 2
-				var catPier2 = pg.AddCategory( catPiers, "Pier 2", true );
+				var catPier2 = catPiers.AddCategory( "Pier 2", true );
 				{
 					// property at level 2 ( key/value pair )
-					pg.AddTextProperty(
-						catPier2,
+					catPier2.AddTextProperty(
 						"Name",
 						// bindings
 						vm.Pier2,
 						nameof( vm.Pier2.Name ) );
 
 					// property at level 2 ( key/value pair )
-					pg.AddTextProperty(
-						catPier2,
+					catPier2.AddTextProperty(
 						"Description",
 						// bindings
 						vm.Pier2,
 						nameof( vm.Pier2.Description ) );
 
 					// property at level 2 ( key/checkbox pair )
-					pg.AddCheckProperty(
-						catPier2,
+					catPier2.AddCheckProperty(
 						"Is ready",
 						// bindings
 						vm.Pier2,
 						nameof( vm.Pier2.IsReady ) );
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = pg.AddCategory( catPier2, "Geometric position", false );
+					var catGeoPos = catPier2.AddCategory( "Geometric position", false );
 					{
 						// property at level 3 ( key/value pair )
-						pg.AddTextProperty(
-							catGeoPos,
+						catGeoPos.AddTextProperty(
 							"Description",
 							// bindings
 							vm.Pier2.GeoPos,

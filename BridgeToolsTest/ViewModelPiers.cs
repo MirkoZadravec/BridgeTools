@@ -1,7 +1,7 @@
-﻿using AllplanBridge;
+﻿using BridgeTools.PropertyGrid;
 using System.Collections.Generic;
 
-namespace ABPropertyGridTest
+namespace BridgeToolsTest
 {
 	/// <summary>
 	/// View model.

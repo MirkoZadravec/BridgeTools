@@ -1,4 +1,4 @@
-﻿namespace AllplanBridge
+﻿namespace BridgeTools.PropertyGrid
 {
 	public class ComboItem<T>
 	{
