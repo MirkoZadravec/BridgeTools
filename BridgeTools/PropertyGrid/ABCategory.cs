@@ -6,8 +6,12 @@ using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid
 {
+
 	public class ABCategory : ListView
 	{
+		//private static int _tabIndex = 1;
+		private static int GetTabIndex() { return 0/*_tabIndex++*/; }
+
 		public ABCategory AddCategory(
 			string key,
 			bool isExpanded )
@@ -17,6 +21,8 @@ namespace BridgeTools.PropertyGrid
 				Style = this.FindResource( "ABListViewStyle" ) as Style,
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
+
+			System.Windows.Input.KeyboardNavigation.SetTabNavigation( child, System.Windows.Input.KeyboardNavigationMode.Continue );
 
 			var propItem = new ABProperty()
 			{
@@ -50,6 +56,8 @@ namespace BridgeTools.PropertyGrid
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
 
+			System.Windows.Input.KeyboardNavigation.SetTabNavigation( child, System.Windows.Input.KeyboardNavigationMode.Continue );
+
 			var dockPanel = new DockPanel()
 			{
 				LastChildFill = true,
@@ -66,6 +74,8 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
+				TabIndex = GetTabIndex(),
+				IsTabStop = true,
 			};
 
 			// binding (check box)
@@ -111,6 +121,8 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
+				TabIndex = GetTabIndex(),
+				IsTabStop = true,
 			};
 
 			// binding (check box)
@@ -312,7 +324,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propSlider = new Slider()
 			{
-				IsTabStop = true,
+				IsTabStop = false,
 				Margin = new Thickness( 1 ),
 				BorderThickness = new Thickness( 1 ),
 				VerticalAlignment = VerticalAlignment.Center,
@@ -365,6 +377,8 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new TextBox()
 			{
 				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
+				TabIndex = GetTabIndex(),
+				IsTabStop = true,
 			};
 
 			// binding (text)

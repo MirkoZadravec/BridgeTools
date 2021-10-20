@@ -20,15 +20,15 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Border IsHitTestVisible="False" x:Name="ABSplitter" Background="Transparent" BorderThickness="0"/>
-            <GridSplitter Grid.Column="1" Width="5" Foreground="Transparent" Background="Transparent" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"/>
+            <GridSplitter Grid.Column="1" IsTabStop="False" Width="5" Foreground="Transparent" Background="Transparent" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"/>
             <Border IsHitTestVisible="False" Background="Transparent" BorderThickness="0"/>
         </Grid>
         <!--ScrollViewer.CanContentScroll="False" turns virtualisation OFF!!!-->
         <local:ABCategory
+            x:Name="Root"
             ScrollViewer.CanContentScroll="False"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-            x:Name="Root"
             ItemContainerStyle="{StaticResource ABListViewItemContainerStyle}"/>
 
     </Grid>
