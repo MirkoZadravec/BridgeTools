@@ -94,6 +94,7 @@
         <Setter Property="Background" Value="{StaticResource ABPropGridBackgroundColor}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Continue"/>
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Opacity" Value="1.0" />

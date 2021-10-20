@@ -18,8 +18,6 @@ namespace BridgeTools.PropertyGrid
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
 
-			System.Windows.Input.KeyboardNavigation.SetTabNavigation( child, System.Windows.Input.KeyboardNavigationMode.Continue );
-
 			var propItem = new ABProperty()
 			{
 				Content = new ABExpander()
@@ -51,8 +49,6 @@ namespace BridgeTools.PropertyGrid
 				Style = this.FindResource( "ABListViewStyle" ) as Style,
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
-
-			System.Windows.Input.KeyboardNavigation.SetTabNavigation( child, System.Windows.Input.KeyboardNavigationMode.Continue );
 
 			var dockPanel = new DockPanel()
 			{
