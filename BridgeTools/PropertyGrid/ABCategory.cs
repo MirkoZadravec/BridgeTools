@@ -9,9 +9,6 @@ namespace BridgeTools.PropertyGrid
 
 	public class ABCategory : ListView
 	{
-		//private static int _tabIndex = 1;
-		private static int GetTabIndex() { return 0/*_tabIndex++*/; }
-
 		public ABCategory AddCategory(
 			string key,
 			bool isExpanded )
@@ -74,7 +71,6 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
-				TabIndex = GetTabIndex(),
 				IsTabStop = true,
 			};
 
@@ -121,7 +117,6 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
-				TabIndex = GetTabIndex(),
 				IsTabStop = true,
 			};
 
@@ -377,7 +372,6 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new TextBox()
 			{
 				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
-				TabIndex = GetTabIndex(),
 				IsTabStop = true,
 			};
 
