@@ -6,7 +6,6 @@ using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid
 {
-
 	public class ABCategory : ListView
 	{
 		public ABCategory AddCategory(
