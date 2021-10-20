@@ -6,6 +6,11 @@ using System.Windows.Media;
 
 // TODO
 //   - Tooltips
+//   - Validation Rules
+//   - Color picker
+//   - Tab stop
+//   - Visibility
+//   - IsEnabled
 
 namespace AllplanBridge
 {
@@ -22,7 +27,6 @@ namespace AllplanBridge
 		public void Clear()
 		{
 			Root.Items.Clear();
-			Root.DataContext = null;
 		}
 
 		public ABCategory AddCategory(
