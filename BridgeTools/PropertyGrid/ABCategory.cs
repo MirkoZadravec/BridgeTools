@@ -388,6 +388,48 @@ namespace BridgeTools.PropertyGrid
 			return propItem;
 		}
 
+		public ABProperty AddDateProperty(
+			string key,
+			object bSource,
+			string bPath )
+		{
+			var dockPanel = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+
+			var propKey = new TextBlock()
+			{
+				Text = key,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+			};
+			DockPanel.SetDock( propKey, Dock.Left );
+			dockPanel.Children.Add( propKey );
+
+			var propVal = new DatePicker()
+			{
+				Style = this.FindResource( "ABPropItemDateStyle" ) as Style,
+				IsTabStop = true,
+			};
+
+			// binding (date)
+			var b = new Binding( bPath ) { Source = bSource };
+			propVal.SetBinding( DatePicker.SelectedDateProperty, b );
+
+			dockPanel.Children.Add( propVal );
+
+			var propItem = new ABProperty()
+			{
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+			};
+
+			propItem.Content = dockPanel;
+
+			this.Items.Add( propItem );
+
+			return propItem;
+		}
+
 		public ABProperty AddTextDimProperty(
 			string key,
 			string symbol,

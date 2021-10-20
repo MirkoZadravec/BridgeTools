@@ -153,7 +153,7 @@ namespace BridgeToolsTest
 						nameof( vm.Pier2.IsReady ) );
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = catPier2.AddCategory( "Geometric position", false );
+					var catGeoPos = catPier2.AddCategory( "Geometric position", true );
 					{
 						// property at level 3 ( key/value pair )
 						catGeoPos.AddTextProperty(
@@ -161,6 +161,13 @@ namespace BridgeToolsTest
 							// bindings
 							vm.Pier2.GeoPos,
 							nameof( vm.Pier2.GeoPos.Description ) );
+
+						// property at level 3 ( key/date )
+						catGeoPos.AddDateProperty(
+							"Date",
+							// bindings
+							vm.Pier2.GeoPos,
+							nameof( vm.Pier2.GeoPos.Date ) );
 					}
 				}
 			}
