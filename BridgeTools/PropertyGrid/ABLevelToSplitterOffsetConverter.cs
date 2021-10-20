@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid
 {
-	class ABLevelToSplitterOffsetConverter : IMultiValueConverter
+	internal class ABLevelToSplitterOffsetConverter : IMultiValueConverter
 	{
 		#region IMultiValueConverter Members
 

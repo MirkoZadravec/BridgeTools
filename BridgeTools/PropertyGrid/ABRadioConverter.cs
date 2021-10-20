@@ -8,7 +8,7 @@ namespace BridgeTools.PropertyGrid
 	/// <summary>
 	/// Radio buttons convertor
 	/// </summary>
-	public class ABRadioConverter : IValueConverter
+	internal class ABRadioConverter : IValueConverter
 	{
 		//------------------------------------------------------------------------------------------
 		/// <summary>

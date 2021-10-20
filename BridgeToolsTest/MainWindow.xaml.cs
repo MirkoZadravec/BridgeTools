@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BridgeTools.PropertyGrid;
+using System.Windows;
 
 namespace BridgeToolsTest
 {

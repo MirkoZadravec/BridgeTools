@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace BridgeTools.PropertyGrid
 {
-    public class ABExpander : Expander
+    internal class ABExpander : Expander
     {
         public static readonly DependencyProperty LevelProperty = DependencyProperty.Register(
             "Level", typeof( int ),
