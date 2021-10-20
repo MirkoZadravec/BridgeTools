@@ -385,6 +385,61 @@ namespace BridgeTools.PropertyGrid
 			return propItem;
 		}
 
+		public ABProperty AddTextDimProperty(
+			string key,
+			string symbol,
+			object bSource,
+			string bPath )
+		{
+			var dockPanel = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+
+			var propKey = new TextBlock()
+			{
+				Text = key,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+			};
+			DockPanel.SetDock( propKey, Dock.Left );
+			dockPanel.Children.Add( propKey );
+
+			var dockPanelVal = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+			dockPanel.Children.Add( dockPanelVal );
+
+			var propSymbol = new TextBlock()
+			{
+				Text = symbol,
+			};
+			DockPanel.SetDock( propSymbol, Dock.Right );
+			dockPanelVal.Children.Add( propSymbol );
+
+			var propVal = new TextBox()
+			{
+				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
+			};
+
+			// binding (text)
+			var b = new Binding( bPath ) { Source = bSource };
+			propVal.SetBinding( TextBox.TextProperty, b );
+
+			dockPanelVal.Children.Add( propVal );
+
+			var propItem = new ABProperty()
+			{
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+			};
+
+			propItem.Content = dockPanel;
+
+			this.Items.Add( propItem );
+
+			return propItem;
+		}
+
 		public ABProperty AddTextFullRowProperty(
 			bool ignoreLevel,
 			object bSource,

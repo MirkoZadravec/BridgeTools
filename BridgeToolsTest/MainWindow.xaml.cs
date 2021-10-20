@@ -57,12 +57,13 @@ namespace BridgeToolsTest
 							nameof( vm.Pier1.GeoPos.Description ) );
 					}
 
-					// property at level 2 ( key/value pair )
-					catPier1.AddTextProperty(
-						"Description",
+					// property at level 2 ( key/value pair with dimension )
+					catPier1.AddTextDimProperty(
+						"Offset",
+						"[m]",
 						// bindings
 						vm.Pier1,
-						nameof( vm.Pier1.Description ) );
+						nameof( vm.Pier1.Offset ) );
 
 					// dynamic list of properties at level 2
 					foreach( var animal in vm.Pier1.Animals )

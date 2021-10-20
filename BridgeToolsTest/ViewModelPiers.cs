@@ -9,8 +9,8 @@ namespace BridgeToolsTest
 	public class ViewModelPiers
 	{
 		public string Project { get; set; }
-		public ViewModelPier Pier1 { get; set; } = new ViewModelPier() { Name = "Pier 1", Description = "Long pier" };
-		public ViewModelPier Pier2 { get; set; } = new ViewModelPier() { Name = "Pier 2", Description = "Short pier" };
+		public ViewModelPier Pier1 { get; set; } = new ViewModelPier() { Name = "Pier 1", Description = "Long pier", Offset = "7.5" };
+		public ViewModelPier Pier2 { get; set; } = new ViewModelPier() { Name = "Pier 2", Description = "Short pier", Offset = "5.3" };
 	}
 
 	public enum RadioOptionsEnum
@@ -32,6 +32,7 @@ namespace BridgeToolsTest
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public bool IsReady { get; set; }
+		public string Offset { get; set; }
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position" };
 		public List<ViewModelAnimal> Animals = new List<ViewModelAnimal>() { new ViewModelCat() { Age = "5" }, new ViewModelDog() { Name = "Ben" } };
