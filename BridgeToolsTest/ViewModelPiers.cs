@@ -1,6 +1,7 @@
 ﻿using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace BridgeToolsTest
 {
@@ -55,10 +56,41 @@ namespace BridgeToolsTest
 		public ComboItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Custom commands (global).
+	/// </summary>
+	public static class CCustomCommands
+	{
+	}
+
 	public class ViewModelGeoPos
 	{
 		public string Description { get; set; }
 		public DateTime Date { get; set; }
+
+		#region Commands
+
+		public static readonly RoutedUICommand ButtonCmd = new RoutedUICommand
+		(
+			"My command",
+			nameof( ButtonCmd ),
+			typeof( CCustomCommands )
+		);
+
+		public void ButtonCmd_CanExecute( object sender, CanExecuteRoutedEventArgs e )
+		{
+			e.CanExecute = true;
+		}
+
+		public void ButtonCmd_Executed( object sender, ExecutedRoutedEventArgs e )
+		{
+			e.Handled = true;
+
+			System.Windows.MessageBox.Show( "OK" );
+		}
+
+		#endregion
 	}
 
 	public class ViewModelAnimal

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid
@@ -415,6 +416,57 @@ namespace BridgeTools.PropertyGrid
 			// binding (date)
 			var b = new Binding( bPath ) { Source = bSource };
 			propVal.SetBinding( DatePicker.SelectedDateProperty, b );
+
+			dockPanel.Children.Add( propVal );
+
+			var propItem = new ABProperty()
+			{
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+			};
+
+			propItem.Content = dockPanel;
+
+			this.Items.Add( propItem );
+
+			return propItem;
+		}
+
+		public ABProperty AddButtonProperty(
+			string key,
+			CommandBinding bCommand )
+		{
+			var dockPanel = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+
+			var propKey = new TextBlock()
+			{
+				Text = key,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+			};
+			DockPanel.SetDock( propKey, Dock.Left );
+			dockPanel.Children.Add( propKey );
+
+			var propVal = new Button()
+			{
+				Content = key,
+				IsEnabled = true,
+				MinHeight = 20.0,
+				Margin = new Thickness( 1.0, 2.0, 1.0, 2.0 ),
+				HorizontalAlignment = HorizontalAlignment.Stretch,
+				VerticalAlignment = VerticalAlignment.Stretch,
+				HorizontalContentAlignment = HorizontalAlignment.Center,
+				VerticalContentAlignment = VerticalAlignment.Center,
+				Style = this.FindResource( "PropertygridButton" ) as Style,
+			};
+
+			// binding (click)
+			if( bCommand != null )
+			{
+				propVal.Command = bCommand.Command;
+				propVal.CommandBindings.Add( bCommand );
+			}
 
 			dockPanel.Children.Add( propVal );
 

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace BridgeToolsTest
 {
@@ -168,6 +169,15 @@ namespace BridgeToolsTest
 							// bindings
 							vm.Pier2.GeoPos,
 							nameof( vm.Pier2.GeoPos.Date ) );
+
+						// property at level 3 ( key/button )
+						catGeoPos.AddButtonProperty(
+							"Parameters",
+							// bindings
+							new CommandBinding( 
+								ViewModelGeoPos.ButtonCmd, 
+								vm.Pier2.GeoPos.ButtonCmd_Executed, 
+								vm.Pier2.GeoPos.ButtonCmd_CanExecute ) );
 					}
 				}
 			}
