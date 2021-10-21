@@ -4,7 +4,7 @@
 //   - Tooltips
 //   - Validation Rules
 //   - Color picker
-//   - Tab stop
+//   * Tab stop
 //   - Visibility
 //   - IsEnabled
 

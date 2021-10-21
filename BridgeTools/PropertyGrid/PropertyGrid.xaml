@@ -1544,6 +1544,22 @@
 
     <!-- end ComboBox style in propertygrids-->
 
+    <!-- FocusVisual -->
+    <Style x:Key="ButtonFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border>
+                        <Rectangle Margin="1"
+                     StrokeThickness="1"
+                     Stroke="#60000000"
+                     StrokeDashArray="1 2" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Button -->
     <Color x:Key="PressedBorderLightColor">#FF888888</Color>
     <Color x:Key="PressedBorderDarkColor">#FF444444</Color>
