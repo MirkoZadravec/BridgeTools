@@ -1,5 +1,4 @@
-﻿using Syncfusion.Windows.Shared;
-using Syncfusion.Windows.Tools.Controls;
+﻿using Syncfusion.Windows.Tools.Controls;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
