@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Syncfusion.Windows.Shared;
+using Syncfusion.Windows.Tools.Controls;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -416,6 +418,50 @@ namespace BridgeTools.PropertyGrid
 			// binding (date)
 			var b = new Binding( bPath ) { Source = bSource };
 			propVal.SetBinding( DatePicker.SelectedDateProperty, b );
+
+			dockPanel.Children.Add( propVal );
+
+			var propItem = new ABProperty()
+			{
+				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+			};
+
+			propItem.Content = dockPanel;
+
+			this.Items.Add( propItem );
+
+			return propItem;
+		}
+
+		public ABProperty AddColorProperty(
+			string key,
+			Color automaticColor,
+			object bSource,
+			string bPath )
+		{
+			var dockPanel = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+
+			var propKey = new TextBlock()
+			{
+				Text = key,
+				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+			};
+			DockPanel.SetDock( propKey, Dock.Left );
+			dockPanel.Children.Add( propKey );
+
+			var propVal = new ColorPickerPalette()
+			{
+				MinHeight = 18,
+				AutomaticColor = new SolidColorBrush( automaticColor ),
+				IsTabStop = true,
+			};
+
+			// binding (color)
+			var b = new Binding( bPath ) { Source = bSource };
+			propVal.SetBinding( ColorPickerPalette.ColorProperty, b );
 
 			dockPanel.Children.Add( propVal );
 

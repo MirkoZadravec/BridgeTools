@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace BridgeToolsTest
 {
@@ -169,6 +170,14 @@ namespace BridgeToolsTest
 							// bindings
 							vm.Pier2.GeoPos,
 							nameof( vm.Pier2.GeoPos.Date ) );
+
+						// property at level 3 ( key/color )
+						catGeoPos.AddColorProperty(
+							"Color",
+							Colors.Black,
+							// bindings
+							vm.Pier2.GeoPos,
+							nameof( vm.Pier2.GeoPos.Color ) );
 
 						// property at level 3 ( key/button )
 						catGeoPos.AddButtonProperty(

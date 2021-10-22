@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace BridgeToolsTest
 {
@@ -36,7 +37,7 @@ namespace BridgeToolsTest
 		public bool IsReady { get; set; }
 		public string Offset { get; set; }
 		public double Darkness { get; set; }
-		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now };
+		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };
 		public List<ViewModelAnimal> Animals = new List<ViewModelAnimal>() { new ViewModelCat() { Age = "5" }, new ViewModelDog() { Name = "Ben" } };
 
 		public List<ComboItem<RadioOptionsEnum>> RadioOptions = new List<ComboItem<RadioOptionsEnum>>()
@@ -68,6 +69,7 @@ namespace BridgeToolsTest
 	{
 		public string Description { get; set; }
 		public DateTime Date { get; set; }
+		public Color Color { get; set; }
 
 		#region Commands
 
