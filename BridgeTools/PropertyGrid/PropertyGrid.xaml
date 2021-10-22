@@ -1153,8 +1153,9 @@
 
     <Style x:Key="ABPropItemValStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="Margin" Value="0,1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
@@ -1163,8 +1164,9 @@
     <Style x:Key="ABPropItemDateStyle" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource DatePickerStyle1}">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="Margin" Value="0,1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
@@ -1525,10 +1527,11 @@
         <Setter Property="Background" Value="{StaticResource ComboBox.Static.WhiteBackground}"/>
         <!--<Setter Property="BorderBrush" Value="{StaticResource ComboBox.Static.Border}"/>-->
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
-        <!--<Setter Property="BorderThickness" Value="0"/>-->
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0,1"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Padding" Value="0"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>

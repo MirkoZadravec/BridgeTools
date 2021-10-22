@@ -38,7 +38,11 @@ namespace BridgeToolsTest
 		public string Offset { get; set; }
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };
-		public List<ViewModelAnimal> Animals = new List<ViewModelAnimal>() { new ViewModelCat() { Age = "5" }, new ViewModelDog() { Name = "Ben" } };
+		public List<ViewModelAnimal> Animals = new List<ViewModelAnimal>() 
+		{
+			new ViewModelLion() {},
+			new ViewModelCat() { Age = "5" }, 
+			new ViewModelDog() { Name = "Ben" } };
 
 		public List<ComboItem<RadioOptionsEnum>> RadioOptions = new List<ComboItem<RadioOptionsEnum>>()
 		{
@@ -107,5 +111,16 @@ namespace BridgeToolsTest
 	public class ViewModelCat : ViewModelAnimal
 	{
 		public string Age { get; set; }
+	}
+
+	public class ViewModelLion : ViewModelAnimal
+	{
+		public List<ComboItem<ComboOptionsEnum>> ComboOptions = new List<ComboItem<ComboOptionsEnum>>()
+		{
+			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
+			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
+			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+		};
+		public ComboItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}
 }

@@ -74,7 +74,7 @@ namespace BridgeToolsTest
 						{
 							// property at level 2 ( key/value pair )
 							catPier1.AddTextProperty(
-								"Age",
+								"Cat age",
 								// bindings
 								cat,
 								nameof( cat.Age ) );
@@ -84,10 +84,24 @@ namespace BridgeToolsTest
 						{
 							// property at level 2 ( key/value pair )
 							catPier1.AddTextProperty(
-								"Name",
+								"Dog name",
 								// bindings
 								dog,
 								nameof( dog.Name ) );
+						}
+
+						if( animal is ViewModelLion lion )
+						{
+							// select in combo box
+							lion.ComboOption = lion.ComboOptions[1];
+
+							// property at level 2 ( combo box )
+							catPier1.AddComboProperty(
+								"Lion options",
+								lion.ComboOptions,
+								// bindings
+								lion,
+								nameof( lion.ComboOption ) );
 						}
 					}
 
