@@ -37,6 +37,9 @@
     <Reference Include="Syncfusion.Shared.Wpf">
       <HintPath>..\extlib\syncfusion\Syncfusion.Shared.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Shared.WPF.resources">
+      <HintPath>..\extlib\syncfusion\Syncfusion.Shared.WPF.resources.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
