@@ -5,8 +5,9 @@
 //   - Validation Rules
 //   - Color picker
 //   * Tab stop
-//   - Visibility
-//   - IsEnabled
+//   - IsVisible
+//   - IsEnabled (do not forget to set opacity)
+//   - Lost focus when closing prop grid
 
 namespace BridgeTools.PropertyGrid
 {
