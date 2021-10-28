@@ -34,7 +34,8 @@ namespace BridgeToolsTest
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public bool IsReady { get; set; }
+		public bool? IsReady { get; set; }
+		public bool IsDone { get; set; }
 		public string Offset { get; set; }
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };

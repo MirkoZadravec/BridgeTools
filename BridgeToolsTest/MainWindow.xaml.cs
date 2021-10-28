@@ -37,9 +37,10 @@ namespace BridgeToolsTest
 				var catPier1 = catPiers.AddCheckCategory(
 					"Pier 1",
 					true,
+					false,
 					// bindings
 					vm.Pier1,
-					nameof( vm.Pier1.IsReady ) );
+					nameof( vm.Pier1.IsDone ) );
 				{
 					// property at level 2 ( key/value pair )
 					catPier1.AddTextProperty(
@@ -161,12 +162,21 @@ namespace BridgeToolsTest
 						vm.Pier2,
 						nameof( vm.Pier2.Description ) );
 
-					// property at level 2 ( key/checkbox pair )
+					// property at level 2 ( key/checkbox pair - three state )
 					catPier2.AddCheckProperty(
 						"Is ready",
+						true,
 						// bindings
 						vm.Pier2,
 						nameof( vm.Pier2.IsReady ) );
+
+					// property at level 2 ( key/checkbox pair - two state )
+					catPier2.AddCheckProperty(
+						"Is done",
+						false,
+						// bindings
+						vm.Pier2,
+						nameof( vm.Pier2.IsDone ) );
 
 					// container at level 3 ( collapsed )
 					var catGeoPos = catPier2.AddCategory( "Geometric position", true );

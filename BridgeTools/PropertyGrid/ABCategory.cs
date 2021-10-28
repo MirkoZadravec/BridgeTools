@@ -43,6 +43,7 @@ namespace BridgeTools.PropertyGrid
 		public ABCategory AddCheckCategory(
 			string key,
 			bool isExpanded,
+			bool isThreeState,
 			object bSource,
 			string bPath )
 		{
@@ -68,6 +69,7 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
+				IsThreeState = isThreeState,
 				IsTabStop = true,
 			};
 
@@ -95,6 +97,7 @@ namespace BridgeTools.PropertyGrid
 
 		public ABProperty AddCheckProperty(
 			string key,
+			bool isThreeState,
 			object bSource,
 			string bPath )
 		{
@@ -114,6 +117,7 @@ namespace BridgeTools.PropertyGrid
 			var propVal = new CheckBox()
 			{
 				Content = "",
+				IsThreeState = isThreeState,
 				IsTabStop = true,
 			};
 
