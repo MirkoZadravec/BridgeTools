@@ -27,9 +27,12 @@ namespace BridgeTools.PropertyGrid
 
 		public ABCategory AddCategory(
 			string key,
-			bool isExpanded )
+			bool isExpanded,
+			object bSource,
+			string bPathEnabled,
+			string bPathEnabledChildren )
 		{
-			return Root.AddCategory( key, isExpanded );
+			return Root.AddCategory( key, isExpanded, bSource, bPathEnabled, bPathEnabledChildren );
 		}
 	}
 }

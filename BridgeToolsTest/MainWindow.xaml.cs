@@ -24,7 +24,13 @@ namespace BridgeToolsTest
 			var vm = new ViewModelPiers() { Project = "Project 1" };
 
 			// container at level 1
-			var catPiers = propGrid.AddCategory( "Piers", true );
+			var catPiers = propGrid.AddCategory( 
+				"Piers", 
+				true,
+				// bindings
+				null, 
+				null, 
+				null );
 			{
 				// property at level 1 ( key/value pair )
 				catPiers.AddTextProperty(
@@ -40,7 +46,9 @@ namespace BridgeToolsTest
 					false,
 					// bindings
 					vm.Pier1,
-					nameof( vm.Pier1.IsDone ) );
+					nameof( vm.Pier1.IsDone ),
+					nameof( vm.Pier1.IsEnabled ),
+					nameof( vm.Pier1.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					catPier1.AddTextProperty(
@@ -50,7 +58,7 @@ namespace BridgeToolsTest
 						nameof( vm.Pier1.Name ) );
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = catPier1.AddCategory( "Geometric position", false );
+					var catGeoPos = catPier1.AddCategory( "Geometric position", false, null, null, null );
 					{
 						// property at level 3 ( occupies full row )
 						catGeoPos.AddTextFullRowProperty(
@@ -146,7 +154,13 @@ namespace BridgeToolsTest
 				}
 
 				// container at level 2
-				var catPier2 = catPiers.AddCategory( "Pier 2", true );
+				var catPier2 = catPiers.AddCategory( 
+					"Pier 2", 
+					true,
+					// bindings
+					vm.Pier2,
+					nameof( vm.Pier2.IsEnabled ),
+					nameof( vm.Pier2.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					catPier2.AddTextProperty(
@@ -168,7 +182,8 @@ namespace BridgeToolsTest
 						true,
 						// bindings
 						vm.Pier2,
-						nameof( vm.Pier2.IsReady ) );
+						nameof( vm.Pier2.IsReady ),
+						nameof( vm.Pier2.IsEnabledReady ) );
 
 					// property at level 2 ( key/checkbox pair - two state )
 					catPier2.AddCheckProperty(
@@ -176,10 +191,17 @@ namespace BridgeToolsTest
 						false,
 						// bindings
 						vm.Pier2,
-						nameof( vm.Pier2.IsDone ) );
+						nameof( vm.Pier2.IsDone ),
+						null);
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = catPier2.AddCategory( "Geometric position", true );
+					var catGeoPos = catPier2.AddCategory( 
+						"Geometric position", 
+						true,
+						// bindings
+						null, 
+						null, 
+						null );
 					{
 						// property at level 3 ( key/value pair )
 						catGeoPos.AddTextProperty(

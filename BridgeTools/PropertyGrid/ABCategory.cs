@@ -12,13 +12,23 @@ namespace BridgeTools.PropertyGrid
 	{
 		public ABCategory AddCategory(
 			string key,
-			bool isExpanded )
+			bool isExpanded,
+			object bSource,
+			string bPathEnabled,
+			string bPathEnabledChildren )
 		{
 			var child = new ABCategory()
 			{
 				Style = this.FindResource( "ABListViewStyle" ) as Style,
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
+
+			// binding (children - IsEnabled)
+			if( null != bSource && !string.IsNullOrEmpty( bPathEnabledChildren ) )
+			{
+				var bEnabled = new Binding( bPathEnabledChildren ) { Source = bSource };
+				child.SetBinding( ABCategory.IsEnabledProperty, bEnabled );
+			}
 
 			var propItem = new ABProperty()
 			{
@@ -35,6 +45,13 @@ namespace BridgeTools.PropertyGrid
 				},
 			};
 
+			// binding (IsEnabled)
+			if( null != bSource && !string.IsNullOrEmpty( bPathEnabled ) )
+			{
+				var bEnabled = new Binding( bPathEnabled ) { Source = bSource };
+				propItem.SetBinding( ABProperty.IsEnabledProperty, bEnabled );
+			}
+
 			this.Items.Add( propItem );
 
 			return child;
@@ -45,13 +62,22 @@ namespace BridgeTools.PropertyGrid
 			bool isExpanded,
 			bool isThreeState,
 			object bSource,
-			string bPath )
+			string bPathChecked,
+			string bPathEnabled,
+			string bPathEnabledChildren)
 		{
 			var child = new ABCategory()
 			{
 				Style = this.FindResource( "ABListViewStyle" ) as Style,
 				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
 			};
+
+			// binding (children - IsEnabled)
+			if( null != bSource && !string.IsNullOrEmpty( bPathEnabledChildren ) )
+			{
+				var bEnabled = new Binding( bPathEnabledChildren ) { Source = bSource };
+				child.SetBinding( ABCategory.IsEnabledProperty, bEnabled );
+			}
 
 			var dockPanel = new DockPanel()
 			{
@@ -73,9 +99,12 @@ namespace BridgeTools.PropertyGrid
 				IsTabStop = true,
 			};
 
-			// binding (check box)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( CheckBox.IsCheckedProperty, b );
+			// binding (check box - IsChecked)
+			if( null != bSource && !string.IsNullOrEmpty( bPathChecked ) )
+			{
+				var b = new Binding( bPathChecked ) { Source = bSource };
+				propVal.SetBinding( CheckBox.IsCheckedProperty, b );
+			}
 
 			dockPanel.Children.Add( propVal );
 
@@ -90,6 +119,13 @@ namespace BridgeTools.PropertyGrid
 				},
 			};
 
+			// binding (IsEnabled)
+			if( null != bSource && !string.IsNullOrEmpty( bPathEnabled ) )
+			{
+				var bEnabled = new Binding( bPathEnabled ) { Source = bSource };
+				propItem.SetBinding( ABProperty.IsEnabledProperty, bEnabled );
+			}
+
 			this.Items.Add( propItem );
 
 			return child;
@@ -99,7 +135,8 @@ namespace BridgeTools.PropertyGrid
 			string key,
 			bool isThreeState,
 			object bSource,
-			string bPath )
+			string bPathChecked,
+			string bPathEnabled )
 		{
 			var dockPanel = new DockPanel()
 			{
@@ -121,9 +158,12 @@ namespace BridgeTools.PropertyGrid
 				IsTabStop = true,
 			};
 
-			// binding (check box)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( CheckBox.IsCheckedProperty, b );
+			// binding (check box - IsChecked)
+			if( null != bSource && !string.IsNullOrEmpty( bPathChecked ) )
+			{
+				var b = new Binding( bPathChecked ) { Source = bSource };
+				propVal.SetBinding( CheckBox.IsCheckedProperty, b );
+			}
 
 			dockPanel.Children.Add( propVal );
 
@@ -133,6 +173,13 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			propItem.Content = dockPanel;
+
+			// binding (IsEnabled)
+			if( null != bSource && !string.IsNullOrEmpty( bPathEnabled ) )
+			{
+				var b = new Binding( bPathEnabled ) { Source = bSource };
+				propItem.SetBinding( ABProperty.IsEnabledProperty, b );
+			}
 
 			this.Items.Add( propItem );
 
@@ -185,10 +232,13 @@ namespace BridgeTools.PropertyGrid
 				};
 
 				// binding (selected radio item)
-				var b = new Binding( bPath ) { Source = bSource };
-				b.Converter = rc;
-				b.ConverterParameter = val;
-				propRadio.SetBinding( RadioButton.IsCheckedProperty, b );
+				if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+				{
+					var b = new Binding( bPath ) { Source = bSource };
+					b.Converter = rc;
+					b.ConverterParameter = val;
+					propRadio.SetBinding( RadioButton.IsCheckedProperty, b );
+				}
 
 				propVal.Children.Add( propRadio );
 			}
@@ -251,8 +301,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (selected combo item)
-			var b = new Binding( bPath ) { Source = bSource };
-			propCombo.SetBinding( ComboBox.SelectedItemProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propCombo.SetBinding( ComboBox.SelectedItemProperty, b );
+			}
 
 			propVal.Children.Add( propCombo );
 
@@ -315,8 +368,11 @@ namespace BridgeTools.PropertyGrid
 			dockPanelVal.Children.Add( propSliderText );
 
 			// binding (selected slider value)
-			var b = new Binding( bPath ) { Source = bSource };
-			propSliderText.SetBinding( TextBlock.TextProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propSliderText.SetBinding( TextBlock.TextProperty, b );
+			}
 
 			var propSlider = new Slider()
 			{
@@ -335,8 +391,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (selected slider item)
-			var bv = new Binding( bPath ) { Source = bSource };
-			propSlider.SetBinding( Slider.ValueProperty, bv );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var bv = new Binding( bPath ) { Source = bSource };
+				propSlider.SetBinding( Slider.ValueProperty, bv );
+			}
 
 			propVal.Children.Add( propSlider );
 
@@ -377,8 +436,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (text)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( TextBox.TextProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propVal.SetBinding( TextBox.TextProperty, b );
+			}
 
 			dockPanel.Children.Add( propVal );
 
@@ -419,8 +481,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (date)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( DatePicker.SelectedDateProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propVal.SetBinding( DatePicker.SelectedDateProperty, b );
+			}
 
 			dockPanel.Children.Add( propVal );
 
@@ -463,8 +528,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (color)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( ColorPickerPalette.ColorProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propVal.SetBinding( ColorPickerPalette.ColorProperty, b );
+			}
 
 			dockPanel.Children.Add( propVal );
 
@@ -569,8 +637,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (text)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( TextBox.TextProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propVal.SetBinding( TextBox.TextProperty, b );
+			}
 
 			dockPanelVal.Children.Add( propVal );
 
@@ -597,8 +668,11 @@ namespace BridgeTools.PropertyGrid
 			};
 
 			// binding (text)
-			var b = new Binding( bPath ) { Source = bSource };
-			propVal.SetBinding( TextBox.TextProperty, b );
+			if( null != bSource && !string.IsNullOrEmpty( bPath ) )
+			{
+				var b = new Binding( bPath ) { Source = bSource };
+				propVal.SetBinding( TextBox.TextProperty, b );
+			}
 
 			var propItem = new ABProperty()
 			{
