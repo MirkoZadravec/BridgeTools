@@ -8,6 +8,8 @@
 //   - IsVisible
 //   - IsEnabled (do not forget to set opacity)
 //   - Lost focus when closing prop grid
+//   - Styles naming convention (for example see ABStyles)
+//   - Separate binding calls
 
 namespace BridgeTools.PropertyGrid
 {

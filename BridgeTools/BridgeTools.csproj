@@ -67,6 +67,7 @@
     <Compile Include="PropertyGrid\ABLevelToSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABProperty.cs" />
     <Compile Include="PropertyGrid\ABRadioConverter.cs" />
+    <Compile Include="PropertyGrid\ABStyles.cs" />
     <Compile Include="PropertyGrid\ComboItem.cs" />
     <Compile Include="PropertyGrid\ABPropertyGrid.xaml.cs">
       <DependentUpon>ABPropertyGrid.xaml</DependentUpon>

@@ -1521,7 +1521,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
+    <Style x:Key="ABComboBoxStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="OverridesDefaultStyle" Value="False"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="Background" Value="{StaticResource ComboBox.Static.WhiteBackground}"/>
@@ -1577,7 +1577,7 @@
     <Color x:Key="DisabledForegroundColor">#FF888888</Color>
     <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
     <Color x:Key="DisabledBorderDarkColor">#FF888888</Color>
-    <Style x:Key="PropertygridButton" TargetType="Button">
+    <Style x:Key="ABButtonStyle" TargetType="Button">
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="OverridesDefaultStyle"

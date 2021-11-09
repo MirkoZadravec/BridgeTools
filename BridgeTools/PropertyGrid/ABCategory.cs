@@ -19,8 +19,8 @@ namespace BridgeTools.PropertyGrid
 		{
 			var child = new ABCategory()
 			{
-				Style = this.FindResource( "ABListViewStyle" ) as Style,
-				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABListViewStyle ) as Style,
+				ItemContainerStyle = this.FindResource( ABStyles.ABListViewItemContainerStyle ) as Style,
 			};
 
 			// binding (children - IsEnabled)
@@ -34,12 +34,12 @@ namespace BridgeTools.PropertyGrid
 			{
 				Content = new ABExpander()
 				{
-					Style = this.FindResource( "ABExpanderStyle" ) as Style,
+					Style = this.FindResource( ABStyles.ABExpanderStyle ) as Style,
 					IsExpanded = isExpanded,
 					Header = new TextBlock()
 					{
 						Text = key,
-						Style = this.FindResource( "ABExpanderKeyStyle" ) as Style,
+						Style = this.FindResource( ABStyles.ABExpanderKeyStyle ) as Style,
 					},
 					Content = child,
 				},
@@ -68,8 +68,8 @@ namespace BridgeTools.PropertyGrid
 		{
 			var child = new ABCategory()
 			{
-				Style = this.FindResource( "ABListViewStyle" ) as Style,
-				ItemContainerStyle = this.FindResource( "ABListViewItemContainerStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABListViewStyle ) as Style,
+				ItemContainerStyle = this.FindResource( ABStyles.ABListViewItemContainerStyle ) as Style,
 			};
 
 			// binding (children - IsEnabled)
@@ -87,7 +87,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABExpanderKeyValStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABExpanderKeyValStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -112,7 +112,7 @@ namespace BridgeTools.PropertyGrid
 			{
 				Content = new ABExpander()
 				{
-					Style = this.FindResource( "ABExpanderStyle" ) as Style,
+					Style = this.FindResource( ABStyles.ABExpanderStyle ) as Style,
 					IsExpanded = isExpanded,
 					Header = dockPanel,
 					Content = child,
@@ -146,7 +146,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -169,7 +169,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -202,7 +202,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -255,7 +255,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -279,7 +279,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -292,7 +292,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propCombo = new ComboBox()
 			{
-				Style = this.FindResource( "ComboBoxStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABComboBoxStyle ) as Style,
 				VerticalAlignment = VerticalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Bottom,
 				ItemsSource = values,
@@ -311,7 +311,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -338,7 +338,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -387,7 +387,7 @@ namespace BridgeTools.PropertyGrid
 				Minimum = sliderMin,
 				Maximum = sliderMax,
 				MinHeight = 16,
-				Style = this.FindResource( "ABPropItemSliderStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemSliderStyle ) as Style,
 			};
 
 			// binding (selected slider item)
@@ -401,7 +401,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -424,14 +424,14 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
 			var propVal = new TextBox()
 			{
-				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 				IsTabStop = true,
 			};
 
@@ -446,7 +446,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -469,14 +469,14 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
 			var propVal = new DatePicker()
 			{
-				Style = this.FindResource( "ABPropItemDateStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
 				IsTabStop = true,
 			};
 
@@ -491,7 +491,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -515,7 +515,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -538,7 +538,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -560,7 +560,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -575,7 +575,7 @@ namespace BridgeTools.PropertyGrid
 				VerticalAlignment = VerticalAlignment.Stretch,
 				HorizontalContentAlignment = HorizontalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Center,
-				Style = this.FindResource( "PropertygridButton" ) as Style,
+				Style = this.FindResource( ABStyles.ABButtonStyle ) as Style,
 			};
 
 			// binding (click)
@@ -589,7 +589,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -613,7 +613,7 @@ namespace BridgeTools.PropertyGrid
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = this.FindResource( "ABPropItemKeyStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -633,7 +633,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propVal = new TextBox()
 			{
-				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
 
 			// binding (text)
@@ -647,7 +647,7 @@ namespace BridgeTools.PropertyGrid
 
 			var propItem = new ABProperty()
 			{
-				Style = this.FindResource( "ABPropItemLevelStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 			};
 
 			propItem.Content = dockPanel;
@@ -664,7 +664,7 @@ namespace BridgeTools.PropertyGrid
 		{
 			var propVal = new TextBox()
 			{
-				Style = this.FindResource( "ABPropItemValStyle" ) as Style,
+				Style = this.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
 
 			// binding (text)
@@ -678,8 +678,8 @@ namespace BridgeTools.PropertyGrid
 			{
 				Style =
 					ignoreLevel ?
-					this.FindResource( "ABPropItemFullRowStyle" ) as Style :
-					this.FindResource( "ABPropItemLevelStyle" ) as Style,
+					this.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
+					this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
 				Content = propVal,
 			};
 
