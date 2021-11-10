@@ -56,6 +56,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PropertyGrid\Properties\ABButtonProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABColorProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABComboBoxProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABDatePickerProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABRadioBoxProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABSliderProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABTextBoxProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABTextDimProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABTextFullRowProperty.cs" />
     <Page Include="PropertyGrid\ABPropertyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,7 +74,8 @@
     <Compile Include="PropertyGrid\ABLevelToExpanderSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABLevelToOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABLevelToSplitterOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\ABProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABCheckBoxProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABProperty.cs" />
     <Compile Include="PropertyGrid\ABRadioConverter.cs" />
     <Compile Include="PropertyGrid\ABStyles.cs" />
     <Compile Include="PropertyGrid\ComboItem.cs" />

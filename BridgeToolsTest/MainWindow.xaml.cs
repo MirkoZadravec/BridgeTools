@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using BridgeTools.PropertyGrid.Properties;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -33,11 +34,11 @@ namespace BridgeToolsTest
 				null );
 			{
 				// property at level 1 ( key/value pair )
-				catPiers.AddTextProperty(
-					"Project",
+				var propProjName = new ABTextBoxProperty( catPiers, "Project" );
+				{
 					// bindings
-					vm,
-					nameof( vm.Project ) );
+					propProjName.BindText( vm, nameof( vm.Project ) );
+				}
 
 				// container at level 2 (with checkbox)
 				var catPier1 = catPiers.AddCheckCategory(
@@ -51,30 +52,29 @@ namespace BridgeToolsTest
 					nameof( vm.Pier1.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
-					catPier1.AddTextProperty(
-						"Name",
+					var propPierName = new ABTextBoxProperty( catPier1, "Name" );
+					{
 						// bindings
-						vm.Pier1,
-						nameof( vm.Pier1.Name ) );
+						propPierName.BindText( vm.Pier1, nameof( vm.Pier1.Name ) );
+					}
 
 					// container at level 3 ( collapsed )
 					var catGeoPos = catPier1.AddCategory( "Geometric position", false, null, null, null );
 					{
 						// property at level 3 ( occupies full row )
-						catGeoPos.AddTextFullRowProperty(
-							false,
+						var tf = new ABTextFullRowProperty( catGeoPos, false );
+						{
 							// bindings
-							vm.Pier1.GeoPos,
-							nameof( vm.Pier1.GeoPos.Description ) );
+							tf.BindText( vm.Pier1.GeoPos, nameof( vm.Pier1.GeoPos.Description ) );
+						}
 					}
 
 					// property at level 2 ( key/value pair with dimension )
-					catPier1.AddTextDimProperty(
-						"Offset",
-						"[m]",
+					var td = new ABTextDimProperty( catPier1, "Offset", "[m]" );
+					{
 						// bindings
-						vm.Pier1,
-						nameof( vm.Pier1.Offset ) );
+						td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ) );
+					}
 
 					// dynamic list of properties at level 2
 					foreach( var animal in vm.Pier1.Animals )
@@ -82,21 +82,21 @@ namespace BridgeToolsTest
 						if( animal is ViewModelCat cat )
 						{
 							// property at level 2 ( key/value pair )
-							catPier1.AddTextProperty(
-								"Cat age",
+							var propCatAge = new ABTextBoxProperty( catPier1, "Cat age" );
+							{
 								// bindings
-								cat,
-								nameof( cat.Age ) );
+								propCatAge.BindText( cat, nameof( cat.Age ) );
+							}
 						}
 
 						if( animal is ViewModelDog dog )
 						{
 							// property at level 2 ( key/value pair )
-							catPier1.AddTextProperty(
-								"Dog name",
+							var propDogName = new ABTextBoxProperty( catPier1, "Dog name" );
+							{
 								// bindings
-								dog,
-								nameof( dog.Name ) );
+								propDogName.BindText( dog, nameof( dog.Name ) );
+							}
 						}
 
 						if( animal is ViewModelLion lion )
@@ -105,12 +105,11 @@ namespace BridgeToolsTest
 							lion.ComboOption = lion.ComboOptions[1];
 
 							// property at level 2 ( combo box )
-							catPier1.AddComboProperty(
-								"Lion options",
-								lion.ComboOptions,
+							var cbLion = new ABComboBoxProperty<ComboOptionsEnum>( catPier1, "Lion options", lion.ComboOptions );
+							{
 								// bindings
-								lion,
-								nameof( lion.ComboOption ) );
+								cbLion.BindSelectedItem( lion, nameof( lion.ComboOption ) );
+							}
 						}
 					}
 
@@ -118,39 +117,36 @@ namespace BridgeToolsTest
 					vm.Pier1.RadioOption = vm.Pier1.RadioOptions[1];
 
 					// property at level 2 ( radio buttons )
-					catPier1.AddRadioProperty(
+					var rb = new ABRadioBoxProperty<RadioOptionsEnum>(
+						catPier1,
 						"grp",
 						false,
 						"Radio Option",
-						vm.Pier1.RadioOptions,
+						vm.Pier1.RadioOptions );
+					{
 						// bindings
-						vm.Pier1,
-						nameof( vm.Pier1.RadioOption ) );
+						rb.BindSelectedItem( vm.Pier1, nameof( vm.Pier1.RadioOption ) );
+					}
 
 					// select in combo box
 					vm.Pier1.ComboOption = vm.Pier1.ComboOptions[1];
 
 					// property at level 2 ( combo box )
-					catPier1.AddComboProperty(
-						"Combo Option",
-						vm.Pier1.ComboOptions,
+					var cbP = new ABComboBoxProperty<ComboOptionsEnum>( catPier1, "Combo Option", vm.Pier1.ComboOptions );
+					{
 						// bindings
-						vm.Pier1,
-						nameof( vm.Pier1.ComboOption ) );
+						cbP.BindSelectedItem( vm.Pier1, nameof( vm.Pier1.ComboOption ) );
+					}
 
 					// select in slider
 					vm.Pier1.Darkness = 30;
 
 					// property at level 2 ( slider )
-					catPier1.AddSliderProperty(
-						"Darkness",
-						"%",
-						1, 
-						100,	
-						1,
+					var s = new ABSliderProperty( catPier1, "Darkness", "%", 1, 100, 1 );
+					{
 						// bindings
-						vm.Pier1,
-						nameof( vm.Pier1.Darkness ) );
+						s.BindValue( vm.Pier1, nameof( vm.Pier1.Darkness ) );
+					}
 				}
 
 				// container at level 2
@@ -163,36 +159,33 @@ namespace BridgeToolsTest
 					nameof( vm.Pier2.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
-					catPier2.AddTextProperty(
-						"Name",
+					var propPierName = new ABTextBoxProperty( catPier2, "Name" );
+					{
 						// bindings
-						vm.Pier2,
-						nameof( vm.Pier2.Name ) );
+						propPierName.BindText( vm.Pier2, nameof( vm.Pier2.Name ) );
+					}
 
 					// property at level 2 ( key/value pair )
-					catPier2.AddTextProperty(
-						"Description",
+					var propPierDescr = new ABTextBoxProperty( catPier2, "Description" );
+					{
 						// bindings
-						vm.Pier2,
-						nameof( vm.Pier2.Description ) );
+						propPierDescr.BindText( vm.Pier2, nameof( vm.Pier2.Description ) );
+					}
 
 					// property at level 2 ( key/checkbox pair - three state )
-					catPier2.AddCheckProperty(
-						"Is ready",
-						true,
+					var c1 = new ABCheckBoxProperty( catPier2, "Is ready", true );
+					{
 						// bindings
-						vm.Pier2,
-						nameof( vm.Pier2.IsReady ),
-						nameof( vm.Pier2.IsEnabledReady ) );
+						c1.BindIsChecked( vm.Pier2, nameof( vm.Pier2.IsReady ) );
+						c1.BindIsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabledReady ) );
+					}
 
 					// property at level 2 ( key/checkbox pair - two state )
-					catPier2.AddCheckProperty(
-						"Is done",
-						false,
+					var c2 = new ABCheckBoxProperty( catPier2, "Is done", false );
+					{
 						// bindings
-						vm.Pier2,
-						nameof( vm.Pier2.IsDone ),
-						null);
+						c2.BindIsChecked( vm.Pier2, nameof( vm.Pier2.IsDone ) );
+					}
 
 					// container at level 3 ( collapsed )
 					var catGeoPos = catPier2.AddCategory( 
@@ -204,35 +197,36 @@ namespace BridgeToolsTest
 						null );
 					{
 						// property at level 3 ( key/value pair )
-						catGeoPos.AddTextProperty(
-							"Description",
+						var propGeoPosDescr = new ABTextBoxProperty( catGeoPos, "Description" );
+						{
 							// bindings
-							vm.Pier2.GeoPos,
-							nameof( vm.Pier2.GeoPos.Description ) );
+							propGeoPosDescr.BindText( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.Description ) );
+						}
 
 						// property at level 3 ( key/date )
-						catGeoPos.AddDateProperty(
-							"Date",
+						var d = new ABDatePickerProperty( catGeoPos, "Date" );
+						{
 							// bindings
-							vm.Pier2.GeoPos,
-							nameof( vm.Pier2.GeoPos.Date ) );
+							d.BindDate( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.Date ) );
+						}
 
 						// property at level 3 ( key/color )
-						catGeoPos.AddColorProperty(
-							"Color",
-							Colors.Black,
+						var c = new ABColorProperty( catGeoPos, "Color", Colors.Black );
+						{
 							// bindings
-							vm.Pier2.GeoPos,
-							nameof( vm.Pier2.GeoPos.Color ) );
+							c.BindColor( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.Color ) );
+						}
 
 						// property at level 3 ( key/button )
-						catGeoPos.AddButtonProperty(
-							"Parameters",
+						var b = new ABButtonProperty( catGeoPos, "Parameters" );
+						{
 							// bindings
-							new CommandBinding( 
-								ViewModelGeoPos.ButtonCmd, 
-								vm.Pier2.GeoPos.ButtonCmd_Executed, 
-								vm.Pier2.GeoPos.ButtonCmd_CanExecute ) );
+							b.BindCommand( 
+								new CommandBinding(
+									ViewModelGeoPos.ButtonCmd,
+									vm.Pier2.GeoPos.ButtonCmd_Executed,
+									vm.Pier2.GeoPos.ButtonCmd_CanExecute ) );
+						}
 					}
 				}
 			}

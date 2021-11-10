@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace BridgeTools.PropertyGrid
+namespace BridgeTools.PropertyGrid.Properties
 {
     public class ABProperty : ListViewItem
     {
