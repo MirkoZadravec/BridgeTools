@@ -170,9 +170,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			// binding (IsEnabled)
 			if( null != bSource && !string.IsNullOrEmpty( bPathEnabled ) )
@@ -256,9 +255,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -312,9 +310,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -402,9 +399,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -447,9 +443,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -492,9 +487,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -539,9 +533,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -590,9 +583,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
@@ -648,9 +640,8 @@ namespace BridgeTools.PropertyGrid
 			var propItem = new ABProperty()
 			{
 				Style = this.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
+				Content = dockPanel,
 			};
-
-			propItem.Content = dockPanel;
 
 			this.Items.Add( propItem );
 
