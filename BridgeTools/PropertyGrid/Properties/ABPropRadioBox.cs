@@ -8,12 +8,12 @@ using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABRadioBoxProperty<T> : ABProperty
+	public class ABPropRadioBox<T> : ABProp
 	{
 		private List<RadioButton> _radioButtons = new List<RadioButton>();
 
-		public ABRadioBoxProperty(
-			ABCategory parent,
+		public ABPropRadioBox(
+			ABCat parent,
 			string groupName,
 			bool addBorder,
 			string key,

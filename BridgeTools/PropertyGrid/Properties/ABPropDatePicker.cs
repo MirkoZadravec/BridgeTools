@@ -5,14 +5,13 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABTextDimProperty : ABProperty
+	public class ABPropDatePicker : ABProp
 	{
-		private TextBox _textBox = null;
+		private DatePicker _datePicker = null;
 
-		public ABTextDimProperty(
-			ABCategory parent,
-			string key,
-			string symbol ) : base()
+		public ABPropDatePicker(
+			ABCat parent,
+			string key )
 		{
 			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
 
@@ -29,25 +28,13 @@ namespace BridgeTools.PropertyGrid.Properties
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			var dockPanelVal = new DockPanel()
+			_datePicker = new DatePicker()
 			{
-				LastChildFill = true,
-			};
-			dockPanel.Children.Add( dockPanelVal );
-
-			var propSymbol = new TextBlock()
-			{
-				Text = symbol,
-			};
-			DockPanel.SetDock( propSymbol, Dock.Right );
-			dockPanelVal.Children.Add( propSymbol );
-
-			_textBox = new TextBox()
-			{
-				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
+				IsTabStop = true,
 			};
 
-			dockPanelVal.Children.Add( _textBox );
+			dockPanel.Children.Add( _datePicker );
 
 			this.Content = dockPanel;
 
@@ -55,22 +42,22 @@ namespace BridgeTools.PropertyGrid.Properties
 		}
 
 		/// <summary>
-		/// Binding (text)
+		/// Binding (date)
 		/// </summary>
 		/// <param name="bSource"></param>
 		/// <param name="bPathChecked"></param>
-		public void BindText(
+		public void BindDate(
 			object bSource,
 			string bPath )
 		{
-			if( null == _textBox )
+			if( null == _datePicker )
 				return;
 
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			_textBox.SetBinding( TextBox.TextProperty, b );
+			_datePicker.SetBinding( DatePicker.SelectedDateProperty, b );
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace BridgeTools.PropertyGrid.Categories
 {
-	public class ABCategory : ListView
+	public class ABCat : ListView
 	{
 	}
 }

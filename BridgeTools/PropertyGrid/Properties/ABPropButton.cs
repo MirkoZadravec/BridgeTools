@@ -5,12 +5,12 @@ using System.Windows.Input;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABButtonProperty : ABProperty
+	public class ABPropButton : ABProp
 	{
 		private Button _button = null;
 
-		public ABButtonProperty( 
-			ABCategory parent, 
+		public ABPropButton( 
+			ABCat parent, 
 			string key ) : base()
 		{
 			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;

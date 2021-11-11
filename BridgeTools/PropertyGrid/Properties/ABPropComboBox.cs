@@ -6,12 +6,12 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABComboBoxProperty<T> : ABProperty
+	public class ABPropComboBox<T> : ABProp
 	{
 		private ComboBox _comboBox = null;
 
-		public ABComboBoxProperty(
-			ABCategory parent,
+		public ABPropComboBox(
+			ABCat parent,
 			string key,
 			List<ComboItem<T>> values ) : base()
 		{

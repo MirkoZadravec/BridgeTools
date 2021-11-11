@@ -5,13 +5,13 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABSliderProperty : ABProperty
+	public class ABPropSlider : ABProp
 	{
 		private Slider _slider = null;
 		private TextBlock _sliderTextBox = null;
 
-		public ABSliderProperty(
-			ABCategory parent,
+		public ABPropSlider(
+			ABCat parent,
 			string key,
 			string symbol,
 			double sliderMin,

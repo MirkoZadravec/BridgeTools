@@ -5,13 +5,13 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Categories
 {
-	public class ABCheckBoxCategory : ABCategory
+	public class ABCatCheckBox : ABCat
 	{
-		private ABProperty _property = null;
+		private ABProp _property = null;
 		private CheckBox _checkBox = null;
 
-		public ABCheckBoxCategory( 
-			ABCategory parent, 
+		public ABCatCheckBox( 
+			ABCat parent, 
 			string key,
 			bool isExpanded,
 			bool isThreeState ) : base()
@@ -40,7 +40,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			};
 			dockPanel.Children.Add( _checkBox );
 
-			_property = new ABProperty()
+			_property = new ABProp()
 			{
 				Content = new ABExpander()
 				{
@@ -89,7 +89,7 @@ namespace BridgeTools.PropertyGrid.Categories
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			_property.SetBinding( ABProperty.IsEnabledProperty, b );
+			_property.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 
 		/// <summary>
@@ -105,7 +105,7 @@ namespace BridgeTools.PropertyGrid.Categories
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			this.SetBinding( ABCategory.IsEnabledProperty, b );
+			this.SetBinding( ABCat.IsEnabledProperty, b );
 		}
 	}
 }

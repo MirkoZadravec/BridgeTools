@@ -56,28 +56,28 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PropertyGrid\Categories\ABCheckBoxCategory.cs" />
-    <Compile Include="PropertyGrid\Categories\ABTextCategory.cs" />
-    <Compile Include="PropertyGrid\Properties\ABButtonProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABColorProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABComboBoxProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABDatePickerProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABRadioBoxProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABSliderProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABTextBoxProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABTextDimProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABTextFullRowProperty.cs" />
+    <Compile Include="PropertyGrid\Categories\ABCatCheckBox.cs" />
+    <Compile Include="PropertyGrid\Categories\ABCatText.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropButton.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropColorPickerPalette.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropComboBox.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropDatePicker.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropRadioBox.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropSlider.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropTextBox.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropTextDim.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropTextFullRow.cs" />
     <Page Include="PropertyGrid\ABPropertyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="PropertyGrid\Categories\ABCategory.cs" />
+    <Compile Include="PropertyGrid\Categories\ABCat.cs" />
     <Compile Include="PropertyGrid\ABExpander.cs" />
     <Compile Include="PropertyGrid\ABLevelToExpanderSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABLevelToOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABLevelToSplitterOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\Properties\ABCheckBoxProperty.cs" />
-    <Compile Include="PropertyGrid\Properties\ABProperty.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropCheckBox.cs" />
+    <Compile Include="PropertyGrid\Properties\ABProp.cs" />
     <Compile Include="PropertyGrid\ABRadioConverter.cs" />
     <Compile Include="PropertyGrid\ABStyles.cs" />
     <Compile Include="PropertyGrid\ComboItem.cs" />

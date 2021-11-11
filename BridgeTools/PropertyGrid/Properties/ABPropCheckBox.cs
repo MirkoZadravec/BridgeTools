@@ -5,12 +5,12 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABCheckBoxProperty : ABProperty
+	public class ABPropCheckBox : ABProp
 	{
 		private CheckBox _checkBox = null;
 
-		public ABCheckBoxProperty( 
-			ABCategory parent,
+		public ABPropCheckBox( 
+			ABCat parent,
 			string key,
 			bool isThreeState ) : base()
 		{
@@ -75,7 +75,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				return;
 
 			var b = new Binding( bPathEnabled ) { Source = bSource };
-			this.SetBinding( ABProperty.IsEnabledProperty, b );
+			this.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 	}
 }

@@ -3,11 +3,11 @@ using System.Windows.Controls;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-    public class ABProperty : ListViewItem
+    public class ABProp : ListViewItem
     {
         public static readonly DependencyProperty LevelProperty = DependencyProperty.Register(
             "Level", typeof( int ),
-            typeof( ABProperty )
+            typeof( ABProp )
             );
 
         public int Level

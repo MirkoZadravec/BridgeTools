@@ -5,12 +5,12 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Categories
 {
-	public class ABTextCategory : ABCategory
+	public class ABCatText : ABCat
 	{
-		private ABProperty _property = null;
+		private ABProp _property = null;
 
-		public ABTextCategory(
-			ABCategory parent,
+		public ABCatText(
+			ABCat parent,
 			string key,
 			bool isExpanded ) : base()
 		{
@@ -30,7 +30,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			_property = new ABProperty()
+			_property = new ABProp()
 			{
 				Content = new ABExpander()
 				{
@@ -60,7 +60,7 @@ namespace BridgeTools.PropertyGrid.Categories
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			_property.SetBinding( ABProperty.IsEnabledProperty, b );
+			_property.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace BridgeTools.PropertyGrid.Categories
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			this.SetBinding( ABCategory.IsEnabledProperty, b );
+			this.SetBinding( ABCat.IsEnabledProperty, b );
 		}
 	}
 }

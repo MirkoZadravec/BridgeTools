@@ -5,12 +5,12 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABTextFullRowProperty : ABProperty
+	public class ABPropTextFullRow : ABProp
 	{
 		private TextBox _textBox = null;
 
-		public ABTextFullRowProperty( 
-			ABCategory parent, 
+		public ABPropTextFullRow( 
+			ABCat parent, 
 			bool ignoreLevel ) : base()
 		{
 			this.Style =

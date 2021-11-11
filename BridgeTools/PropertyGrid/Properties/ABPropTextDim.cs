@@ -1,20 +1,18 @@
 ﻿using BridgeTools.PropertyGrid.Categories;
-using Syncfusion.Windows.Tools.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABColorProperty : ABProperty
+	public class ABPropTextDim : ABProp
 	{
-		private ColorPickerPalette _colorPickerPalette = null;
+		private TextBox _textBox = null;
 
-		public ABColorProperty(
-			ABCategory parent,
+		public ABPropTextDim(
+			ABCat parent,
 			string key,
-			Color automaticColor ) : base()
+			string symbol ) : base()
 		{
 			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
 
@@ -31,14 +29,25 @@ namespace BridgeTools.PropertyGrid.Properties
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			_colorPickerPalette = new ColorPickerPalette()
+			var dockPanelVal = new DockPanel()
 			{
-				MinHeight = 18,
-				AutomaticColor = new SolidColorBrush( automaticColor ),
-				IsTabStop = true,
+				LastChildFill = true,
+			};
+			dockPanel.Children.Add( dockPanelVal );
+
+			var propSymbol = new TextBlock()
+			{
+				Text = symbol,
+			};
+			DockPanel.SetDock( propSymbol, Dock.Right );
+			dockPanelVal.Children.Add( propSymbol );
+
+			_textBox = new TextBox()
+			{
+				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
 
-			dockPanel.Children.Add( _colorPickerPalette );
+			dockPanelVal.Children.Add( _textBox );
 
 			this.Content = dockPanel;
 
@@ -46,22 +55,22 @@ namespace BridgeTools.PropertyGrid.Properties
 		}
 
 		/// <summary>
-		/// Binding (color)
+		/// Binding (text)
 		/// </summary>
 		/// <param name="bSource"></param>
 		/// <param name="bPathChecked"></param>
-		public void BindColor(
+		public void BindText(
 			object bSource,
 			string bPath )
 		{
-			if( null == _colorPickerPalette )
+			if( null == _textBox )
 				return;
 
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			_colorPickerPalette.SetBinding( ColorPickerPalette.ColorProperty, b );
+			_textBox.SetBinding( TextBox.TextProperty, b );
 		}
 	}
 }

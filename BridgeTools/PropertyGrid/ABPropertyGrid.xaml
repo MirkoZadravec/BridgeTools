@@ -25,7 +25,7 @@
             <Border IsHitTestVisible="False" Background="Transparent" BorderThickness="0"/>
         </Grid>
         <!--ScrollViewer.CanContentScroll="False" turns virtualisation OFF!!!-->
-        <categories:ABCategory
+        <categories:ABCat
             x:Name="Container"
             ScrollViewer.CanContentScroll="False"
             ScrollViewer.VerticalScrollBarVisibility="Auto"

@@ -29,6 +29,6 @@ namespace BridgeTools.PropertyGrid
 			Container.Items.Clear();
 		}
 
-		public ABCategory Root => Container;
+		public ABCat Root => Container;
 	}
 }

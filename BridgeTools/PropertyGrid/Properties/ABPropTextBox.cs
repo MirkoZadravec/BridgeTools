@@ -5,13 +5,13 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABDatePickerProperty : ABProperty
+	public class ABPropTextBox : ABProp
 	{
-		private DatePicker _datePicker = null;
+		private TextBox _textBox = null;
 
-		public ABDatePickerProperty(
-			ABCategory parent,
-			string key )
+		public ABPropTextBox(
+			ABCat parent,
+			string key ) : base()
 		{
 			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
 
@@ -28,13 +28,13 @@ namespace BridgeTools.PropertyGrid.Properties
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			_datePicker = new DatePicker()
+			_textBox = new TextBox()
 			{
-				Style = parent.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 				IsTabStop = true,
 			};
 
-			dockPanel.Children.Add( _datePicker );
+			dockPanel.Children.Add( _textBox );
 
 			this.Content = dockPanel;
 
@@ -42,22 +42,22 @@ namespace BridgeTools.PropertyGrid.Properties
 		}
 
 		/// <summary>
-		/// Binding (date)
+		/// Binding (text)
 		/// </summary>
 		/// <param name="bSource"></param>
 		/// <param name="bPathChecked"></param>
-		public void BindDate(
+		public void BindText(
 			object bSource,
 			string bPath )
 		{
-			if( null == _datePicker )
+			if( null == _textBox )
 				return;
 
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
 			var b = new Binding( bPath ) { Source = bSource };
-			_datePicker.SetBinding( DatePicker.SelectedDateProperty, b );
+			_textBox.SetBinding( TextBox.TextProperty, b );
 		}
 	}
 }
