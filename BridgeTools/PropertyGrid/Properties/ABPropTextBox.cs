@@ -56,7 +56,11 @@ namespace BridgeTools.PropertyGrid.Properties
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) { Source = bSource };
+			var b = new Binding( bPath ) 
+			{ 
+				Source = bSource 
+			};
+
 			_textBox.SetBinding( TextBox.TextProperty, b );
 		}
 	}

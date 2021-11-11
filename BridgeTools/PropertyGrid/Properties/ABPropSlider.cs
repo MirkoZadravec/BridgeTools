@@ -95,7 +95,11 @@ namespace BridgeTools.PropertyGrid.Properties
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) { Source = bSource };
+			var b = new Binding( bPath ) 
+			{ 
+				Source = bSource 
+			};
+
 			_slider.SetBinding( Slider.ValueProperty, b );
 			_sliderTextBox.SetBinding( TextBlock.TextProperty, b );
 		}

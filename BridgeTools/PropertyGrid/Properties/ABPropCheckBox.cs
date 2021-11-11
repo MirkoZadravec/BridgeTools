@@ -58,7 +58,11 @@ namespace BridgeTools.PropertyGrid.Properties
 			if( null == bSource || string.IsNullOrEmpty( bPathChecked ) )
 				return;
 
-			var b = new Binding( bPathChecked ) { Source = bSource };
+			var b = new Binding( bPathChecked ) 
+			{ 
+				Source = bSource 
+			};
+
 			_checkBox.SetBinding( CheckBox.IsCheckedProperty, b );
 		}
 
@@ -74,7 +78,11 @@ namespace BridgeTools.PropertyGrid.Properties
 			if( null == bSource || string.IsNullOrEmpty( bPathEnabled ) )
 				return;
 
-			var b = new Binding( bPathEnabled ) { Source = bSource };
+			var b = new Binding( bPathEnabled ) 
+			{ 
+				Source = bSource 
+			};
+
 			this.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 	}

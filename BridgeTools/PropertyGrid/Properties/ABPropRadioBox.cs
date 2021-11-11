@@ -97,9 +97,14 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			foreach( var radioButton in _radioButtons )
 			{
-				var b = new Binding( bPath ) { Source = bSource };
+				var b = new Binding( bPath ) 
+				{ 
+					Source = bSource 
+				};
+
 				b.Converter = rc;
 				b.ConverterParameter = radioButton.Tag; // take stored item
+
 				radioButton.SetBinding( RadioButton.IsCheckedProperty, b );
 			}
 		}

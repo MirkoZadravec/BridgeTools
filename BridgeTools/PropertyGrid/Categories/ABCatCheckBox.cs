@@ -69,7 +69,11 @@ namespace BridgeTools.PropertyGrid.Categories
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) { Source = bSource };
+			var b = new Binding( bPath ) 
+			{ 
+				Source = bSource 
+			};
+
 			_checkBox.SetBinding( CheckBox.IsCheckedProperty, b );
 		}
 
@@ -88,7 +92,11 @@ namespace BridgeTools.PropertyGrid.Categories
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) { Source = bSource };
+			var b = new Binding( bPath ) 
+			{ 
+				Source = bSource 
+			};
+
 			_property.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 
@@ -104,7 +112,11 @@ namespace BridgeTools.PropertyGrid.Categories
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) { Source = bSource };
+			var b = new Binding( bPath ) 
+			{ 
+				Source = bSource 
+			};
+
 			this.SetBinding( ABCat.IsEnabledProperty, b );
 		}
 	}
