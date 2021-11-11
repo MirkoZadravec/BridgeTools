@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:System="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:BridgeTools.PropertyGrid"
+                    xmlns:categories="clr-namespace:BridgeTools.PropertyGrid.Categories"
                     xmlns:props="clr-namespace:BridgeTools.PropertyGrid.Properties">
 
     <local:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
@@ -927,7 +928,7 @@
         <Setter Property="Template" Value="{StaticResource ABExpanderTemplate}"/>
     </Style>
 
-    <Style x:Key="ABListViewStyle" TargetType="{x:Type local:ABCategory}">
+    <Style x:Key="ABListViewStyle" TargetType="{x:Type categories:ABCategory}">
         <Setter Property="Background" Value="{StaticResource ABPropGridBackgroundColor}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -938,7 +939,7 @@
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:ABCategory}">
+                <ControlTemplate TargetType="{x:Type categories:ABCategory}">
                     <Border Name="Border" BorderThickness="0">
                         <ItemsPresenter/>
                     </Border>

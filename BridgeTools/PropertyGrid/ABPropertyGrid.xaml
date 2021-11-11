@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BridgeTools.PropertyGrid"
+             xmlns:categories="clr-namespace:BridgeTools.PropertyGrid.Categories"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
     
@@ -24,8 +25,8 @@
             <Border IsHitTestVisible="False" Background="Transparent" BorderThickness="0"/>
         </Grid>
         <!--ScrollViewer.CanContentScroll="False" turns virtualisation OFF!!!-->
-        <local:ABCategory
-            x:Name="Root"
+        <categories:ABCategory
+            x:Name="Container"
             ScrollViewer.CanContentScroll="False"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden" 

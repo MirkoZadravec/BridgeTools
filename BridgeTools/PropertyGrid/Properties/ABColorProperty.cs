@@ -1,4 +1,5 @@
-﻿using Syncfusion.Windows.Tools.Controls;
+﻿using BridgeTools.PropertyGrid.Categories;
+using Syncfusion.Windows.Tools.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;

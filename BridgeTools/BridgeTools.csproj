@@ -56,6 +56,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PropertyGrid\Categories\ABCheckBoxCategory.cs" />
+    <Compile Include="PropertyGrid\Categories\ABTextCategory.cs" />
     <Compile Include="PropertyGrid\Properties\ABButtonProperty.cs" />
     <Compile Include="PropertyGrid\Properties\ABColorProperty.cs" />
     <Compile Include="PropertyGrid\Properties\ABComboBoxProperty.cs" />
@@ -69,7 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="PropertyGrid\ABCategory.cs" />
+    <Compile Include="PropertyGrid\Categories\ABCategory.cs" />
     <Compile Include="PropertyGrid\ABExpander.cs" />
     <Compile Include="PropertyGrid\ABLevelToExpanderSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\ABLevelToOffsetConverter.cs" />
@@ -105,6 +107,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

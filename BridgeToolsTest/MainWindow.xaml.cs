@@ -1,4 +1,5 @@
-﻿using BridgeTools.PropertyGrid.Properties;
+﻿using BridgeTools.PropertyGrid.Categories;
+using BridgeTools.PropertyGrid.Properties;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -25,13 +26,7 @@ namespace BridgeToolsTest
 			var vm = new ViewModelPiers() { Project = "Project 1" };
 
 			// container at level 1
-			var catPiers = propGrid.AddCategory( 
-				"Piers", 
-				true,
-				// bindings
-				null, 
-				null, 
-				null );
+			var catPiers = new ABTextCategory( propGrid.Root, "Piers", true );
 			{
 				// property at level 1 ( key/value pair )
 				var propProjName = new ABTextBoxProperty( catPiers, "Project" );
@@ -41,15 +36,10 @@ namespace BridgeToolsTest
 				}
 
 				// container at level 2 (with checkbox)
-				var catPier1 = catPiers.AddCheckCategory(
-					"Pier 1",
-					true,
-					false,
-					// bindings
-					vm.Pier1,
-					nameof( vm.Pier1.IsDone ),
-					nameof( vm.Pier1.IsEnabled ),
-					nameof( vm.Pier1.IsEnabled ) );
+				var catPier1 = new ABCheckBoxCategory( catPiers, "Pier 1", true, false );
+				catPier1.BindIsChecked( vm.Pier1, nameof( vm.Pier1.IsDone ) );
+				catPier1.BindIsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
+				catPier1.BindIsChildEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					var propPierName = new ABTextBoxProperty( catPier1, "Name" );
@@ -59,7 +49,7 @@ namespace BridgeToolsTest
 					}
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = catPier1.AddCategory( "Geometric position", false, null, null, null );
+					var catGeoPos = new ABTextCategory( catPier1, "Geometric position", false );
 					{
 						// property at level 3 ( occupies full row )
 						var tf = new ABTextFullRowProperty( catGeoPos, false );
@@ -150,13 +140,9 @@ namespace BridgeToolsTest
 				}
 
 				// container at level 2
-				var catPier2 = catPiers.AddCategory( 
-					"Pier 2", 
-					true,
-					// bindings
-					vm.Pier2,
-					nameof( vm.Pier2.IsEnabled ),
-					nameof( vm.Pier2.IsEnabled ) );
+				var catPier2 = new ABTextCategory( catPiers, "Pier 2", true );
+				catPier2.BindIsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
+				catPier2.BindIsChildEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					var propPierName = new ABTextBoxProperty( catPier2, "Name" );
@@ -188,13 +174,7 @@ namespace BridgeToolsTest
 					}
 
 					// container at level 3 ( collapsed )
-					var catGeoPos = catPier2.AddCategory( 
-						"Geometric position", 
-						true,
-						// bindings
-						null, 
-						null, 
-						null );
+					var catGeoPos = new ABTextCategory( catPier2, "Geometric position", true );
 					{
 						// property at level 3 ( key/value pair )
 						var propGeoPosDescr = new ABTextBoxProperty( catGeoPos, "Description" );

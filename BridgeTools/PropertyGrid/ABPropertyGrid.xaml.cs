@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using BridgeTools.PropertyGrid.Categories;
+using System.Windows.Controls;
 
 // TODO
 //   - Tooltips
@@ -25,17 +26,9 @@ namespace BridgeTools.PropertyGrid
 
 		public void Clear()
 		{
-			Root.Items.Clear();
+			Container.Items.Clear();
 		}
 
-		public ABCategory AddCategory(
-			string key,
-			bool isExpanded,
-			object bSource,
-			string bPathEnabled,
-			string bPathEnabledChildren )
-		{
-			return Root.AddCategory( key, isExpanded, bSource, bPathEnabled, bPathEnabledChildren );
-		}
+		public ABCategory Root => Container;
 	}
 }
