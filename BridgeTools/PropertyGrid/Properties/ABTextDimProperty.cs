@@ -14,6 +14,8 @@ namespace BridgeTools.PropertyGrid.Properties
 			string key,
 			string symbol ) : base()
 		{
+			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+
 			var dockPanel = new DockPanel()
 			{
 				LastChildFill = true,
@@ -47,13 +49,9 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			dockPanelVal.Children.Add( _textBox );
 
-			var propItem = new ABProperty()
-			{
-				Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
-				Content = dockPanel,
-			};
+			this.Content = dockPanel;
 
-			parent.Items.Add( propItem );
+			parent.Items.Add( this );
 		}
 
 		/// <summary>

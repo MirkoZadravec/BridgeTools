@@ -18,6 +18,8 @@ namespace BridgeTools.PropertyGrid.Properties
 			double sliderMax,
 			double sliderStep ) : base()
 		{
+			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+
 			var dockPanel = new DockPanel()
 			{
 				LastChildFill = true,
@@ -73,13 +75,9 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			propVal.Children.Add( _slider );
 
-			var propItem = new ABProperty()
-			{
-				Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
-				Content = dockPanel,
-			};
+			this.Content = dockPanel;
 
-			parent.Items.Add( propItem );
+			parent.Items.Add( this );
 		}
 
 		/// <summary>

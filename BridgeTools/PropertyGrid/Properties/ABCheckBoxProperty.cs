@@ -14,6 +14,8 @@ namespace BridgeTools.PropertyGrid.Properties
 			string key,
 			bool isThreeState ) : base()
 		{
+			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+
 			var dockPanel = new DockPanel()
 			{
 				LastChildFill = true,
@@ -36,7 +38,6 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			dockPanel.Children.Add( _checkBox );
 
-			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
 			this.Content = dockPanel;
 
 			parent.Items.Add( this );

@@ -13,21 +13,19 @@ namespace BridgeTools.PropertyGrid.Properties
 			ABCategory parent, 
 			bool ignoreLevel ) : base()
 		{
+			this.Style =
+				ignoreLevel ?
+				parent.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
+				parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+
 			_textBox = new TextBox()
 			{
 				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
 
-			var propItem = new ABProperty()
-			{
-				Style =
-					ignoreLevel ?
-					parent.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
-					parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style,
-				Content = _textBox,
-			};
+			this.Content = _textBox;
 
-			parent.Items.Add( propItem );
+			parent.Items.Add( this );
 		}
 
 		/// <summary>
