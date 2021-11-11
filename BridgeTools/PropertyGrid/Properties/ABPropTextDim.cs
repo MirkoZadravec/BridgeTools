@@ -46,7 +46,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			{
 				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
-
 			dockPanelVal.Children.Add( _textBox );
 
 			this.Content = dockPanel;

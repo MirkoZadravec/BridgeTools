@@ -33,7 +33,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 				IsTabStop = true,
 			};
-
 			dockPanel.Children.Add( _textBox );
 
 			this.Content = dockPanel;

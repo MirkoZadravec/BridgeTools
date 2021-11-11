@@ -37,7 +37,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				AutomaticColor = new SolidColorBrush( automaticColor ),
 				IsTabStop = true,
 			};
-
 			dockPanel.Children.Add( _colorPickerPalette );
 
 			this.Content = dockPanel;

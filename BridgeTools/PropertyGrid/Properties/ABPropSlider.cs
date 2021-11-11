@@ -72,7 +72,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				MinHeight = 16,
 				Style = parent.FindResource( ABStyles.ABPropItemSliderStyle ) as Style,
 			};
-
 			propVal.Children.Add( _slider );
 
 			this.Content = dockPanel;

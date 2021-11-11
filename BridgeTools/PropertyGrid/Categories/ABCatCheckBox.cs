@@ -50,7 +50,6 @@ namespace BridgeTools.PropertyGrid.Categories
 					Content = this,
 				},
 			};
-
 			parent.Items.Add( _property );
 		}
 

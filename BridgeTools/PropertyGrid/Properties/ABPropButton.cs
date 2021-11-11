@@ -40,7 +40,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				VerticalContentAlignment = VerticalAlignment.Center,
 				Style = parent.FindResource( ABStyles.ABButtonStyle ) as Style,
 			};
-
 			dockPanel.Children.Add( _button );
 
 			this.Content = dockPanel;

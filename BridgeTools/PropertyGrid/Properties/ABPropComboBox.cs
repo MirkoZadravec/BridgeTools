@@ -45,7 +45,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				DisplayMemberPath = nameof( ComboItem<T>.ObjText ),
 				SelectedValuePath = nameof( ComboItem<T>.Obj ),
 			};
-
 			propVal.Children.Add( _comboBox );
 
 			this.Content = dockPanel;

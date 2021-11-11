@@ -22,7 +22,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			{
 				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
-
 			this.Content = _textBox;
 
 			parent.Items.Add( this );

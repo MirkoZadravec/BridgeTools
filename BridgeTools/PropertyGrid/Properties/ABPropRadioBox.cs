@@ -54,13 +54,13 @@ namespace BridgeTools.PropertyGrid.Properties
 					Content = val.ObjText,
 					VerticalAlignment = VerticalAlignment.Center,
 					VerticalContentAlignment = VerticalAlignment.Bottom,
-					// store the item
+					// remember for binding
 					Tag = val,
 				};
-
-				_radioButtons.Add( propRadio );
-
 				propVal.Children.Add( propRadio );
+
+				// remember for binding
+				_radioButtons.Add( propRadio );
 			}
 
 			if( addBorder )

@@ -33,7 +33,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				Style = parent.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
 				IsTabStop = true,
 			};
-
 			dockPanel.Children.Add( _datePicker );
 
 			this.Content = dockPanel;

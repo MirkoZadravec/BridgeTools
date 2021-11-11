@@ -35,7 +35,6 @@ namespace BridgeTools.PropertyGrid.Properties
 				IsThreeState = isThreeState,
 				IsTabStop = true,
 			};
-
 			dockPanel.Children.Add( _checkBox );
 
 			this.Content = dockPanel;
