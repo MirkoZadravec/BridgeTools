@@ -1,14 +1,10 @@
-﻿using BridgeTools.PropertyGrid.Properties;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Categories
 {
 	public class ABCatText : ABCat
 	{
-		private ABProp _property = null;
-
 		public ABCatText(
 			ABCat parent,
 			string key,
@@ -29,60 +25,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			_property = new ABProp()
-			{
-				Content = new ABExpander()
-				{
-					Style = parent.FindResource( ABStyles.ABExpanderStyle ) as Style,
-					IsExpanded = isExpanded,
-					Header = dockPanel,
-					Content = this,
-				},
-			};
-			parent.AddProperty( _property );
-		}
-
-		/// <summary>
-		/// Binding (IsEnabled)
-		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
-		public void BindIsEnabled(
-			object bSource,
-			string bPath )
-		{
-			if( null == _property )
-				return;
-
-			if( null == bSource || string.IsNullOrEmpty( bPath ) )
-				return;
-
-			var b = new Binding( bPath ) 
-			{ 
-				Source = bSource 
-			};
-
-			_property.SetBinding( ABProp.IsEnabledProperty, b );
-		}
-
-		/// <summary>
-		/// Binding (children - IsEnabled)
-		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
-		public void BindIsChildEnabled(
-			object bSource,
-			string bPath )
-		{
-			if( null == bSource || string.IsNullOrEmpty( bPath ) )
-				return;
-
-			var b = new Binding( bPath )
-			{ 
-				Source = bSource 
-			};
-
-			this.SetBinding( ABCat.IsEnabledProperty, b );
+			parent.AddCategory( this, dockPanel, isExpanded );
 		}
 	}
 }

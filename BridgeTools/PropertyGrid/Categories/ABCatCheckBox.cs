@@ -1,5 +1,4 @@
-﻿using BridgeTools.PropertyGrid.Properties;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -7,7 +6,6 @@ namespace BridgeTools.PropertyGrid.Categories
 {
 	public class ABCatCheckBox : ABCat
 	{
-		private ABProp _property = null;
 		private CheckBox _checkBox = null;
 
 		public ABCatCheckBox( 
@@ -39,17 +37,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			};
 			dockPanel.Children.Add( _checkBox );
 
-			_property = new ABProp()
-			{
-				Content = new ABExpander()
-				{
-					Style = parent.FindResource( ABStyles.ABExpanderStyle ) as Style,
-					IsExpanded = isExpanded,
-					Header = dockPanel,
-					Content = this,
-				},
-			};
-			parent.AddProperty( _property );
+			parent.AddCategory( this, dockPanel, isExpanded );
 		}
 
 		/// <summary>
@@ -73,49 +61,6 @@ namespace BridgeTools.PropertyGrid.Categories
 			};
 
 			_checkBox.SetBinding( CheckBox.IsCheckedProperty, b );
-		}
-
-		/// <summary>
-		/// Binding (IsEnabled)
-		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
-		public void BindIsEnabled(
-			object bSource,
-			string bPath )
-		{
-			if( null == _property )
-				return;
-
-			if( null == bSource || string.IsNullOrEmpty( bPath ) )
-				return;
-
-			var b = new Binding( bPath ) 
-			{ 
-				Source = bSource 
-			};
-
-			_property.SetBinding( ABProp.IsEnabledProperty, b );
-		}
-
-		/// <summary>
-		/// Binding (children - IsEnabled)
-		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
-		public void BindIsChildEnabled(
-			object bSource,
-			string bPath )
-		{
-			if( null == bSource || string.IsNullOrEmpty( bPath ) )
-				return;
-
-			var b = new Binding( bPath ) 
-			{ 
-				Source = bSource 
-			};
-
-			this.SetBinding( ABCat.IsEnabledProperty, b );
 		}
 	}
 }

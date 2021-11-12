@@ -39,7 +39,7 @@ namespace BridgeToolsTest
 				var catPier1 = new ABCatCheckBox( catPiers, "Pier 1", true, false );
 				catPier1.BindIsChecked( vm.Pier1, nameof( vm.Pier1.IsDone ) );
 				catPier1.BindIsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
-				catPier1.BindIsChildEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
+				catPier1.BindArePropsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					var propPierName = new ABPropTextBox( catPier1, "Name" );
@@ -142,7 +142,7 @@ namespace BridgeToolsTest
 				// container at level 2
 				var catPier2 = new ABCatText( catPiers, "Pier 2", true );
 				catPier2.BindIsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
-				catPier2.BindIsChildEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
+				catPier2.BindArePropsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
 				{
 					// property at level 2 ( key/value pair )
 					var propPierName = new ABPropTextBox( catPier2, "Name" );
