@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using BridgeTools.PropertyGrid.Categories;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-    public class ABProp : ListViewItem
+	public class ABProp : ListViewItem
     {
         public static readonly DependencyProperty LevelProperty = DependencyProperty.Register(
             "Level", typeof( int ),
@@ -36,6 +37,14 @@ namespace BridgeTools.PropertyGrid.Properties
                 return GetParentExpander( parent );
 
             return null;
+        }
+
+        protected void InitStyle( ABCat parent, bool noLevelIndent )
+		{
+            this.Style =
+                noLevelIndent ?
+                parent.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
+                parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
         }
     }
 }

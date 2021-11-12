@@ -11,12 +11,9 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		public ABPropTextFullRow( 
 			ABCat parent, 
-			bool ignoreLevel ) : base()
+			bool noLevelIndent ) : base()
 		{
-			this.Style =
-				ignoreLevel ?
-				parent.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
-				parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+			InitStyle( parent, noLevelIndent );
 
 			_textBox = new TextBox()
 			{
@@ -24,7 +21,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			this.Content = _textBox;
 
-			parent.Items.Add( this );
+			parent.AddProperty( this );
 		}
 
 		/// <summary>

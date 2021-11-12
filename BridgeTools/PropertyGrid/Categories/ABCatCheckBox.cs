@@ -16,8 +16,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			bool isExpanded,
 			bool isThreeState ) : base()
 		{
-			this.Style = parent.FindResource( ABStyles.ABListViewStyle ) as Style;
-			this.ItemContainerStyle = parent.FindResource( ABStyles.ABListViewItemContainerStyle ) as Style;
+			InitStyle( parent );
 
 			var dockPanel = new DockPanel()
 			{
@@ -50,7 +49,7 @@ namespace BridgeTools.PropertyGrid.Categories
 					Content = this,
 				},
 			};
-			parent.Items.Add( _property );
+			parent.AddProperty( _property );
 		}
 
 		/// <summary>

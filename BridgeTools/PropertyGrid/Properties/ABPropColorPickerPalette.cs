@@ -16,7 +16,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			string key,
 			Color automaticColor ) : base()
 		{
-			this.Style = parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+			InitStyle( parent, false );
 
 			var dockPanel = new DockPanel()
 			{
@@ -41,7 +41,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			this.Content = dockPanel;
 
-			parent.Items.Add( this );
+			parent.AddProperty( this );
 		}
 
 		/// <summary>
