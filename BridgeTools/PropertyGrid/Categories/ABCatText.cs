@@ -77,7 +77,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPath ) 
+			var b = new Binding( bPath )
 			{ 
 				Source = bSource 
 			};
