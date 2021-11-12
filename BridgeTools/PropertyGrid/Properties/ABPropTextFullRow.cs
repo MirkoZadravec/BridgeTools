@@ -15,13 +15,18 @@ namespace BridgeTools.PropertyGrid.Properties
 		{
 			InitStyle( parent, noLevelIndent );
 
+			var dockPanel = new DockPanel()
+			{
+				LastChildFill = true,
+			};
+
 			_textBox = new TextBox()
 			{
 				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
 			};
-			this.Content = _textBox;
+			dockPanel.Children.Add( _textBox );
 
-			parent.AddProperty( this );
+			parent.AddProperty( this, dockPanel );
 		}
 
 		/// <summary>

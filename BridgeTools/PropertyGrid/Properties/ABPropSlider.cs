@@ -74,9 +74,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			propVal.Children.Add( _slider );
 
-			this.Content = dockPanel;
-
-			parent.AddProperty( this );
+			parent.AddProperty( this, dockPanel );
 		}
 
 		/// <summary>

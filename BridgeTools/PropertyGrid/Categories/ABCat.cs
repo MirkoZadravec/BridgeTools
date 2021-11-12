@@ -15,12 +15,14 @@ namespace BridgeTools.PropertyGrid.Categories
 			this.ItemContainerStyle = parent.FindResource( ABStyles.ABListViewItemContainerStyle ) as Style;
 		}
 
-		internal void AddProperty( ABProp prop )
+		internal void AddProperty( ABProp prop, object header )
 		{
+			prop.Content = header;
+
 			this.Items.Add( prop );
 		}
 
-		internal void AddCategory( ABCat cat, object header, bool isExpanded )
+		internal void AddCategory( ABCat category, object header, bool isExpanded )
 		{
 			_property = new ABProp()
 			{
@@ -29,10 +31,11 @@ namespace BridgeTools.PropertyGrid.Categories
 					Style = this.FindResource( ABStyles.ABExpanderStyle ) as Style,
 					IsExpanded = isExpanded,
 					Header = header,
-					Content = cat,
+					Content = category,
 				},
 			};
-			this.AddProperty( _property );
+
+			this.Items.Add( _property );
 		}
 
 		/// <summary>

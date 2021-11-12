@@ -37,9 +37,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			dockPanel.Children.Add( _checkBox );
 
-			this.Content = dockPanel;
-
-			parent.AddProperty( this );
+			parent.AddProperty( this, dockPanel );
 		}
 
 		/// <summary>
