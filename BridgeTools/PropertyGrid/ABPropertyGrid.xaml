@@ -11,6 +11,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/AbResColors.xaml" />
                 <ResourceDictionary Source="Resources/AbResDatePicker.xaml" />
                 <ResourceDictionary Source="Resources/AbResComboBox.xaml" />
                 <ResourceDictionary Source="Resources/AbResButton.xaml" />

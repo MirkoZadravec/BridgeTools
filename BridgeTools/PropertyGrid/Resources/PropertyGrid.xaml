@@ -6,13 +6,13 @@
                     xmlns:controls="clr-namespace:BridgeTools.PropertyGrid.Controls"
                     xmlns:props="clr-namespace:BridgeTools.PropertyGrid.Properties">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="AbResColors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <converters:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
     <converters:ABLevelToExpanderSplitterOffsetConverter x:Key="ABLevelToExpanderSplitterOffsetConverter"/>
     <converters:ABLevelToOffsetConverter x:Key="ABLevelToOffsetConverter"/>
-
-    <SolidColorBrush x:Key="ABPropGridItemColor" Color="#FFeeeeef"/>
-    <SolidColorBrush x:Key="ABPropGridExpanderColor" Color="#FFf8f9f9"/>
-    <SolidColorBrush x:Key="ABPropGridBackgroundColor" Color="#FFf8f9f9"/>
 
     <ControlTemplate x:Key="ABExpanderButtonTemplate" TargetType="ToggleButton">
         <Grid
