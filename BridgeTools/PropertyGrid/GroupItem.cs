@@ -13,8 +13,8 @@ namespace BridgeTools.PropertyGrid
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Group item class.
-	/// Connects object with representation text.
+	/// Group item class used for combo box, radio box, etc.
+	/// The item connects object with its representation text.
 	/// </summary>
 	/// <typeparam name="T">Item object type</typeparam>
 	public class GroupItem<T>
