@@ -73,9 +73,9 @@
     </Page>
     <Compile Include="PropertyGrid\Categories\ABCat.cs" />
     <Compile Include="PropertyGrid\ABExpander.cs" />
-    <Compile Include="PropertyGrid\ABLevelToExpanderSplitterOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\ABLevelToOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\ABLevelToSplitterOffsetConverter.cs" />
+    <Compile Include="PropertyGrid\Convertors\ABLevelToExpanderSplitterOffsetConverter.cs" />
+    <Compile Include="PropertyGrid\Convertors\ABLevelToOffsetConverter.cs" />
+    <Compile Include="PropertyGrid\Convertors\ABLevelToSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropCheckBox.cs" />
     <Compile Include="PropertyGrid\Properties\ABProp.cs" />
     <Compile Include="PropertyGrid\ABRadioConverter.cs" />

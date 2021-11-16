@@ -3,11 +3,12 @@
                     xmlns:System="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:BridgeTools.PropertyGrid"
                     xmlns:categories="clr-namespace:BridgeTools.PropertyGrid.Categories"
+                    xmlns:convertors="clr-namespace:BridgeTools.PropertyGrid.Convertors"
                     xmlns:props="clr-namespace:BridgeTools.PropertyGrid.Properties">
 
-    <local:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
-    <local:ABLevelToExpanderSplitterOffsetConverter x:Key="ABLevelToExpanderSplitterOffsetConverter"/>
-    <local:ABLevelToOffsetConverter x:Key="ABLevelToOffsetConverter"/>
+    <convertors:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
+    <convertors:ABLevelToExpanderSplitterOffsetConverter x:Key="ABLevelToExpanderSplitterOffsetConverter"/>
+    <convertors:ABLevelToOffsetConverter x:Key="ABLevelToOffsetConverter"/>
 
     <!-- test bos from https://www.codeproject.com/Tips/1082209/Custom-Datepicker-Style-WPF -->
     <!-- // https://stackoverflow.com/questions/27712590/i-dont-want-message-select-date-in-datepicker -->

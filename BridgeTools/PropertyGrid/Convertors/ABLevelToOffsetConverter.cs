@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace BridgeTools.PropertyGrid
+namespace BridgeTools.PropertyGrid.Convertors
 {
 	internal class ABLevelToOffsetConverter : IValueConverter
 	{
