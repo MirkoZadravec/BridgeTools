@@ -1,11 +1,40 @@
-﻿using BridgeTools.PropertyGrid.Resources;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABCatText.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace BridgeTools.PropertyGrid.Categories
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Category with text label.
+	/// </summary>
+	/// <example>
+	/// +------------+
+	/// | Key label  |
+	/// +------------+
+	/// </example>
 	public class ABCatText : ABCat
 	{
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Category key label</param>
+		/// <param name="isExpanded">Initial expand/collapse state</param>
 		public ABCatText(
 			ABCat parent,
 			string key,
@@ -28,5 +57,7 @@ namespace BridgeTools.PropertyGrid.Categories
 
 			parent.AddCategory( this, dockPanel, isExpanded );
 		}
+
+		#endregion
 	}
 }

@@ -57,7 +57,9 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// </summary>
 		/// <param name="prop">Child property</param>
 		/// <param name="header">Child property content</param>
-		internal void AddProperty( ABProp prop, object header )
+		internal void AddProperty( 
+			ABProp prop, 
+			object header )
 		{
 			prop.Content = header;
 
@@ -70,8 +72,11 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// </summary>
 		/// <param name="category">Child category</param>
 		/// <param name="header">Child category content</param>
-		/// <param name="isExpanded">Initial expand status</param>
-		internal void AddCategory( ABCat category, object header, bool isExpanded )
+		/// <param name="isExpanded">Initial expand state</param>
+		internal void AddCategory( 
+			ABCat category, 
+			object header, 
+			bool isExpanded )
 		{
 			_property = new ABProp()
 			{

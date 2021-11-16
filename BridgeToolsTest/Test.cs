@@ -20,7 +20,7 @@ namespace BridgeToolsTest
 				propProjName.BindText( vm, nameof( vm.Project ) );
 
 				// container at level 2 (with checkbox)
-				var catPier1 = new ABCatCheckBox( catPiers, "Pier 1", true, false );
+				var catPier1 = new ABCatCheckBox( catPiers, "Pier 1", false, true );
 				catPier1.BindIsChecked( vm.Pier1, nameof( vm.Pier1.IsDone ) );
 				catPier1.BindIsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
 				catPier1.BindArePropsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
