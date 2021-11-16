@@ -22,9 +22,9 @@ namespace BridgeTools.PropertyGrid.Properties
 	/// Property with date picker.
 	/// </summary>
 	/// <example>
-	/// +------------+---------------------------------+
-	/// | Key label  | Date text    Date picker button |
-	/// +------------+---------------------------------+
+	/// +------------+---------------------------------------------------------+
+	/// | Key label  | Date text    Date picker button (invisible if disabled) |
+	/// +------------+---------------------------------------------------------+
 	/// </example>
 	public class ABPropDatePicker : ABProp
 	{
@@ -81,7 +81,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Date binding.
+		/// Selected date binding.
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>
