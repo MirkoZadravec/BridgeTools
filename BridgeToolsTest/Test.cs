@@ -1,12 +1,32 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// Test.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace BridgeToolsTest
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Test class.
+	/// </summary>
 	public class Test
 	{
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Add properties to property grid and define the bindings.
+		/// </summary>
+		/// <param name="pgRoot"></param>
 		public static void Open( ABCat pgRoot )
 		{
 			var vm = new ViewModelPiers() { Project = "Project 1" };

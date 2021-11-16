@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ViewModelPiers.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -6,8 +17,9 @@ using System.Windows.Media;
 
 namespace BridgeToolsTest
 {
+	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// View model.
+	/// View model for testing.
 	/// </summary>
 	public class ViewModelPiers
 	{
@@ -34,6 +46,10 @@ namespace BridgeToolsTest
 		};
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Enum for testing.
+	/// </summary>
 	public enum RadioOptionsEnum
 	{
 		One,
@@ -41,6 +57,10 @@ namespace BridgeToolsTest
 		Three
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Enum for testing.
+	/// </summary>
 	public enum ComboOptionsEnum
 	{
 		First,
@@ -48,6 +68,10 @@ namespace BridgeToolsTest
 		Third
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelPier
 	{
 		public string Name { get; set; }
@@ -90,6 +114,10 @@ namespace BridgeToolsTest
 	{
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelGeoPos
 	{
 		public string Description { get; set; }
@@ -120,20 +148,36 @@ namespace BridgeToolsTest
 		#endregion
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelAnimal
 	{
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelDog : ViewModelAnimal
 	{
 		public string Name { get; set; }
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelCat : ViewModelAnimal
 	{
 		public string Age { get; set; }
 	}
 
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// View model for testing.
+	/// </summary>
 	public class ViewModelLion : ViewModelAnimal
 	{
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
