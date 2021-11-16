@@ -4,13 +4,12 @@ using System.Windows.Controls;
 // TODO
 //   - Tooltips
 //   - Validation Rules
-//   - Color picker
 //   * Tab stop
 //   - IsVisible
 //   - IsEnabled (do not forget to set opacity)
 //   - Lost focus when closing prop grid
 //   - Styles naming convention (for example see ABStyles)
-//   - Separate binding calls
+//   - Comments
 
 namespace BridgeTools.PropertyGrid
 {
