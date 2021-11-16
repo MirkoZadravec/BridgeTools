@@ -1,6 +1,6 @@
 ﻿namespace BridgeTools.PropertyGrid
 {
-	public class ComboItem<T>
+	public class GroupItem<T>
 	{
 		//------------------------------------------------------------------------------------------
 		public T Obj { get; private set; }
@@ -14,7 +14,7 @@
 		/// </summary>
 		/// <param name="obj"></param>
 		/// <param name="objText"></param>
-		public ComboItem( T obj, string objText )
+		public GroupItem( T obj, string objText )
 		{
 			Obj = obj;
 			ObjText = objText;
@@ -30,7 +30,7 @@
 		/// <returns></returns>
 		public override bool Equals( object obj )
 		{
-			if( obj is ComboItem<T> item )
+			if( obj is GroupItem<T> item )
 			{
 				return ObjText == item.ObjText;
 			}
@@ -60,7 +60,7 @@
 		/// <param name="item1"></param>
 		/// <param name="item2"></param>
 		/// <returns></returns>
-		public static bool operator ==( ComboItem<T> item1, ComboItem<T> item2 )
+		public static bool operator ==( GroupItem<T> item1, GroupItem<T> item2 )
 		{
 			return item1?.ObjText == item2?.ObjText;
 		}
@@ -72,7 +72,7 @@
 		/// <param name="item1"></param>
 		/// <param name="item2"></param>
 		/// <returns></returns>
-		public static bool operator !=( ComboItem<T> item1, ComboItem<T> item2 )
+		public static bool operator !=( GroupItem<T> item1, GroupItem<T> item2 )
 		{
 			return !( item1 == item2 );
 		}

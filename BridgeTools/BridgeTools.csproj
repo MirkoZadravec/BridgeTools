@@ -80,7 +80,7 @@
     <Compile Include="PropertyGrid\Properties\ABProp.cs" />
     <Compile Include="PropertyGrid\Converters\ABConvRadio.cs" />
     <Compile Include="PropertyGrid\Resources\ABStyles.cs" />
-    <Compile Include="PropertyGrid\ComboItem.cs" />
+    <Compile Include="PropertyGrid\GroupItem.cs" />
     <Compile Include="PropertyGrid\ABPropertyGrid.xaml.cs">
       <DependentUpon>ABPropertyGrid.xaml</DependentUpon>
       <SubType>Code</SubType>

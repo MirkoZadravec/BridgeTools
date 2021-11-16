@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropRadioBox.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Converters;
 using BridgeTools.PropertyGrid.Resources;
 using System;
@@ -10,16 +21,47 @@ using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with radio buttons.
+	/// </summary>
+	/// <example>
+	/// +------------+-------------------------------+
+	/// |            | (x) GroupItem[0].ObjText      |
+	/// | Key label  | (x) GroupItem[1].ObjText      |
+	/// |            | (x) etc.                      |
+	/// |            | ------ Border line (optional) |
+	/// +------------+-------------------------------+
+	/// </example>
 	public class ABPropRadioBox<T> : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Radio buttons.
+		/// </summary>
 		private List<RadioButton> _radioButtons = new List<RadioButton>();
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="groupName">Radio button group name (must be unique). Gets unique Guid if null is given.</param>
+		/// <param name="bottomBorder">Border on bottom, used if another radio group follows</param>
+		/// <param name="key">Property key label</param>
+		/// <param name="values">Radio button items</param>
 		public ABPropRadioBox(
 			ABCat parent,
 			string groupName,
-			bool addBorder,
+			bool bottomBorder,
 			string key,
-			List<ComboItem<T>> values ) : base()
+			List<GroupItem<T>> values ) : base()
 		{
 			InitStyle( parent, false );
 
@@ -65,7 +107,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				_radioButtons.Add( propRadio );
 			}
 
-			if( addBorder )
+			if( bottomBorder )
 			{
 				var border = new Border()
 				{
@@ -78,11 +120,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (selected radio item)
+		/// Selected radio item binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindSelectedItem(
 			object bSource,
 			string bPath )
@@ -108,5 +155,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				radioButton.SetBinding( RadioButton.IsCheckedProperty, b );
 			}
 		}
+
+		#endregion
 	}
 }

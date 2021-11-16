@@ -14,7 +14,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		public ABPropComboBox(
 			ABCat parent,
 			string key,
-			List<ComboItem<T>> values ) : base()
+			List<GroupItem<T>> values ) : base()
 		{
 			InitStyle( parent, false );
 
@@ -43,8 +43,8 @@ namespace BridgeTools.PropertyGrid.Properties
 				VerticalAlignment = VerticalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Bottom,
 				ItemsSource = values,
-				DisplayMemberPath = nameof( ComboItem<T>.ObjText ),
-				SelectedValuePath = nameof( ComboItem<T>.Obj ),
+				DisplayMemberPath = nameof( GroupItem<T>.ObjText ),
+				SelectedValuePath = nameof( GroupItem<T>.Obj ),
 			};
 			propVal.Children.Add( _comboBox );
 

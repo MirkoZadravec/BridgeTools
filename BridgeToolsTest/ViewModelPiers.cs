@@ -65,21 +65,21 @@ namespace BridgeToolsTest
 			new ViewModelCat() { Age = "5" }, 
 			new ViewModelDog() { Name = "Ben" } };
 
-		public List<ComboItem<RadioOptionsEnum>> RadioOptions = new List<ComboItem<RadioOptionsEnum>>()
+		public List<GroupItem<RadioOptionsEnum>> RadioOptions = new List<GroupItem<RadioOptionsEnum>>()
 		{
-			new ComboItem<RadioOptionsEnum>(RadioOptionsEnum.One, "One" ),
-			new ComboItem<RadioOptionsEnum>(RadioOptionsEnum.Two, "Two" ),
-			new ComboItem<RadioOptionsEnum>(RadioOptionsEnum.Three, "Three" )
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.One, "One" ),
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Two, "Two" ),
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Three, "Three" )
 		};
-		public ComboItem<RadioOptionsEnum> RadioOption { get; set; } = null;
+		public GroupItem<RadioOptionsEnum> RadioOption { get; set; } = null;
 
-		public List<ComboItem<ComboOptionsEnum>> ComboOptions = new List<ComboItem<ComboOptionsEnum>>()
+		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
 		};
-		public ComboItem<ComboOptionsEnum> ComboOption { get; set; } = null;
+		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}
 
 	//----------------------------------------------------------------------------------------------
@@ -136,12 +136,12 @@ namespace BridgeToolsTest
 
 	public class ViewModelLion : ViewModelAnimal
 	{
-		public List<ComboItem<ComboOptionsEnum>> ComboOptions = new List<ComboItem<ComboOptionsEnum>>()
+		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new ComboItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
 		};
-		public ComboItem<ComboOptionsEnum> ComboOption { get; set; } = null;
+		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}
 }
