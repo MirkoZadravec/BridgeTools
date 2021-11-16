@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropTextBox.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,10 +17,35 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with text box.
+	/// </summary>
+	/// <example>
+	/// +------------+-------------------+
+	/// | Key label  | Editable text box |
+	/// +------------+-------------------+
+	/// </example>
 	public class ABPropTextBox : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Text edit field.
+		/// </summary>
 		private TextBox _textBox = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Property key label</param>
 		public ABPropTextBox(
 			ABCat parent,
 			string key ) : base()
@@ -39,11 +75,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (text)
+		/// Text box binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindText(
 			object bSource,
 			string bPath )
@@ -61,5 +102,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_textBox.SetBinding( TextBox.TextProperty, b );
 		}
+
+		#endregion
 	}
 }
