@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropComboBox.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Collections.Generic;
 using System.Windows;
@@ -7,10 +18,36 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with combo box.
+	/// </summary>
+	/// <example>
+	/// +------------+----------------------------------------------------+
+	/// | Key label  | GroupItem[1..n].ObjText (with GroupItem[1..n].Obj) |
+	/// +------------+----------------------------------------------------+
+	/// </example>
 	public class ABPropComboBox<T> : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Combo box control.
+		/// </summary>
 		private ComboBox _comboBox = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Property key label</param>
+		/// <param name="values">Combo box items</param>
 		public ABPropComboBox(
 			ABCat parent,
 			string key,
@@ -51,11 +88,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (selected combo item)
+		/// Selected combo box item binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindSelectedItem(
 			object bSource,
 			string bPath )
@@ -73,5 +115,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_comboBox.SetBinding( ComboBox.SelectedItemProperty, b );
 		}
+
+		#endregion
 	}
 }

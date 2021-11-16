@@ -26,12 +26,12 @@ namespace BridgeTools.PropertyGrid.Properties
 	/// Property with radio buttons.
 	/// </summary>
 	/// <example>
-	/// +------------+-------------------------------+
-	/// |            | (x) GroupItem[0].ObjText      |
-	/// | Key label  | (x) GroupItem[1].ObjText      |
-	/// |            | (x) etc.                      |
-	/// |            | ------ Border line (optional) |
-	/// +------------+-------------------------------+
+	/// +------------+--------------------------------------------------+
+	/// |            | (x) GroupItem[0].ObjText (with GroupItem[0].Obj) |
+	/// | Key label  | (x) GroupItem[1].ObjText (with GroupItem[1].Obj) |
+	/// |            | (x) etc.                                         |
+	/// |            |     --------- Border line (optional) --------    |
+	/// +------------+--------------------------------------------------+
 	/// </example>
 	public class ABPropRadioBox<T> : ABProp
 	{
