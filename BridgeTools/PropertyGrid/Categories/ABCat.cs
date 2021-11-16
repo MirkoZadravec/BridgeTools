@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Controls;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABCat.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Controls;
 using BridgeTools.PropertyGrid.Properties;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
@@ -7,16 +18,45 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Categories
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Base category item class (control).
+	/// </summary>
 	public class ABCat : ListView
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Property control representing a row with its children.
+		/// </summary>
 		private ABProp _property = null;
 
+		#endregion
+
+		#region Styling
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Set initial style.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
 		protected void InitStyle( ABCat parent )
 		{
 			this.Style = parent.FindResource( ABStyles.ABCatStyle ) as Style;
 			this.ItemContainerStyle = parent.FindResource( ABStyles.ABCatItemsStyle ) as Style;
 		}
 
+		#endregion
+
+		#region Insertion
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Add child property.
+		/// </summary>
+		/// <param name="prop">Child property</param>
+		/// <param name="header">Child property content</param>
 		internal void AddProperty( ABProp prop, object header )
 		{
 			prop.Content = header;
@@ -24,6 +64,13 @@ namespace BridgeTools.PropertyGrid.Categories
 			this.Items.Add( prop );
 		}
 
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Add child category.
+		/// </summary>
+		/// <param name="category">Child category</param>
+		/// <param name="header">Child category content</param>
+		/// <param name="isExpanded">Initial expand status</param>
 		internal void AddCategory( ABCat category, object header, bool isExpanded )
 		{
 			_property = new ABProp()
@@ -40,11 +87,16 @@ namespace BridgeTools.PropertyGrid.Categories
 			this.Items.Add( _property );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (IsEnabled)
+		/// IsEnabled binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindIsEnabled(
 			object bSource,
 			string bPath )
@@ -63,11 +115,13 @@ namespace BridgeTools.PropertyGrid.Categories
 			_property.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (children - IsEnabled)
+		/// IsEnabled binding for the children only 
+		/// (the category is still manually expandable).
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindArePropsEnabled(
 			object bSource,
 			string bPath )
@@ -82,5 +136,7 @@ namespace BridgeTools.PropertyGrid.Categories
 
 			this.SetBinding( ABCat.IsEnabledProperty, b );
 		}
+
+		#endregion
 	}
 }

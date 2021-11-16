@@ -20,7 +20,7 @@ namespace BridgeTools.PropertyGrid.Properties
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
 	/// Property with text box filing the entire row. 
-	/// Indent by depth level can be optinally ignored.
+	/// Indent by depth level can be optionally ignored.
 	/// </summary>
 	/// <example>
 	/// +-----------------------+
