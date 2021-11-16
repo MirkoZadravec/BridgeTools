@@ -13,8 +13,8 @@ namespace BridgeTools.PropertyGrid.Categories
 
 		protected void InitStyle( ABCat parent )
 		{
-			this.Style = parent.FindResource( ABStyles.ABListViewStyle ) as Style;
-			this.ItemContainerStyle = parent.FindResource( ABStyles.ABListViewItemContainerStyle ) as Style;
+			this.Style = parent.FindResource( ABStyles.ABCatStyle ) as Style;
+			this.ItemContainerStyle = parent.FindResource( ABStyles.ABCatItemsStyle ) as Style;
 		}
 
 		internal void AddProperty( ABProp prop, object header )

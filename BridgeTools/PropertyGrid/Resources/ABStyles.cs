@@ -2,12 +2,14 @@
 {
 	internal class ABStyles
 	{
-		public static string ABPropItemKeyStyle => "ABPropItemKeyStyle";
-		public static string ABListViewStyle => "ABListViewStyle";
-		public static string ABListViewItemContainerStyle => "ABListViewItemContainerStyle";
 		public static string ABExpanderStyle => "ABExpanderStyle";
-		public static string ABExpanderKeyStyle => "ABExpanderKeyStyle";
-		public static string ABExpanderKeyValStyle => "ABExpanderKeyValStyle";
+
+		public static string ABCatStyle => "ABCatStyle";
+		public static string ABCatItemsStyle => "ABCatItemsStyle";
+		public static string ABCatKeyFullRowStyle => "ABCatKeyFullRowStyle";
+		public static string ABCatKeyValStyle => "ABCatKeyValStyle";
+
+		public static string ABPropItemKeyStyle => "ABPropItemKeyStyle";
 		public static string ABPropItemLevelStyle => "ABPropItemLevelStyle";
 		public static string ABComboBoxStyle => "ABComboBoxStyle";
 		public static string ABPropItemSliderStyle => "ABPropItemSliderStyle";

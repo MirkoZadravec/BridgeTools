@@ -21,7 +21,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABExpanderKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABCatKeyFullRowStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );

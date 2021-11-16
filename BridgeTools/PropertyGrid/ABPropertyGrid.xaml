@@ -41,8 +41,8 @@
             ScrollViewer.CanContentScroll="False"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-            ItemContainerStyle="{StaticResource ABListViewItemContainerStyle}"/>
-        <!--Important: Do not assign the Style="ABListViewStyle" here, otherwise the scrollbar is not visible-->
+            ItemContainerStyle="{StaticResource ABCatItemsStyle}"/>
+        <!--Important: Do not assign the Style="ABCatStyle" here, otherwise the scrollbar is not visible-->
 
     </Grid>
 </UserControl>

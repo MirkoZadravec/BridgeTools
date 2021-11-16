@@ -11,7 +11,7 @@
 
     <converters:ABConvLevelToExpanderSplitterOffset x:Key="ABConvLevelToExpanderSplitterOffset"/>
 
-    <Style x:Key="ABListViewStyle" TargetType="{x:Type categories:ABCat}">
+    <Style x:Key="ABCatStyle" TargetType="{x:Type categories:ABCat}">
         <Setter Property="Background" Value="{StaticResource ABPropGridBackgroundColor}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -71,7 +71,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ABListViewItemContainerStyle" TargetType="{x:Type props:ABProp}">
+    <Style x:Key="ABCatItemsStyle" TargetType="{x:Type props:ABProp}">
         <Style.Setters>
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
@@ -150,13 +150,13 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ABExpanderKeyStyle" TargetType="{x:Type TextBlock}">
+    <Style x:Key="ABCatKeyFullRowStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="ABExpanderKeyValStyle" TargetType="{x:Type TextBlock}">
+    <Style x:Key="ABCatKeyValStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
