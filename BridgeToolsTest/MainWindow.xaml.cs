@@ -19,7 +19,7 @@ namespace BridgeToolsTest
 
 		private void OnPropGridOpen( object sender, RoutedEventArgs e )
 		{
-			Test.Open( propGrid );
+			Test.Open( propGrid.Root );
 		}
 	}
 }

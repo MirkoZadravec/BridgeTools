@@ -1,5 +1,4 @@
-﻿using BridgeTools.PropertyGrid;
-using BridgeTools.PropertyGrid.Categories;
+﻿using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -8,12 +7,12 @@ namespace BridgeToolsTest
 {
 	public class Test
 	{
-		public static void Open( ABPropertyGrid propGrid )
+		public static void Open( ABCat pgRoot )
 		{
 			var vm = new ViewModelPiers() { Project = "Project 1" };
 
 			// container at level 1
-			var catPiers = new ABCatText( propGrid.Root, "Piers", true );
+			var catPiers = new ABCatText( pgRoot, "Piers", true );
 			{
 				// property at level 1 ( key/value pair )
 				var propProjName = new ABPropTextBox( catPiers, "Project" );
