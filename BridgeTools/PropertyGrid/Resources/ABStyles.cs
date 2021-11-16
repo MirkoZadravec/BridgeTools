@@ -1,4 +1,4 @@
-﻿namespace BridgeTools.PropertyGrid
+﻿namespace BridgeTools.PropertyGrid.Resources
 {
 	internal class ABStyles
 	{

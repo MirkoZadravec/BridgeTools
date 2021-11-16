@@ -1,5 +1,6 @@
 ﻿using BridgeTools.PropertyGrid.Controls;
 using BridgeTools.PropertyGrid.Properties;
+using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;

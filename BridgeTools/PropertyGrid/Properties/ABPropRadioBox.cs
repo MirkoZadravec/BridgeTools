@@ -1,5 +1,6 @@
 ﻿using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Converters;
+using BridgeTools.PropertyGrid.Resources;
 using System;
 using System.Collections.Generic;
 using System.Windows;
