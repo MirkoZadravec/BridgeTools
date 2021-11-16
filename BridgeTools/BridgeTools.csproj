@@ -73,12 +73,12 @@
     </Page>
     <Compile Include="PropertyGrid\Categories\ABCat.cs" />
     <Compile Include="PropertyGrid\Controls\ABExpander.cs" />
-    <Compile Include="PropertyGrid\Converters\ABLevelToExpanderSplitterOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\Converters\ABLevelToOffsetConverter.cs" />
-    <Compile Include="PropertyGrid\Converters\ABLevelToSplitterOffsetConverter.cs" />
+    <Compile Include="PropertyGrid\Converters\ABConvLevelToExpanderSplitterOffset.cs" />
+    <Compile Include="PropertyGrid\Converters\ABConvLevelToOffset.cs" />
+    <Compile Include="PropertyGrid\Converters\ABConvLevelToSplitterOffset.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropCheckBox.cs" />
     <Compile Include="PropertyGrid\Properties\ABProp.cs" />
-    <Compile Include="PropertyGrid\Converters\ABRadioConverter.cs" />
+    <Compile Include="PropertyGrid\Converters\ABConvRadio.cs" />
     <Compile Include="PropertyGrid\Resources\ABStyles.cs" />
     <Compile Include="PropertyGrid\ComboItem.cs" />
     <Compile Include="PropertyGrid\ABPropertyGrid.xaml.cs">

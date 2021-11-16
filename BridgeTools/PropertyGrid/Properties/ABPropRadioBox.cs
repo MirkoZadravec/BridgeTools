@@ -93,7 +93,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var rc = new ABRadioConverter();
+			var rc = new ABConvRadio();
 
 			foreach( var radioButton in _radioButtons )
 			{

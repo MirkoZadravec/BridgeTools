@@ -9,9 +9,9 @@
         <ResourceDictionary Source="AbResColors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <converters:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
-    <converters:ABLevelToExpanderSplitterOffsetConverter x:Key="ABLevelToExpanderSplitterOffsetConverter"/>
-    <converters:ABLevelToOffsetConverter x:Key="ABLevelToOffsetConverter"/>
+    <converters:ABConvLevelToSplitterOffset x:Key="ABConvLevelToSplitterOffset"/>
+    <converters:ABConvLevelToExpanderSplitterOffset x:Key="ABConvLevelToExpanderSplitterOffset"/>
+    <converters:ABConvLevelToOffset x:Key="ABConvLevelToOffset"/>
 
     <Style x:Key="ABListViewStyle" TargetType="{x:Type categories:ABCat}">
         <Setter Property="Background" Value="{StaticResource ABPropGridBackgroundColor}" />
@@ -82,7 +82,7 @@
                     <DockPanel x:Name="ItemBorder" LastChildFill="True" Background="Transparent" Margin="0">
                         <Border 
                                 DockPanel.Dock="Left"
-                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ChildLevel, Converter={StaticResource ABLevelToOffsetConverter}}"
+                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ChildLevel, Converter={StaticResource ABConvLevelToOffset}}"
                                 BorderThickness="0"/>
                         <ContentControl Content="{TemplateBinding Content}" IsTabStop="False"/>
                     </DockPanel>
@@ -213,7 +213,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource ABLevelToExpanderSplitterOffsetConverter}">
+                <MultiBinding Converter="{StaticResource ABConvLevelToExpanderSplitterOffset}">
                     <MultiBinding.Bindings>
                         <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type props:ABProp}}" Path="ChildLevel"/>
                         <Binding ElementName="ABSplitter" Path="ActualWidth"/>
@@ -228,7 +228,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource ABLevelToSplitterOffsetConverter}">
+                <MultiBinding Converter="{StaticResource ABConvLevelToSplitterOffset}">
                     <MultiBinding.Bindings>
                         <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type props:ABProp}}" Path="ChildLevel"/>
                         <Binding ElementName="ABSplitter" Path="ActualWidth"/>

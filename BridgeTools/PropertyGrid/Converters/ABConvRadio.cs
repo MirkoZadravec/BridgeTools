@@ -6,9 +6,9 @@ namespace BridgeTools.PropertyGrid.Converters
 {
 	//------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Radio buttons convertor
+	/// Radio buttons converter.
 	/// </summary>
-	internal class ABRadioConverter : IValueConverter
+	internal class ABConvRadio : IValueConverter
 	{
 		//------------------------------------------------------------------------------------------
 		/// <summary>

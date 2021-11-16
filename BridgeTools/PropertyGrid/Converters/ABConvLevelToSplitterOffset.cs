@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Converters
 {
-	internal class ABLevelToExpanderSplitterOffsetConverter : IMultiValueConverter
+	internal class ABConvLevelToSplitterOffset : IMultiValueConverter
 	{
 		#region IMultiValueConverter Members
 
@@ -15,7 +15,7 @@ namespace BridgeTools.PropertyGrid.Converters
 			double spaceLevel = 10 + 5;
 
 			if( values[0] is int valLevel )
-				width += -( ( valLevel + 1 ) * spaceLevel );
+				width += -( valLevel * spaceLevel );
 
 			if( values[1] is double valSplitter )
 				width += valSplitter;

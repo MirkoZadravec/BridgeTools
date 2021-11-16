@@ -3,7 +3,7 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Converters
 {
-	internal class ABLevelToOffsetConverter : IValueConverter
+	internal class ABConvLevelToOffset : IValueConverter
 	{
 		public object Convert( object value, Type targetType, object parameter, System.Globalization.CultureInfo culture )
 		{
