@@ -1,4 +1,15 @@
-﻿using System.Windows;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// App.xaml.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using System.Windows;
 
 namespace BridgeToolsTest
 {
