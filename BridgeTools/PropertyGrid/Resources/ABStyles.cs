@@ -12,6 +12,7 @@
 		public static string ABComboBoxStyle => "ABComboBoxStyle";
 		public static string ABPropItemSliderStyle => "ABPropItemSliderStyle";
 		public static string ABPropItemDateStyle => "ABPropItemDateStyle";
+		public static string ABPropItemDateNoButtonStyle => "ABPropItemDateNoButtonStyle";
 		public static string ABButtonStyle => "ABButtonStyle";
 		public static string ABPropItemValStyle => "ABPropItemValStyle";
 		public static string ABPropItemFullRowStyle => "ABPropItemFullRowStyle";

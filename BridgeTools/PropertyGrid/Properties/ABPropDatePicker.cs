@@ -32,6 +32,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			_datePicker = new DatePicker()
 			{
 				Style = parent.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
+				// Info: For readonly use ABPropItemDateNoButtonStyle
 				IsTabStop = true,
 			};
 			dockPanel.Children.Add( _datePicker );
