@@ -22,6 +22,11 @@ namespace BridgeTools.PropertyGrid.Properties
 	/// Property filing the entire row. 
 	/// Its indent can ignore level depth too.
 	/// </summary>
+	/// <example>
+	/// +-----------------------+
+	/// | Editable text box     |
+	/// +-----------------------+
+	/// </example>
 	public class ABPropTextBoxFullRow : ABProp
 	{
 		#region Fields
@@ -70,8 +75,8 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <summary>
 		/// Text box binding.
 		/// </summary>
-		/// <param name="bSource">Binding source</param>
-		/// <param name="bPath">Binding property path</param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindText(
 			object bSource,
 			string bPath )
