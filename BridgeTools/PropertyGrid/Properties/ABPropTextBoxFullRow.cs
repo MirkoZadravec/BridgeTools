@@ -19,8 +19,8 @@ namespace BridgeTools.PropertyGrid.Properties
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Property filing the entire row. 
-	/// Its indent can ignore level depth too.
+	/// Property with text box filing the entire row. 
+	/// Indent by depth level can be optinally ignored.
 	/// </summary>
 	/// <example>
 	/// +-----------------------+
