@@ -17,7 +17,8 @@
                 <ResourceDictionary Source="Resources/AbResButton.xaml" />
                 <ResourceDictionary Source="Resources/AbResSlider.xaml" />
                 <ResourceDictionary Source="Resources/AbResExpander.xaml" />
-                <ResourceDictionary Source="Resources/PropertyGrid.xaml" />
+                <ResourceDictionary Source="Resources/AbResCat.xaml" />
+                <ResourceDictionary Source="Resources/AbResProp.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -39,8 +40,9 @@
             x:Name="Container"
             ScrollViewer.CanContentScroll="False"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             ItemContainerStyle="{StaticResource ABListViewItemContainerStyle}"/>
+        <!--Important: Do not assign the Style="ABListViewStyle" here, otherwise the scrollbar is not visible-->
 
     </Grid>
 </UserControl>
