@@ -72,7 +72,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="PropertyGrid\Categories\ABCat.cs" />
-    <Compile Include="PropertyGrid\ABExpander.cs" />
+    <Compile Include="PropertyGrid\Controls\ABExpander.cs" />
     <Compile Include="PropertyGrid\Convertors\ABLevelToExpanderSplitterOffsetConverter.cs" />
     <Compile Include="PropertyGrid\Convertors\ABLevelToOffsetConverter.cs" />
     <Compile Include="PropertyGrid\Convertors\ABLevelToSplitterOffsetConverter.cs" />

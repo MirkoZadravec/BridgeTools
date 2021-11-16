@@ -4,6 +4,7 @@
                     xmlns:local="clr-namespace:BridgeTools.PropertyGrid"
                     xmlns:categories="clr-namespace:BridgeTools.PropertyGrid.Categories"
                     xmlns:convertors="clr-namespace:BridgeTools.PropertyGrid.Convertors"
+                    xmlns:controls="clr-namespace:BridgeTools.PropertyGrid.Controls"
                     xmlns:props="clr-namespace:BridgeTools.PropertyGrid.Properties">
 
     <convertors:ABLevelToSplitterOffsetConverter x:Key="ABLevelToSplitterOffsetConverter"/>
@@ -883,7 +884,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ABExpanderTemplate" TargetType="{x:Type local:ABExpander}">
+    <ControlTemplate x:Key="ABExpanderTemplate" TargetType="{x:Type controls:ABExpander}">
         <DockPanel LastChildFill="True">
             <DockPanel
                 x:Name="Border" 
@@ -921,7 +922,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="ABExpanderStyle" TargetType="{x:Type local:ABExpander}">
+    <Style x:Key="ABExpanderStyle" TargetType="{x:Type controls:ABExpander}">
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
