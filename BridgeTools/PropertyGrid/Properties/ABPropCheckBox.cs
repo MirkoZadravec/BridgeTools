@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropCheckBox.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,10 +17,36 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with checkbox (can be three state).
+	/// </summary>
+	/// <example>
+	/// +------------+-----+
+	/// | Key label  | (x) |
+	/// +------------+-----+
+	/// </example>
 	public class ABPropCheckBox : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Check box control.
+		/// </summary>
 		private CheckBox _checkBox = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Property key label</param>
+		/// <param name="isThreeState">Three state check box</param>
 		public ABPropCheckBox( 
 			ABCat parent,
 			string key,
@@ -41,11 +78,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (check box - IsChecked)
+		/// IsChecked binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindIsChecked( 
 			object bSource,
 			string bPath)
@@ -64,24 +106,27 @@ namespace BridgeTools.PropertyGrid.Properties
 			_checkBox.SetBinding( CheckBox.IsCheckedProperty, b );
 		}
 
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (IsEnabled)
+		/// IsEnabled binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPathEnabled"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindIsEnabled(
 			object bSource,
-			string bPathEnabled )
+			string bPath )
 		{
-			if( null == bSource || string.IsNullOrEmpty( bPathEnabled ) )
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPathEnabled ) 
+			var b = new Binding( bPath ) 
 			{ 
 				Source = bSource 
 			};
 
 			this.SetBinding( ABProp.IsEnabledProperty, b );
 		}
+
+		#endregion
 	}
 }
