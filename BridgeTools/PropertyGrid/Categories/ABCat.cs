@@ -67,7 +67,7 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// Binding (children - IsEnabled)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindArePropsEnabled(
 			object bSource,
 			string bPath )

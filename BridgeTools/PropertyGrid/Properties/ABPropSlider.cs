@@ -82,7 +82,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Binding (selected slider item and text)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindValue(
 			object bSource,
 			string bPath )

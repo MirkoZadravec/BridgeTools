@@ -47,7 +47,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Binding (color)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindColor(
 			object bSource,
 			string bPath )

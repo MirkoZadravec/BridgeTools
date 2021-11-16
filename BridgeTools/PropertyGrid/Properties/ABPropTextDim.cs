@@ -56,7 +56,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Binding (text)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindText(
 			object bSource,
 			string bPath )

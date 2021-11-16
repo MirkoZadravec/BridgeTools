@@ -45,18 +45,18 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Binding (check box - IsChecked)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindIsChecked( 
 			object bSource,
-			string bPathChecked)
+			string bPath)
 		{
 			if( null == _checkBox )
 				return;
 
-			if( null == bSource || string.IsNullOrEmpty( bPathChecked ) )
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
 				return;
 
-			var b = new Binding( bPathChecked ) 
+			var b = new Binding( bPath ) 
 			{ 
 				Source = bSource 
 			};

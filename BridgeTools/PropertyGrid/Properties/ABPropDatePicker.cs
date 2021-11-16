@@ -44,7 +44,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Binding (date)
 		/// </summary>
 		/// <param name="bSource"></param>
-		/// <param name="bPathChecked"></param>
+		/// <param name="bPath"></param>
 		public void BindDate(
 			object bSource,
 			string bPath )
