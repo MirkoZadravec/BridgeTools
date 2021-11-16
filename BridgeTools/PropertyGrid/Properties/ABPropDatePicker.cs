@@ -68,7 +68,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			_datePicker = new DatePicker()
 			{
 				Style = parent.FindResource( ABStyles.ABPropValDateStyle ) as Style,
-				// Info: For readonly use ABPropValDateNoButtonStyle
 				IsTabStop = true,
 			};
 			dockPanel.Children.Add( _datePicker );
@@ -102,6 +101,30 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 
 			_datePicker.SetBinding( DatePicker.SelectedDateProperty, b );
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// IsEnabled binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindIsEnabled(
+			object bSource,
+			string bPath )
+		{
+			if( null == _datePicker )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource
+			};
+
+			_datePicker.SetBinding( DatePicker.IsEnabledProperty, b );
 		}
 
 		#endregion
