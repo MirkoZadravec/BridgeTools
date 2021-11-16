@@ -1,5 +1,21 @@
-﻿namespace BridgeTools.PropertyGrid.Resources
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABCat.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+namespace BridgeTools.PropertyGrid.Resources
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Style naming map.
+	/// Simplifies the renaming of the styles.
+	/// </summary>
 	internal class ABStyles
 	{
 		public static string ABExpanderStyle => "ABExpanderStyle";
