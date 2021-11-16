@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropTextBoxFullRow.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,10 +17,31 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property filing the entire row. 
+	/// Its indent can ignore level depth too.
+	/// </summary>
 	public class ABPropTextBoxFullRow : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Text edit field.
+		/// </summary>
 		private TextBox _textBox = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Contructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="noLevelIndent">True if no indent by depth level</param>
 		public ABPropTextBoxFullRow( 
 			ABCat parent, 
 			bool noLevelIndent ) : base()
@@ -30,11 +62,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (text)
+		/// Text box binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Binding source</param>
+		/// <param name="bPath">Binding property path</param>
 		public void BindText(
 			object bSource,
 			string bPath )
@@ -52,5 +89,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_textBox.SetBinding( TextBox.TextProperty, b );
 		}
+
+		#endregion
 	}
 }
