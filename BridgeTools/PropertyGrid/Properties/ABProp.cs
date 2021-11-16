@@ -45,8 +45,8 @@ namespace BridgeTools.PropertyGrid.Properties
 		{
             this.Style =
                 noLevelIndent ?
-                parent.FindResource( ABStyles.ABPropItemFullRowStyle ) as Style :
-                parent.FindResource( ABStyles.ABPropItemLevelStyle ) as Style;
+                parent.FindResource( ABStyles.ABPropValFullRowStyle ) as Style :
+                parent.FindResource( ABStyles.ABPropValStyle ) as Style;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_textBox = new TextBox()
 			{
-				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
 			dockPanel.Children.Add( _textBox );
 

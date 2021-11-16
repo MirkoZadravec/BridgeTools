@@ -6,17 +6,19 @@
 
 		public static string ABCatStyle => "ABCatStyle";
 		public static string ABCatItemsStyle => "ABCatItemsStyle";
-		public static string ABCatKeyFullRowStyle => "ABCatKeyFullRowStyle";
 		public static string ABCatKeyValStyle => "ABCatKeyValStyle";
+		public static string ABCatKeyFullRowStyle => "ABCatKeyFullRowStyle";
 
-		public static string ABPropItemKeyStyle => "ABPropItemKeyStyle";
-		public static string ABPropItemLevelStyle => "ABPropItemLevelStyle";
-		public static string ABComboBoxStyle => "ABComboBoxStyle";
-		public static string ABPropItemSliderStyle => "ABPropItemSliderStyle";
-		public static string ABPropItemDateStyle => "ABPropItemDateStyle";
-		public static string ABPropItemDateNoButtonStyle => "ABPropItemDateNoButtonStyle";
-		public static string ABButtonStyle => "ABButtonStyle";
-		public static string ABPropItemValStyle => "ABPropItemValStyle";
-		public static string ABPropItemFullRowStyle => "ABPropItemFullRowStyle";
+		public static string ABPropKeyStyle => "ABPropKeyStyle";
+
+		public static string ABPropValStyle => "ABPropValStyle";
+		public static string ABPropValFullRowStyle => "ABPropValFullRowStyle";
+
+		public static string ABPropValTextBoxStyle => "ABPropValTextBoxStyle";
+		public static string ABPropValComboBoxStyle => "ABPropValComboBoxStyle";
+		public static string ABPropValSliderStyle => "ABPropValSliderStyle";
+		public static string ABPropValDateStyle => "ABPropValDateStyle";
+		public static string ABPropValDateNoButtonStyle => "ABPropValDateNoButtonStyle";
+		public static string ABPropValButtonStyle => "ABPropValButtonStyle";
 	}
 }

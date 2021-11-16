@@ -24,15 +24,15 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
 			_datePicker = new DatePicker()
 			{
-				Style = parent.FindResource( ABStyles.ABPropItemDateStyle ) as Style,
-				// Info: For readonly use ABPropItemDateNoButtonStyle
+				Style = parent.FindResource( ABStyles.ABPropValDateStyle ) as Style,
+				// Info: For readonly use ABPropValDateNoButtonStyle
 				IsTabStop = true,
 			};
 			dockPanel.Children.Add( _datePicker );

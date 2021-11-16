@@ -11,7 +11,7 @@
     <converters:ABConvLevelToSplitterOffset x:Key="ABConvLevelToSplitterOffset"/>
     <converters:ABConvLevelToOffset x:Key="ABConvLevelToOffset"/>
 
-    <Style x:Key="ABPropItemLevelStyle" TargetType="{x:Type props:ABProp}">
+    <Style x:Key="ABPropValStyle" TargetType="{x:Type props:ABProp}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="Template">
@@ -37,7 +37,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ABPropItemFullRowStyle" TargetType="{x:Type props:ABProp}">
+    <Style x:Key="ABPropValFullRowStyle" TargetType="{x:Type props:ABProp}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="IsTabStop" Value="False"/>
@@ -60,7 +60,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ABPropItemKeyStyle" TargetType="{x:Type TextBlock}">
+    <Style x:Key="ABPropKeyStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Width">
@@ -75,7 +75,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ABPropItemValStyle" TargetType="{x:Type TextBox}">
+    <Style x:Key="ABPropValTextBoxStyle" TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="LightGray"/>

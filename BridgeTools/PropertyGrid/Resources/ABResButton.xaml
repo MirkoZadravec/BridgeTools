@@ -32,7 +32,8 @@
     <Color x:Key="DisabledForegroundColor">#FF888888</Color>
     <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
     <Color x:Key="DisabledBorderDarkColor">#FF888888</Color>
-    <Style x:Key="ABButtonStyle" TargetType="Button">
+    
+    <Style x:Key="ABPropValButtonStyle" TargetType="Button">
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="OverridesDefaultStyle"

@@ -29,7 +29,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -71,7 +71,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				Minimum = sliderMin,
 				Maximum = sliderMax,
 				MinHeight = 16,
-				Style = parent.FindResource( ABStyles.ABPropItemSliderStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValSliderStyle ) as Style,
 			};
 			propVal.Children.Add( _slider );
 

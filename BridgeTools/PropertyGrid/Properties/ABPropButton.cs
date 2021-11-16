@@ -24,7 +24,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -39,7 +39,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				VerticalAlignment = VerticalAlignment.Stretch,
 				HorizontalContentAlignment = HorizontalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Center,
-				Style = parent.FindResource( ABStyles.ABButtonStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValButtonStyle ) as Style,
 			};
 			dockPanel.Children.Add( _button );
 

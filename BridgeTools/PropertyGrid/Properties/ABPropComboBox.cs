@@ -26,7 +26,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -39,7 +39,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_comboBox = new ComboBox()
 			{
-				Style = parent.FindResource( ABStyles.ABComboBoxStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValComboBoxStyle ) as Style,
 				VerticalAlignment = VerticalAlignment.Center,
 				VerticalContentAlignment = VerticalAlignment.Bottom,
 				ItemsSource = values,

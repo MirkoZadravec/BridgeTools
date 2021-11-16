@@ -3,7 +3,7 @@
                     xmlns:s="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:BridgeTools.PropertyGrid.Resources">
 
-    <Style x:Key="ABPropItemDateStyle" TargetType="{x:Type DatePicker}">
+    <Style x:Key="ABPropValDateStyle" TargetType="{x:Type DatePicker}">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>
         <Setter Property="SelectedDateFormat" Value="Short"/>
@@ -414,7 +414,7 @@
     </Style>
 
     <!--Can be used for read-only state-->
-    <Style x:Key="ABPropItemDateNoButtonStyle" TargetType="{x:Type DatePicker}">
+    <Style x:Key="ABPropValDateNoButtonStyle" TargetType="{x:Type DatePicker}">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>
         <Setter Property="SelectedDateFormat" Value="Short"/>

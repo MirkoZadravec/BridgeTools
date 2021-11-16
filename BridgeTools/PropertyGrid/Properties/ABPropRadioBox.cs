@@ -31,7 +31,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );

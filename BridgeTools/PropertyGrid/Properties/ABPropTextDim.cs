@@ -25,7 +25,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			var propKey = new TextBlock()
 			{
 				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropItemKeyStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
 			};
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
@@ -45,7 +45,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_textBox = new TextBox()
 			{
-				Style = parent.FindResource( ABStyles.ABPropItemValStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
 			dockPanelVal.Children.Add( _textBox );
 

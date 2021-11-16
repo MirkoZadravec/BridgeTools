@@ -304,7 +304,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ABComboBoxStyle" TargetType="{x:Type ComboBox}">
+    <Style x:Key="ABPropValComboBoxStyle" TargetType="{x:Type ComboBox}">
         <Setter Property="OverridesDefaultStyle" Value="False"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="Background" Value="{StaticResource ComboBox.Static.WhiteBackground}"/>
