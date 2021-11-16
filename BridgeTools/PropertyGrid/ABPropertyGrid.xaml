@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="600">
     
     <UserControl.Resources>
-        <ResourceDictionary Source="PropertyGrid.xaml" />
+        <ResourceDictionary Source="Resources/PropertyGrid.xaml" />
     </UserControl.Resources>
     
     <Grid Background="{StaticResource ABPropGridBackgroundColor}">

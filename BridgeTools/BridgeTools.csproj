@@ -85,7 +85,7 @@
       <DependentUpon>ABPropertyGrid.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PropertyGrid\PropertyGrid.xaml">
+    <Page Include="PropertyGrid\Resources\PropertyGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
