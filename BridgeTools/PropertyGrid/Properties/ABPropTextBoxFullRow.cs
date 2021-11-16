@@ -6,48 +6,26 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
-	public class ABPropTextDim : ABProp
+	public class ABPropTextBoxFullRow : ABProp
 	{
 		private TextBox _textBox = null;
 
-		public ABPropTextDim(
-			ABCat parent,
-			string key,
-			string symbol ) : base()
+		public ABPropTextBoxFullRow( 
+			ABCat parent, 
+			bool noLevelIndent ) : base()
 		{
-			InitStyle( parent, false );
+			InitStyle( parent, noLevelIndent );
 
 			var dockPanel = new DockPanel()
 			{
 				LastChildFill = true,
 			};
 
-			var propKey = new TextBlock()
-			{
-				Text = key,
-				Style = parent.FindResource( ABStyles.ABPropKeyStyle ) as Style,
-			};
-			DockPanel.SetDock( propKey, Dock.Left );
-			dockPanel.Children.Add( propKey );
-
-			var dockPanelVal = new DockPanel()
-			{
-				LastChildFill = true,
-			};
-			dockPanel.Children.Add( dockPanelVal );
-
-			var propSymbol = new TextBlock()
-			{
-				Text = symbol,
-			};
-			DockPanel.SetDock( propSymbol, Dock.Right );
-			dockPanelVal.Children.Add( propSymbol );
-
 			_textBox = new TextBox()
 			{
 				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
-			dockPanelVal.Children.Add( _textBox );
+			dockPanel.Children.Add( _textBox );
 
 			parent.AddProperty( this, dockPanel );
 		}

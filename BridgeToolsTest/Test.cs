@@ -34,13 +34,13 @@ namespace BridgeToolsTest
 					var catGeoPos = new ABCatText( catPier1, "Geometric position", false );
 					{
 						// property at level 3 ( occupies full row )
-						var tf = new ABPropTextFullRow( catGeoPos, false );
+						var tf = new ABPropTextBoxFullRow( catGeoPos, false );
 						// bindings
 						tf.BindText( vm.Pier1.GeoPos, nameof( vm.Pier1.GeoPos.Description ) );
 					}
 
 					// property at level 2 ( key/value pair with dimension )
-					var td = new ABPropTextDim( catPier1, "Offset", "[m]" );
+					var td = new ABPropTextBoxDim( catPier1, "Offset", "[m]" );
 					// bindings
 					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ) );
 

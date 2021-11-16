@@ -65,8 +65,8 @@
     <Compile Include="PropertyGrid\Properties\ABPropRadioBox.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropSlider.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropTextBox.cs" />
-    <Compile Include="PropertyGrid\Properties\ABPropTextDim.cs" />
-    <Compile Include="PropertyGrid\Properties\ABPropTextFullRow.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropTextBoxDim.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropTextBoxFullRow.cs" />
     <Page Include="PropertyGrid\ABPropertyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
