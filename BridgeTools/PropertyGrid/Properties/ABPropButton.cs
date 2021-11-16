@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropButton.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,13 +17,40 @@ using System.Windows.Input;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with button.
+	/// </summary>
+	/// <example>
+	/// +------------+--------+
+	/// | Key label  | Button |
+	/// +------------+--------+
+	/// </example>
 	public class ABPropButton : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Button control.
+		/// </summary>
 		private Button _button = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Property key label</param>
+		/// <param name="val">Button label</param>
 		public ABPropButton( 
 			ABCat parent, 
-			string key ) : base()
+			string key,
+			string val) : base()
 		{
 			InitStyle( parent, false );
 
@@ -31,7 +69,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			_button = new Button()
 			{
-				Content = key,
+				Content = val,
 				IsEnabled = true,
 				MinHeight = 20.0,
 				Margin = new Thickness( 1.0, 2.0, 1.0, 2.0 ),
@@ -46,10 +84,15 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (button command)
+		/// Command binding.
 		/// </summary>
-		/// <param name="bCommand"></param>
+		/// <param name="bCommand">Command</param>
 		public void BindCommand( CommandBinding bCommand )
 		{
 			if( null == _button )
@@ -61,5 +104,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			_button.Command = bCommand.Command;
 			_button.CommandBindings.Add( bCommand );
 		}
+
+		#endregion
 	}
 }

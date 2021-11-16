@@ -150,7 +150,7 @@ namespace BridgeToolsTest
 						c.BindColor( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.Color ) );
 
 						// property at level 3 ( key/button )
-						var b = new ABPropButton( catGeoPos, "Parameters" );
+						var b = new ABPropButton( catGeoPos, "Parameters", "Press" );
 						// bindings
 						b.BindCommand(
 							new CommandBinding(
