@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Resources/AbResComboBox.xaml" />
                 <ResourceDictionary Source="Resources/AbResButton.xaml" />
                 <ResourceDictionary Source="Resources/AbResSlider.xaml" />
+                <ResourceDictionary Source="Resources/AbResExpander.xaml" />
                 <ResourceDictionary Source="Resources/PropertyGrid.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
