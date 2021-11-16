@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace BridgeTools.PropertyGrid
+namespace BridgeTools.PropertyGrid.Converters
 {
 	//------------------------------------------------------------------------------------------
 	/// <summary>

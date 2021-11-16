@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace BridgeTools.PropertyGrid.Convertors
+namespace BridgeTools.PropertyGrid.Converters
 {
 	internal class ABLevelToSplitterOffsetConverter : IMultiValueConverter
 	{
