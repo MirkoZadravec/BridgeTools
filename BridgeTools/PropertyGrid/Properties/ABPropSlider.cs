@@ -1,4 +1,15 @@
-﻿using BridgeTools.PropertyGrid.Categories;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ABPropSlider.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,11 +17,46 @@ using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
+	/// Property with slider with its value and symbol.
+	/// </summary>
+	/// <example>
+	/// +------------+------------------------+
+	/// |            | Value           Symbol |
+	/// | Key label  | --------Slider-------- |
+	/// +------------+------------------------+
+	/// </example>
 	public class ABPropSlider : ABProp
 	{
+		#region Fields
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Slider control.
+		/// </summary>
 		private Slider _slider = null;
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Value label.
+		/// </summary>
 		private TextBlock _sliderTextBox = null;
 
+		#endregion
+
+		#region Constructor
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Constructor.
+		/// </summary>
+		/// <param name="parent">Parent category</param>
+		/// <param name="key">Property key label</param>
+		/// <param name="symbol">Value symbol</param>
+		/// <param name="sliderMin">Minimum</param>
+		/// <param name="sliderMax">Maximum</param>
+		/// <param name="sliderStep">Step</param>
 		public ABPropSlider(
 			ABCat parent,
 			string key,
@@ -78,11 +124,16 @@ namespace BridgeTools.PropertyGrid.Properties
 			parent.AddProperty( this, dockPanel );
 		}
 
+		#endregion
+
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Binding (selected slider item and text)
+		/// Slider position and label binding.
 		/// </summary>
-		/// <param name="bSource"></param>
-		/// <param name="bPath"></param>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		public void BindValue(
 			object bSource,
 			string bPath )
@@ -101,5 +152,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			_slider.SetBinding( Slider.ValueProperty, b );
 			_sliderTextBox.SetBinding( TextBlock.TextProperty, b );
 		}
+
+		#endregion
 	}
 }
