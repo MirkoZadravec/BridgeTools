@@ -12,7 +12,6 @@
 using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -22,7 +21,7 @@ namespace BridgeToolsTest
 	/// <summary>
 	/// View model for testing.
 	/// </summary>
-	public class ViewModelPiers
+	public class ViewModelPiers : ViewModelBase
 	{
 		public string Project { get; set; }
 		public ViewModelPier Pier1 { get; set; } = new ViewModelPier() 
@@ -108,7 +107,11 @@ namespace BridgeToolsTest
 		public GroupItem<RadioOptionsEnum> RadioOption
 		{
 			get { return _radioOption; }
-			set { _radioOption = value; }
+			set 
+			{ 
+				_radioOption = value; 
+				OnPropertyChanged( nameof( RadioOption ) ); 
+			}
 		}
 
 		public void InitRadioOption( GroupItem<RadioOptionsEnum> radioOption )
@@ -129,6 +132,7 @@ namespace BridgeToolsTest
 			set 
 			{
 				_comboOption = value;
+				OnPropertyChanged( nameof( ComboOption ) );
 
 				// hide entire category
 				if( _comboOption.Obj == ComboOptionsEnum.First )
@@ -179,7 +183,7 @@ namespace BridgeToolsTest
 	/// <summary>
 	/// View model for testing.
 	/// </summary>
-	public class ViewModelGeoPos
+	public class ViewModelGeoPos : ViewModelBase
 	{
 		public string Description { get; set; }
 		public DateTime Date { get; set; }
@@ -214,7 +218,7 @@ namespace BridgeToolsTest
 	/// <summary>
 	/// View model for testing.
 	/// </summary>
-	public class ViewModelAnimal
+	public class ViewModelAnimal : ViewModelBase
 	{
 	}
 
@@ -252,7 +256,11 @@ namespace BridgeToolsTest
 		public GroupItem<ComboOptionsEnum> ComboOption
 		{
 			get { return _comboOption; }
-			set { _comboOption = value; }
+			set 
+			{ 
+				_comboOption = value;
+				OnPropertyChanged( nameof( ComboOption ) );
+			}
 		}
 
 		public void InitComboOption( GroupItem<ComboOptionsEnum> comboOption )
