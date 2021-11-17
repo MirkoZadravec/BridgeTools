@@ -115,6 +115,8 @@ namespace BridgeToolsTest
 					var cbP = new ABPropComboBox<ComboOptionsEnum>( catPier1, "Combo Option", vm.Pier1.ComboOptions );
 					// bindings
 					cbP.BindSelectedItem( vm.Pier1, nameof( vm.Pier1.ComboOption ) );
+					// callbacks
+					vm.Pier1.RefreshComboOptions = cbP.Refresh;
 
 					// select in slider
 					vm.Pier1.Darkness = 30;

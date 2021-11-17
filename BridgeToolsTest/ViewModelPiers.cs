@@ -12,6 +12,7 @@
 using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -70,6 +71,12 @@ namespace BridgeToolsTest
 
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
+	/// Callback to refresh combo box items.
+	/// </summary>
+	public delegate void CallbackComboBoxRefresh();
+
+	//----------------------------------------------------------------------------------------------
+	/// <summary>
 	/// View model for testing.
 	/// </summary>
 	public class ViewModelPier
@@ -103,7 +110,32 @@ namespace BridgeToolsTest
 			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
 			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
 		};
-		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
+		private GroupItem<ComboOptionsEnum> _comboOption = null;
+		public GroupItem<ComboOptionsEnum> ComboOption 
+		{
+			get 
+			{
+				return _comboOption;
+			} 
+			set 
+			{
+				_comboOption = value;
+
+				if( _comboOption.Obj == ComboOptionsEnum.Third )
+				{
+					ComboOptions.RemoveAt( 0 );
+
+					if( RefreshComboOptions != null )
+						RefreshComboOptions();
+				}
+			} 
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Callback to refresh combo box items.
+		/// </summary>
+		public CallbackComboBoxRefresh RefreshComboOptions { private get; set; } = null;
 	}
 
 	//----------------------------------------------------------------------------------------------

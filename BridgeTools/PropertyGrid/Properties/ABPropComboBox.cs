@@ -117,5 +117,25 @@ namespace BridgeTools.PropertyGrid.Properties
 		}
 
 		#endregion
+
+		#region Public Methods
+
+		public void Refresh()
+		{
+			if( null == _comboBox )
+				return;
+
+			// detach binding
+			var b = BindingOperations.GetBinding( _comboBox, ComboBox.SelectedItemProperty );
+			BindingOperations.ClearBinding( _comboBox, ComboBox.SelectedItemProperty );
+
+			// refresh
+			_comboBox.Items.Refresh();
+
+			// attach binding
+			_comboBox.SetBinding( ComboBox.SelectedItemProperty, b );
+		}
+
+		#endregion
 	}
 }
