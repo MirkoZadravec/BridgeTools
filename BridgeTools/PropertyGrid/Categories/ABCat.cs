@@ -169,7 +169,8 @@ namespace BridgeTools.PropertyGrid.Categories
 
 			var b = new Binding( bPath )
 			{
-				Source = bSource
+				Source = bSource,
+				Converter = new BooleanToVisibilityConverter(),
 			};
 
 			_property.SetBinding( ABProp.VisibilityProperty, b );

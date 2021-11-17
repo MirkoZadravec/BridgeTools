@@ -85,10 +85,10 @@ namespace BridgeToolsTest
 		public string Description { get; set; }
 		public bool? IsReady { get; set; }
 		public bool IsEnabledReady { get; set; }
-		public Visibility IsVisibleReady { get; set; } = Visibility.Visible;
+		public bool IsVisibleReady { get; set; } = true;
 		public bool IsDone { get; set; }
 		public bool IsEnabled { get; set; }
-		public Visibility IsVisible { get; set; } = Visibility.Visible;
+		public bool IsVisible { get; set; } = true;
 		public string Offset { get; set; }
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };
@@ -133,14 +133,14 @@ namespace BridgeToolsTest
 				// hide entire category
 				if( _comboOption.Obj == ComboOptionsEnum.First )
 				{
-					IsVisible = Visibility.Collapsed;
+					IsVisible = false;
 					OnPropertyChanged( nameof( IsVisible ) );
 				}
 
 				// hide particular property
 				if( _comboOption.Obj == ComboOptionsEnum.Second )
 				{
-					IsVisibleReady = Visibility.Collapsed;
+					IsVisibleReady = false;
 					OnPropertyChanged( nameof( IsVisibleReady ) );
 				}
 
@@ -183,6 +183,7 @@ namespace BridgeToolsTest
 	{
 		public string Description { get; set; }
 		public DateTime Date { get; set; }
+		public bool IsEnabledDate { get; set; } = true;
 		public Color Color { get; set; }
 
 		#region Commands

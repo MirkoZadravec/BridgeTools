@@ -179,6 +179,7 @@ namespace BridgeToolsTest
 						var d = new ABPropDatePicker( catGeoPos, "Date" );
 						// bindings
 						d.BindDate( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.Date ) );
+						d.BindIsEnabled( vm.Pier2.GeoPos, nameof( vm.Pier2.GeoPos.IsEnabledDate ) );
 
 						// property at level 3 ( key/color )
 						var c = new ABPropColorPickerPalette( catGeoPos, "Color", Colors.Black );

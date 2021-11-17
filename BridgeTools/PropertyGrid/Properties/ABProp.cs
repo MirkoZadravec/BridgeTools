@@ -14,6 +14,7 @@ using BridgeTools.PropertyGrid.Controls;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
@@ -104,6 +105,53 @@ namespace BridgeTools.PropertyGrid.Properties
                 noLevelIndent ?
                 parent.FindResource( ABStyles.ABPropValFullRowStyle ) as Style :
                 parent.FindResource( ABStyles.ABPropValStyle ) as Style;
+        }
+
+        #endregion
+
+        #region Bindings
+
+        //----------------------------------------------------------------------------------------------
+        /// <summary>
+        /// IsEnabled binding.
+        /// </summary>
+        /// <param name="bSource">Source object</param>
+        /// <param name="bPath">Property path</param>
+        public void BindIsEnabled(
+            object bSource,
+            string bPath )
+        {
+            if( null == bSource || string.IsNullOrEmpty( bPath ) )
+                return;
+
+            var b = new Binding( bPath )
+            {
+                Source = bSource
+            };
+
+            this.SetBinding( ABProp.IsEnabledProperty, b );
+        }
+
+        //----------------------------------------------------------------------------------------------
+        /// <summary>
+        /// IsVisible binding.
+        /// </summary>
+        /// <param name="bSource">Source object</param>
+        /// <param name="bPath">Property path</param>
+        public void BindIsVisible(
+            object bSource,
+            string bPath )
+        {
+            if( null == bSource || string.IsNullOrEmpty( bPath ) )
+                return;
+
+            var b = new Binding( bPath )
+            {
+                Source = bSource,
+                Converter = new BooleanToVisibilityConverter(),
+            };
+
+            this.SetBinding( ABProp.VisibilityProperty, b );
         }
 
         #endregion
