@@ -106,9 +106,9 @@ namespace BridgeToolsTest
 
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First", null ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second", null ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third", null )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
 		};
 		private GroupItem<ComboOptionsEnum> _comboOption = null;
 		public GroupItem<ComboOptionsEnum> ComboOption 
@@ -215,9 +215,9 @@ namespace BridgeToolsTest
 	{
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First", null ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second", null ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third", null )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
 		};
 		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}

@@ -49,8 +49,8 @@ namespace BridgeTools.PropertyGrid
 		/// </summary>
 		/// <param name="obj">Object</param>
 		/// <param name="objText">Object text</param>
-		/// <param name="objInfo">Object info (tooltip etc) - can be null</param>
-		public GroupItem( T obj, string objText, string objInfo )
+		/// <param name="objInfo">Object info (tooltip etc) - optional</param>
+		public GroupItem( T obj, string objText, string objInfo = null )
 		{
 			Obj = obj;
 			ObjText = objText;
