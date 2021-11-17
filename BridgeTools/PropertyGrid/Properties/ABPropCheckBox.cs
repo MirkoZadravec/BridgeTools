@@ -127,6 +127,27 @@ namespace BridgeTools.PropertyGrid.Properties
 			this.SetBinding( ABProp.IsEnabledProperty, b );
 		}
 
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// IsVisible binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindIsVisible(
+			object bSource,
+			string bPath )
+		{
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource
+			};
+
+			this.SetBinding( ABProp.VisibilityProperty, b );
+		}
+
 		#endregion
 	}
 }

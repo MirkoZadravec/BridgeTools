@@ -12,6 +12,7 @@
 using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -78,14 +79,16 @@ namespace BridgeToolsTest
 	/// <summary>
 	/// View model for testing.
 	/// </summary>
-	public class ViewModelPier
+	public class ViewModelPier : ViewModelBase
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
 		public bool? IsReady { get; set; }
 		public bool IsEnabledReady { get; set; }
+		public Visibility IsVisibleReady { get; set; } = Visibility.Visible;
 		public bool IsDone { get; set; }
 		public bool IsEnabled { get; set; }
+		public Visibility IsVisible { get; set; } = Visibility.Visible;
 		public string Offset { get; set; }
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };
@@ -126,6 +129,20 @@ namespace BridgeToolsTest
 			set 
 			{
 				_comboOption = value;
+
+				// hide entire category
+				if( _comboOption.Obj == ComboOptionsEnum.First )
+				{
+					IsVisible = Visibility.Collapsed;
+					OnPropertyChanged( nameof( IsVisible ) );
+				}
+
+				// hide particular property
+				if( _comboOption.Obj == ComboOptionsEnum.Second )
+				{
+					IsVisibleReady = Visibility.Collapsed;
+					OnPropertyChanged( nameof( IsVisibleReady ) );
+				}
 
 				// special case for known "varies" situation
 				if( _comboOption.Obj == ComboOptionsEnum.Third )

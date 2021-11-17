@@ -87,7 +87,7 @@ namespace BridgeTools.PropertyGrid.Categories
 			// children tooltips
 			category.ToolTip = toolTipProps;
 
-			_property = new ABProp()
+			category._property = new ABProp()
 			{
 				Content = new ABExpander()
 				{
@@ -98,7 +98,7 @@ namespace BridgeTools.PropertyGrid.Categories
 				},
 			};
 
-			this.Items.Add( _property );
+			this.Items.Add( category._property );
 		}
 
 		#endregion
@@ -149,6 +149,30 @@ namespace BridgeTools.PropertyGrid.Categories
 			};
 
 			this.SetBinding( ABCat.IsEnabledProperty, b );
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// IsVisible binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindIsVisible(
+			object bSource,
+			string bPath )
+		{
+			if( null == _property )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource
+			};
+
+			_property.SetBinding( ABProp.VisibilityProperty, b );
 		}
 
 		#endregion

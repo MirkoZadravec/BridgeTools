@@ -58,6 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Test.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelPiers.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

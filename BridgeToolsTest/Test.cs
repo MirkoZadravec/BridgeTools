@@ -133,6 +133,7 @@ namespace BridgeToolsTest
 				var catPier2 = new ABCatText( catPiers, "Pier 2", true );
 				catPier2.BindIsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
 				catPier2.BindArePropsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabled ) );
+				catPier2.BindIsVisible( vm.Pier2, nameof( vm.Pier2.IsVisible ) );
 				{
 					// property at level 2 ( key/value pair )
 					var propPierName = new ABPropTextBox( catPier2, "Name" );
@@ -144,11 +145,22 @@ namespace BridgeToolsTest
 					// bindings
 					propPierDescr.BindText( vm.Pier2, nameof( vm.Pier2.Description ) );
 
+					// select in combo box
+					vm.Pier2.InitComboOption( vm.Pier2.ComboOptions[0] );
+
+					// property at level 2 ( combo box )
+					var cbP = new ABPropComboBox<ComboOptionsEnum>( catPier2, "Combo Option", vm.Pier2.ComboOptions );
+					// bindings
+					cbP.BindSelectedItem( vm.Pier2, nameof( vm.Pier2.ComboOption ) );
+					// callbacks
+					vm.Pier2.RefreshComboOptions = cbP.Refresh;
+
 					// property at level 2 ( key/checkbox pair - three state )
 					var c1 = new ABPropCheckBox( catPier2, "Is ready", true );
 					// bindings
 					c1.BindIsChecked( vm.Pier2, nameof( vm.Pier2.IsReady ) );
 					c1.BindIsEnabled( vm.Pier2, nameof( vm.Pier2.IsEnabledReady ) );
+					c1.BindIsVisible( vm.Pier2, nameof( vm.Pier2.IsVisibleReady ) );
 
 					// property at level 2 ( key/checkbox pair - two state )
 					var c2 = new ABPropCheckBox( catPier2, "Is done", false );

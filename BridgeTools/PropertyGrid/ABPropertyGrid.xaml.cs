@@ -21,6 +21,7 @@ using System.Windows.Controls;
 //   - Lost focus when closing prop grid
 //   - Styles naming convention (for example see ABStyles)
 //   * "varied" combo box situation
+//   - Text for category is too high or expander too low
 
 namespace BridgeTools.PropertyGrid
 {
