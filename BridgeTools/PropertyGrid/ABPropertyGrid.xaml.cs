@@ -21,7 +21,6 @@ using System.Windows.Controls;
 //   - Lost focus when closing prop grid
 //   - Styles naming convention (for example see ABStyles)
 //   - Comments
-//   - Remove item from combo box (for example after "varies" changes to some selection)
 
 namespace BridgeTools.PropertyGrid
 {

@@ -121,6 +121,7 @@ namespace BridgeToolsTest
 			{
 				_comboOption = value;
 
+				// special case for known "varies" situation
 				if( _comboOption.Obj == ComboOptionsEnum.Third )
 				{
 					ComboOptions.RemoveAt( 0 );
