@@ -12,7 +12,6 @@
 using BridgeTools.PropertyGrid;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -102,21 +101,28 @@ namespace BridgeToolsTest
 			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Two, "Two", "Tooltip 2" ),
 			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Three, "Three", "Tooltip 3" )
 		};
-		public GroupItem<RadioOptionsEnum> RadioOption { get; set; } = null;
+		private GroupItem<RadioOptionsEnum> _radioOption = null;
+		public GroupItem<RadioOptionsEnum> RadioOption
+		{
+			get { return _radioOption; }
+			set { _radioOption = value; }
+		}
+
+		public void InitRadioOption( GroupItem<RadioOptionsEnum> radioOption )
+		{
+			_radioOption = radioOption;
+		}
 
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.Third, "Third" )
 		};
 		private GroupItem<ComboOptionsEnum> _comboOption = null;
 		public GroupItem<ComboOptionsEnum> ComboOption 
 		{
-			get 
-			{
-				return _comboOption;
-			} 
+			get { return _comboOption; } 
 			set 
 			{
 				_comboOption = value;
@@ -130,6 +136,11 @@ namespace BridgeToolsTest
 						RefreshComboOptions();
 				}
 			} 
+		}
+
+		public void InitComboOption( GroupItem<ComboOptionsEnum> comboOption )
+		{
+			_comboOption = comboOption;
 		}
 
 		//----------------------------------------------------------------------------------------------
@@ -215,10 +226,20 @@ namespace BridgeToolsTest
 	{
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.First, "First" ),
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.Second, "Second" ),
+			new GroupItem<ComboOptionsEnum>( ComboOptionsEnum.Third, "Third" )
 		};
-		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
+		private GroupItem<ComboOptionsEnum> _comboOption = null;
+		public GroupItem<ComboOptionsEnum> ComboOption
+		{
+			get { return _comboOption; }
+			set { _comboOption = value; }
+		}
+
+		public void InitComboOption( GroupItem<ComboOptionsEnum> comboOption )
+		{
+			_comboOption = comboOption;
+		}
 	}
 }

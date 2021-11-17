@@ -59,7 +59,7 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// <param name="header">Child property content</param>
 		internal void AddProperty( 
 			ABProp prop, 
-			object header )
+			FrameworkElement header )
 		{
 			prop.Content = header;
 
@@ -73,11 +73,20 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// <param name="category">Child category</param>
 		/// <param name="header">Child category content</param>
 		/// <param name="isExpanded">Initial expand state</param>
+		/// <param name="toolTip">Category tooltip</param>
+		/// <param name="toolTipProps">Child properties/categories tooltip</param>
 		internal void AddCategory( 
 			ABCat category, 
-			object header, 
-			bool isExpanded )
+			FrameworkElement header, 
+			bool isExpanded,
+			string toolTip,
+			string toolTipProps )
 		{
+			// category tooltip
+			header.ToolTip = toolTip;
+			// children tooltips
+			category.ToolTip = toolTipProps;
+
 			_property = new ABProp()
 			{
 				Content = new ABExpander()

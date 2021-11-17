@@ -40,7 +40,7 @@ namespace BridgeToolsTest
 				propProjName.BindText( vm, nameof( vm.Project ) );
 
 				// container at level 2 (with checkbox)
-				var catPier1 = new ABCatCheckBox( catPiers, "Pier 1", false, true );
+				var catPier1 = new ABCatCheckBox( catPiers, "Pier 1", false, true, "Pier 1 Ïnfo", "Pier 1 properties" );
 				catPier1.BindIsChecked( vm.Pier1, nameof( vm.Pier1.IsDone ) );
 				catPier1.BindIsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
 				catPier1.BindArePropsEnabled( vm.Pier1, nameof( vm.Pier1.IsEnabled ) );
@@ -86,7 +86,7 @@ namespace BridgeToolsTest
 						if( animal is ViewModelLion lion )
 						{
 							// select in combo box
-							lion.ComboOption = lion.ComboOptions[1];
+							lion.InitComboOption( lion.ComboOptions[1] );
 
 							// property at level 2 ( combo box )
 							var cbLion = new ABPropComboBox<ComboOptionsEnum>( catPier1, "Lion options", lion.ComboOptions );
@@ -96,7 +96,7 @@ namespace BridgeToolsTest
 					}
 
 					// select radio button
-					vm.Pier1.RadioOption = vm.Pier1.RadioOptions[1];
+					vm.Pier1.InitRadioOption( vm.Pier1.RadioOptions[1] );
 
 					// property at level 2 ( radio buttons )
 					var rb = new ABPropRadioBox<RadioOptionsEnum>(
@@ -105,11 +105,13 @@ namespace BridgeToolsTest
 						false,
 						"Radio Option",
 						vm.Pier1.RadioOptions );
+					// tooltips
+					rb.ToolTip = "Tooltip";
 					// bindings
 					rb.BindSelectedItem( vm.Pier1, nameof( vm.Pier1.RadioOption ) );
 
 					// select in combo box
-					vm.Pier1.ComboOption = vm.Pier1.ComboOptions[1];
+					vm.Pier1.InitComboOption( vm.Pier1.ComboOptions[1] );
 
 					// property at level 2 ( combo box )
 					var cbP = new ABPropComboBox<ComboOptionsEnum>( catPier1, "Combo Option", vm.Pier1.ComboOptions );

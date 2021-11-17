@@ -47,11 +47,15 @@ namespace BridgeTools.PropertyGrid.Categories
 		/// <param name="key">Property key label</param>
 		/// <param name="isThreeState">Three state check box</param>
 		/// <param name="isExpanded">Initial expand state</param>
+		/// <param name="toolTip">Category tooltip</param>
+		/// <param name="toolTipProps">Child properties/categories tooltip</param>
 		public ABCatCheckBox( 
 			ABCat parent, 
 			string key,
 			bool isThreeState,
-			bool isExpanded ) : base()
+			bool isExpanded,
+			string toolTip = null,
+			string toolTipProps = null ) : base()
 		{
 			InitStyle( parent );
 
@@ -76,7 +80,12 @@ namespace BridgeTools.PropertyGrid.Categories
 			};
 			dockPanel.Children.Add( _checkBox );
 
-			parent.AddCategory( this, dockPanel, isExpanded );
+			parent.AddCategory( 
+				this, 
+				dockPanel, 
+				isExpanded, 
+				toolTip, 
+				toolTipProps );
 		}
 
 		#endregion

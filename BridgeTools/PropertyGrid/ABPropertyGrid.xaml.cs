@@ -13,14 +13,14 @@ using BridgeTools.PropertyGrid.Categories;
 using System.Windows.Controls;
 
 // TODO
-//   - Tooltips
+//   * Tooltips
 //   - Validation Rules
 //   * Tab stop
 //   - IsVisible
 //   - IsEnabled (do not forget to set opacity)
 //   - Lost focus when closing prop grid
 //   - Styles naming convention (for example see ABStyles)
-//   - Comments
+//   * "varied" combo box situation
 
 namespace BridgeTools.PropertyGrid
 {
