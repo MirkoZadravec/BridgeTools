@@ -57,9 +57,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Test.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="ViewModelPiers.cs" />
+    <Compile Include="Test\ViewModelLion.cs" />
+    <Compile Include="Test\ViewModelCat.cs" />
+    <Compile Include="Test\ViewModelDog.cs" />
+    <Compile Include="Test\ViewModelAnimal.cs" />
+    <Compile Include="Test\ViewModelGeoPos.cs" />
+    <Compile Include="Test\ViewModelPier.cs" />
+    <Compile Include="Test\ComboOptionsEnum.cs" />
+    <Compile Include="Test\RadioOptionsEnum.cs" />
+    <Compile Include="Test\Test.cs" />
+    <Compile Include="Test\ViewModelBase.cs" />
+    <Compile Include="Test\ViewModelPiers.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

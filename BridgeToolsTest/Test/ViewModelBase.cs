@@ -1,7 +1,18 @@
-﻿using System;
+﻿//
+// Copyright: (c) Allplan Infrastructure 2021
+// ViewModelBase.cs
+//
+// Author: Mirko Zadravec
+//
+
+////////////////////////////
+// NAMESPACES AND CLASSES //
+////////////////////////////
+
+using System;
 using System.ComponentModel;
 
-namespace BridgeToolsTest
+namespace BridgeToolsTest.Test
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>

@@ -9,12 +9,24 @@
 // NAMESPACES AND CLASSES //
 ////////////////////////////
 
+// TODO
+//   * Tooltips
+//   * Tab stop
+//   * IsVisible
+//   * IsEnabled
+//   * "varied" combo box situation
+//   - Validation Rules
+//   - Lost focus when closing prop grid
+//   - Styles naming convention (for example see ABStyles)
+//   - Text for category is too high or expander too low
+//   - Clicking into bottom area should not scroll
+
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace BridgeToolsTest
+namespace BridgeToolsTest.Test
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>

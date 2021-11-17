@@ -47,7 +47,7 @@ namespace BridgeToolsTest
 		/// <param name="e"></param>
 		private void OnPropGridOpen( object sender, RoutedEventArgs e )
 		{
-			Test.Open( propGrid.Root );
+			Test.Test.Open( propGrid.Root );
 		}
 	}
 }
