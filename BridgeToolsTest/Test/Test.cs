@@ -19,7 +19,7 @@
 //   - Lost focus when closing prop grid
 //   - Styles naming convention (for example see ABStyles)
 //   - Text for category is too high or expander too low
-//   - Clicking into bottom area should not scroll
+//   - Get rid of setting styles in runtime
 
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
