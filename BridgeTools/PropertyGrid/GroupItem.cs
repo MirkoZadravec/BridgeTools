@@ -29,9 +29,15 @@ namespace BridgeTools.PropertyGrid
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Object representation text
+		/// Object representation text.
 		/// </summary>
 		public string ObjText { get; set; }
+
+		//------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Object representation info (tooltip etc).
+		/// </summary>
+		public string ObjInfo { get; set; }
 
 		#endregion
 
@@ -43,10 +49,12 @@ namespace BridgeTools.PropertyGrid
 		/// </summary>
 		/// <param name="obj">Object</param>
 		/// <param name="objText">Object text</param>
-		public GroupItem( T obj, string objText )
+		/// <param name="objInfo">Object info (tooltip etc) - can be null</param>
+		public GroupItem( T obj, string objText, string objInfo )
 		{
 			Obj = obj;
 			ObjText = objText;
+			ObjInfo = objInfo;
 		}
 
 		#endregion

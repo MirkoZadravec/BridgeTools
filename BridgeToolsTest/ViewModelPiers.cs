@@ -98,17 +98,17 @@ namespace BridgeToolsTest
 
 		public List<GroupItem<RadioOptionsEnum>> RadioOptions = new List<GroupItem<RadioOptionsEnum>>()
 		{
-			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.One, "One" ),
-			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Two, "Two" ),
-			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Three, "Three" )
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.One, "One", "Tooltip 1" ),
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Two, "Two", "Tooltip 2" ),
+			new GroupItem<RadioOptionsEnum>(RadioOptionsEnum.Three, "Three", "Tooltip 3" )
 		};
 		public GroupItem<RadioOptionsEnum> RadioOption { get; set; } = null;
 
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First", null ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second", null ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third", null )
 		};
 		private GroupItem<ComboOptionsEnum> _comboOption = null;
 		public GroupItem<ComboOptionsEnum> ComboOption 
@@ -215,9 +215,9 @@ namespace BridgeToolsTest
 	{
 		public List<GroupItem<ComboOptionsEnum>> ComboOptions = new List<GroupItem<ComboOptionsEnum>>()
 		{
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second" ),
-			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third" )
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.First, "First", null ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Second, "Second", null ),
+			new GroupItem<ComboOptionsEnum>(ComboOptionsEnum.Third, "Third", null )
 		};
 		public GroupItem<ComboOptionsEnum> ComboOption { get; set; } = null;
 	}
