@@ -34,7 +34,6 @@ namespace BridgeTools.PropertyGrid.Resources
 		public static string ABPropValComboBoxStyle => "ABPropValComboBoxStyle";
 		public static string ABPropValSliderStyle => "ABPropValSliderStyle";
 		public static string ABPropValDateStyle => "ABPropValDateStyle";
-		public static string ABPropValDateNoButtonStyle => "ABPropValDateNoButtonStyle";
 		public static string ABPropValButtonStyle => "ABPropValButtonStyle";
 	}
 }
