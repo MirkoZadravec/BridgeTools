@@ -289,6 +289,9 @@ namespace BridgeTools.PropertyGrid.Properties
 				return;
 
 			SetFocus( _selectAll );
+
+			// this event is used only for initial load
+			_textBox.Loaded -= OnTextBoxLoaded;
 		}
 
 		//------------------------------------------------------------------------------------------
