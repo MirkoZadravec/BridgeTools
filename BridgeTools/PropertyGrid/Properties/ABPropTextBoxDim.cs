@@ -242,8 +242,8 @@ namespace BridgeTools.PropertyGrid.Properties
 				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
 			_textBox.LostFocus += OnLostFocus;
-			_textBox.KeyDown += OnTextKeyDown;
-			_textBox.Loaded += OnTextBoxLoaded;
+			_textBox.KeyDown   += OnTextKeyDown;
+			_textBox.Loaded    += OnTextBoxLoaded;
 			dockPanelVal.Children.Add( _textBox );
 
 			parent.AddProperty( this, dockPanel );
@@ -257,13 +257,13 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <summary>
 		/// Set focus.
 		/// </summary>
-		/// <param name="selectAll">Select the text</param>
-		private void SetFocus( bool selectAll )
+		/// <param name="selectText">Select the text</param>
+		private void SetFocus( bool selectText )
 		{
 			if( _textBox == null )
 				return;
 
-			if( selectAll )
+			if( selectText )
 				_textBox.SelectAll();
 			_textBox.Focusable = true;
 			_textBox.Focus();
