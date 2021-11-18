@@ -199,7 +199,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
-		/// <param name="symbol">Dimension symbol label</param>
+		/// <param name="symbol">Dimension symbol label (set null for no label)</param>
 		public ABPropTextBoxDim(
 			ABCat parent,
 			string key,
@@ -227,12 +227,15 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			dockPanel.Children.Add( dockPanelVal );
 
-			var propSymbol = new TextBlock()
+			if( !string.IsNullOrEmpty( symbol ) )
 			{
-				Text = symbol,
-			};
-			DockPanel.SetDock( propSymbol, Dock.Right );
-			dockPanelVal.Children.Add( propSymbol );
+				var propSymbol = new TextBlock()
+				{
+					Text = symbol,
+				};
+				DockPanel.SetDock( propSymbol, Dock.Right );
+				dockPanelVal.Children.Add( propSymbol );
+			}
 
 			_textBox = new TextBox()
 			{
