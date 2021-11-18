@@ -172,12 +172,12 @@ namespace BridgeTools.PropertyGrid.Properties
 
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Property with text box and dimension label.
+	/// Property with text box and dimension label (optional).
 	/// </summary>
 	/// <example>
-	/// +------------+-----------------------------------------+
-	/// | Key label  | Editable text box     | Dimension label |
-	/// +------------+-----------------------------------------+
+	/// +------------+----------------------------------------------------+
+	/// | Key label  | Editable text box     | Dimension label (optional) |
+	/// +------------+----------------------------------------------------+
 	/// </example>
 	public class ABPropTextBoxDim : ABProp
 	{
