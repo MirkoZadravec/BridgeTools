@@ -18,7 +18,7 @@ namespace BridgeTools.PropertyGrid.Converters
 	/// <summary>
 	/// Converter.
 	/// </summary>
-	public class ABConvDecimalComma
+	internal class ABConvDecimalComma
 	{
 		//------------------------------------------------------------------------------------------
 		/// <summary>

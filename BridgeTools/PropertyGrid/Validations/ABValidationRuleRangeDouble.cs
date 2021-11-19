@@ -18,7 +18,7 @@ namespace BridgeTools.PropertyGrid.Validations
 	/// <summary>
 	/// Range rule.
 	/// </summary>
-	public class ABValidationRuleRangeDouble : ValidationRule
+	internal class ABValidationRuleRangeDouble : ValidationRule
 	{
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
