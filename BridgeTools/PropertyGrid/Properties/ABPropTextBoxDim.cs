@@ -10,8 +10,8 @@
 ////////////////////////////
 
 using BridgeTools.PropertyGrid.Categories;
+using BridgeTools.PropertyGrid.Converters;
 using BridgeTools.PropertyGrid.Resources;
-using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -124,49 +124,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			}
 
 			return new ValidationResult( true, null );
-		}
-	}
-
-	//----------------------------------------------------------------------------------------------
-	/// <summary>
-	/// Convertor.
-	/// </summary>
-	public class DecimalCommaConvertor
-	{
-		//------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Forward ',' as '.' press event.
-		/// Fixing NumBlock-Decimal-To-NumberDecimalSeparator conversion
-		/// from: https://stackoverflow.com/questions/3810904/keypad-decimal-separator-on-a-wpf-textbox-how-to
-		/// </summary>
-		/// <param name="checkSeparatorLength"></param>
-		/// <returns></returns>
-		public static bool Forward( bool checkSeparatorLength = false )
-		{
-			if( checkSeparatorLength &&
-				CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.Length == 0 )
-			{
-				return false;
-			}
-
-			Keyboard.FocusedElement.RaiseEvent
-			(
-				new TextCompositionEventArgs
-				(
-					InputManager.Current.PrimaryKeyboardDevice,
-					new TextComposition
-					(
-						InputManager.Current,
-						Keyboard.FocusedElement,
-						CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator
-					)
-				)
-				{
-					RoutedEvent = TextCompositionManager.TextInputEvent
-				}
-			);
-
-			return true;
 		}
 	}
 
@@ -335,7 +292,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				case Key.OemComma:
 				case Key.Decimal:
 					{
-						e.Handled = DecimalCommaConvertor.Forward();
+						e.Handled = ABConvDecimalComma.Forward();
 					}
 					break;
 			}

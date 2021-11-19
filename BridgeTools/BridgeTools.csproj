@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="PropertyGrid\Categories\ABCatCheckBox.cs" />
     <Compile Include="PropertyGrid\Categories\ABCatText.cs" />
+    <Compile Include="PropertyGrid\Converters\ABConvDecimalComma.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropButton.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropColorPickerPalette.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropComboBox.cs" />
