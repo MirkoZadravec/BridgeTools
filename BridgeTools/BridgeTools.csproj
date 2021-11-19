@@ -71,6 +71,7 @@
     <Compile Include="PropertyGrid\Properties\ABPropTextBoxFullRow.cs" />
     <Compile Include="PropertyGrid\Validations\ABRange.cs" />
     <Compile Include="PropertyGrid\Validations\ABValidationRuleRangeDouble.cs" />
+    <Compile Include="PropertyGrid\Validations\ABValidationRuleRangeInt.cs" />
     <Page Include="PropertyGrid\ABPropertyGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

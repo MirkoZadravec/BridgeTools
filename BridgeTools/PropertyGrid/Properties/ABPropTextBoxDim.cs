@@ -135,15 +135,40 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>
+		public void BindText(
+			object bSource,
+			string bPath )
+		{
+			if( null == _textBox )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource,
+				UpdateSourceTrigger = UpdateSourceTrigger.LostFocus,
+			};
+
+			_textBox.SetBinding( TextBox.TextProperty, b );
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Text box binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
 		/// <param name="range">Value range rule</param>
 		/// <param name="min">Minimal value in user units (is considered depending on range rule)</param>
 		/// <param name="max">Maximal value in user units (is considered depending on range rule)</param>
 		public void BindText(
 			object bSource,
 			string bPath,
-			ABEnumRangeRule range = ABEnumRangeRule.NO_LIMITS,
-			double min = ABRangeConst.DOUBLE_MIN,
-			double max = ABRangeConst.DOUBLE_MIN )
+			ABEnumRangeRule range,
+			double min,
+			double max )
 		{
 			if( null == _textBox )
 				return;
@@ -162,6 +187,46 @@ namespace BridgeTools.PropertyGrid.Properties
 
 			if( range != ABEnumRangeRule.NO_LIMITS )
 				b.ValidationRules.Add( new ABValidationRuleRangeDouble( range, min, max ) );
+
+			_textBox.SetBinding( TextBox.TextProperty, b );
+
+			// force the validation
+			_textBox.GetBindingExpression( TextBox.TextProperty ).UpdateSource();
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Text box binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		/// <param name="range">Value range rule</param>
+		/// <param name="min">Minimal value in user units (is considered depending on range rule)</param>
+		/// <param name="max">Maximal value in user units (is considered depending on range rule)</param>
+		public void BindText(
+			object bSource,
+			string bPath,
+			ABEnumRangeRule range,
+			int min,
+			int max )
+		{
+			if( null == _textBox )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource,
+				UpdateSourceTrigger = UpdateSourceTrigger.LostFocus,
+				ValidatesOnExceptions = true,
+				ValidatesOnDataErrors = true,
+				// Hint: Use Validation.HasError trigger in style to show the validation message
+			};
+
+			if( range != ABEnumRangeRule.NO_LIMITS )
+				b.ValidationRules.Add( new ABValidationRuleRangeInt( range, min, max ) );
 
 			_textBox.SetBinding( TextBox.TextProperty, b );
 

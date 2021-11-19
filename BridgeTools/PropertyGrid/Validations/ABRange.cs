@@ -19,6 +19,9 @@ namespace BridgeTools.PropertyGrid.Validations
 	{
 		public const double DOUBLE_MAX = 1.0e+100;
 		public const double DOUBLE_MIN = -1.0e+100;
+
+		public const int INT_MAX = int.MaxValue;
+		public const int INT_MIN = int.MinValue;
 	}
 
 	//----------------------------------------------------------------------------------------------
