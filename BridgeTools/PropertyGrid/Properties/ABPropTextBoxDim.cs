@@ -67,8 +67,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			bool readOnly = false,
 			bool selectText = true,
 			bool processLostFocus = false,
-			bool processNextFocus = true,
-			int setError = 0
+			bool processNextFocus = true
 			) : base()
 		{
 			InitStyle( parent, false );
@@ -78,18 +77,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			_selectText = selectText;
 
 			this.IsEnabled = !readOnly;
-
-#if TODO
-			switch( setError )
-			{
-				case 1:
-					SetErrorState( true );
-					break;
-				case 2:
-					SetErrorState( true, true );
-					break;
-			}
-#endif
 
 			var dockPanel = new DockPanel()
 			{
