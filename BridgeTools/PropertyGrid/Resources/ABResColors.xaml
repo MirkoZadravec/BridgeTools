@@ -9,7 +9,6 @@
     <SolidColorBrush x:Key="ABPropGridTextBackgroundColor" Color="#FFffffff"/>
     <SolidColorBrush x:Key="ABPropGridTextErrorBackgroundColor" Color="Pink"/>
     <SolidColorBrush x:Key="ABPropGridTextErrorBorderColor" Color="Red"/>
-    <!--TODO try: SystemColors.HighlightColor-->
-    <SolidColorBrush x:Key="ABPropGridTextSelectionColor" Color="#FFafcdef"/>
+    <SolidColorBrush x:Key="ABPropGridTextSelectionColor" Color="{x:Static SystemColors.HighlightColor}"/>
 
 </ResourceDictionary>

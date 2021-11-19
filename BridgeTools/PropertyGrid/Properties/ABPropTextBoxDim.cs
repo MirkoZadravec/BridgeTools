@@ -11,13 +11,11 @@
 
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Controls;
-using BridgeTools.PropertyGrid.Converters;
 using BridgeTools.PropertyGrid.Resources;
 using BridgeTools.PropertyGrid.Validations;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Input;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
@@ -39,24 +37,6 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// Text edit field.
 		/// </summary>
 		private ABTextBox _textBox = null;
-
-		//----------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Initial focus and text selection.
-		/// </summary>
-		private bool _selectText = true;
-
-		//----------------------------------------------------------------------------------------------
-		/// <summary>
-		/// True if lost focus should be processed after input.
-		/// </summary>
-		private bool _processLostFocus = false;
-
-		//----------------------------------------------------------------------------------------------
-		/// <summary>
-		/// True if next property should get focus after TAB/ENTER press
-		/// </summary>
-		private bool _processNextFocus = true;
 
 		#endregion
 
@@ -84,10 +64,6 @@ namespace BridgeTools.PropertyGrid.Properties
 			) : base()
 		{
 			InitStyle( parent, false );
-
-			_processLostFocus = processLostFocus;
-			_processNextFocus = processNextFocus;
-			_selectText = selectText;
 
 			this.IsEnabled = !readOnly;
 
@@ -121,13 +97,10 @@ namespace BridgeTools.PropertyGrid.Properties
 				dockPanelVal.Children.Add( propSymbol );
 			}
 
-			_textBox = new ABTextBox()
+			_textBox = new ABTextBox( selectText, processLostFocus, processNextFocus )
 			{
 				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
-			_textBox.LostFocus += OnLostFocus;
-			_textBox.KeyDown   += OnTextKeyDown;
-			_textBox.Loaded    += OnTextBoxLoaded;
 			dockPanelVal.Children.Add( _textBox );
 
 			parent.AddProperty( this, dockPanel );
@@ -135,103 +108,21 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		#endregion
 
-		#region Private Methods
+		#region Public Methods
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Set focus.
+		/// Set focus and (optionally) select the text.
 		/// </summary>
 		/// <param name="selectText">Select the text</param>
-		private void SetFocus( bool selectText )
+		public void SetFocus( bool selectText )
 		{
+			// TODO check if we really need this...
+
 			if( _textBox == null )
 				return;
 
-			if( selectText )
-				_textBox.SelectAll();
-			_textBox.Focusable = true;
-			_textBox.Focus();
-			Keyboard.Focus( _textBox );
-		}
-
-		#endregion
-
-		#region Events
-
-		//------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Get textbox control.
-		/// </summary>
-		/// <param name="sender">Sender</param>
-		/// <param name="e">Event arguments</param>
-		private void OnTextBoxLoaded( object sender, RoutedEventArgs e )
-		{
-			if( !_selectText )
-				return;
-
-			SetFocus( _selectText );
-
-			// this event is used only for initial load
-			_textBox.Loaded -= OnTextBoxLoaded;
-		}
-
-		//------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Text key down
-		/// </summary>
-		/// <param name="sender">Sender</param>
-		/// <param name="e">Event arguments</param>
-		private void OnTextKeyDown( object sender, KeyEventArgs e )
-		{
-			if( _textBox == null )
-				return;
-
-			switch( e.Key )
-			{
-				case Key.Enter:
-				case Key.Tab:
-					{
-						_textBox.GetBindingExpression( TextBox.TextProperty ).UpdateSource();
-
-						// select the text after ENTER press
-						_textBox.SelectAll();
-
-						// forward as TAB
-
-						var keyboardFocus = Keyboard.FocusedElement as UIElement;
-						if( keyboardFocus != null && _processNextFocus )
-							keyboardFocus.MoveFocus( new TraversalRequest( FocusNavigationDirection.Next ) );
-
-						if( e.Key == Key.Tab )
-							_textBox.MoveFocus( new TraversalRequest( FocusNavigationDirection.Next ) );
-
-						// dont forward ENTER to the parent control (for example to avoid closing the dialog if OK is default button)
-
-						e.Handled = true;
-					}
-					break;
-
-				case Key.OemComma:
-				case Key.Decimal:
-					{
-						e.Handled = ABConvDecimalComma.Forward();
-					}
-					break;
-			}
-		}
-
-		//------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Processa lost focus.
-		/// </summary>
-		/// <param name="sender">Sender</param>
-		/// <param name="e">Event arguments</param>
-		private void OnLostFocus( object sender, RoutedEventArgs e )
-		{
-			if( _textBox == null || !_processLostFocus )
-				return;
-
-			_textBox.GetBindingExpression( TextBox.TextProperty ).UpdateSource();
+			_textBox.SetFocus( selectText );
 		}
 
 		#endregion
