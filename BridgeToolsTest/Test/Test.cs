@@ -23,6 +23,7 @@
 
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
+using BridgeTools.PropertyGrid.Validations;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -74,7 +75,7 @@ namespace BridgeToolsTest.Test
 					// property at level 2 ( key/value pair with dimension )
 					var td = new ABPropTextBoxDim( catPier1, "Offset", "[m]" );
 					// bindings
-					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ), ABTextBoxRange.MIN_MAX, 10, 100 );
+					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ), ABEnumRangeRule.MIN_MAX, 10, 100 );
 
 					// dynamic list of properties at level 2
 					foreach( var animal in vm.Pier1.Animals )
