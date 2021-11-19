@@ -76,12 +76,31 @@
     </Style>
 
     <Style x:Key="ABPropValTextBoxStyle" TargetType="{x:Type TextBox}">
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="{StaticResource ABPropGridTextBackgroundColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="LightGray"/>
         <Setter Property="Margin" Value="0,1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="SelectionBrush" Value="{StaticResource ABPropGridTextSelectionColor}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="SelectionBrush" Value="#eeeeef"/>
+                <Setter Property="Background" Value="#eeeeef"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ABPropValDimTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="#f8f9f9"/>
+        <Setter Property="Margin" Value="2,1"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="#eeeeef"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

@@ -5,5 +5,9 @@
     <SolidColorBrush x:Key="ABPropGridItemColor" Color="#FFeeeeef"/>
     <SolidColorBrush x:Key="ABPropGridExpanderColor" Color="#FFf8f9f9"/>
     <SolidColorBrush x:Key="ABPropGridBackgroundColor" Color="#FFf8f9f9"/>
+    
+    <SolidColorBrush x:Key="ABPropGridTextBackgroundColor" Color="#FFffffff"/>
+    <!--TODO try: SystemColors.HighlightColor-->
+    <SolidColorBrush x:Key="ABPropGridTextSelectionColor" Color="#FFafcdef"/>
 
 </ResourceDictionary>

@@ -17,6 +17,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
@@ -39,6 +40,10 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		private TextBox _textBox = null;
 
+		private bool _selectText = true;
+		private bool _processLostFocus = false;
+		private bool _processNextFocus = true;
+
 		#endregion
 
 		#region Constructor
@@ -50,13 +55,41 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
 		/// <param name="symbol">Dimension symbol label (set null for no label)</param>
+		/// <param name="readOnly">Initial read-only state</param>
+		/// <param name="selectText">Initial focus and text selection</param>
+		/// <param name="processLostFocus">True if lost focus should process input</param>
+		/// <param name="processNextFocus"></param>
+		/// <param name="setError">True if data error to be indicated</param>
 		public ABPropTextBoxDim(
 			ABCat parent,
 			string key,
-			string symbol
+			string symbol,
+			bool readOnly = false,
+			bool selectText = true,
+			bool processLostFocus = false,
+			bool processNextFocus = true,
+			int setError = 0
 			) : base()
 		{
 			InitStyle( parent, false );
+
+			_processLostFocus = processLostFocus;
+			_processNextFocus = processNextFocus;
+			_selectText = selectText;
+
+			this.IsEnabled = !readOnly;
+
+#if TODO
+			switch( setError )
+			{
+				case 1:
+					SetErrorState( true );
+					break;
+				case 2:
+					SetErrorState( true, true );
+					break;
+			}
+#endif
 
 			var dockPanel = new DockPanel()
 			{
@@ -82,6 +115,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				var propSymbol = new TextBlock()
 				{
 					Text = symbol,
+					Style = parent.FindResource( ABStyles.ABPropValDimTextBlockStyle ) as Style,
 				};
 				DockPanel.SetDock( propSymbol, Dock.Right );
 				dockPanelVal.Children.Add( propSymbol );
@@ -102,6 +136,41 @@ namespace BridgeTools.PropertyGrid.Properties
 		#endregion
 
 		#region Private Methods
+
+		#if TODO
+		//------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Set error state.
+		/// </summary>
+		/// <param name="isError"></param>
+		/// <param name="setErrorBackground"></param>
+		private void SetErrorState( bool isError, bool setErrorBackground = false )
+		{
+			if( _textBox == null )
+				return;
+
+			_textBox.BorderBrush = Brushes.Red;
+			_textBox.SelectionBrush = H.SelBrush;
+
+			if( _readOnly )
+				_textBox.Background = new SolidColorBrush( Color.FromRgb( 238, 238, 239 ) );//#eeeeef
+			else
+				_textBox.Background = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );//#ffffff
+
+			if( isError )
+			{
+				_textBox.BorderThickness = new Thickness( 1, 1, 1, 1 );
+				if( setErrorBackground )
+				{
+					_textBox.Background = Brushes.Pink;
+				}
+			}
+			else
+			{
+				_textBox.BorderBrush = Brushes.Transparent;
+			}
+		}
+		#endif
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
@@ -132,13 +201,10 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="e">Event arguments</param>
 		private void OnTextBoxLoaded( object sender, RoutedEventArgs e )
 		{
-			bool _focus = true;
-			bool _selectAll = true;
-
-			if( !_focus )
+			if( !_selectText )
 				return;
 
-			SetFocus( _selectAll );
+			SetFocus( _selectText );
 
 			// this event is used only for initial load
 			_textBox.Loaded -= OnTextBoxLoaded;
@@ -152,8 +218,6 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="e">Event arguments</param>
 		private void OnTextKeyDown( object sender, KeyEventArgs e )
 		{
-			bool _processNextFocus = true; // TODO check if not set anywhere in AB
-
 			if( _textBox == null )
 				return;
 
@@ -199,8 +263,6 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="e">Event arguments</param>
 		private void OnLostFocus( object sender, RoutedEventArgs e )
 		{
-			bool _processLostFocus = false;
-
 			if( _textBox == null || !_processLostFocus )
 				return;
 
