@@ -57,9 +57,8 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="symbol">Dimension symbol label (set null for no label)</param>
 		/// <param name="readOnly">Initial read-only state</param>
 		/// <param name="selectText">Initial focus and text selection</param>
-		/// <param name="processLostFocus">True if lost focus should process input</param>
-		/// <param name="processNextFocus"></param>
-		/// <param name="setError">True if data error to be indicated</param>
+		/// <param name="processLostFocus">True if lost focus should be processed after input</param>
+		/// <param name="processNextFocus">True if next property should get focus after TAB/ENTER press</param>
 		public ABPropTextBoxDim(
 			ABCat parent,
 			string key,
