@@ -266,7 +266,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Error state binding (field border).
+		/// Error border binding.
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>
@@ -290,7 +290,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Error state binding (field background).
+		/// Error background binding.
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>
