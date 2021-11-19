@@ -40,8 +40,22 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		private ABTextBox _textBox = null;
 
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Initial focus and text selection.
+		/// </summary>
 		private bool _selectText = true;
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// True if lost focus should be processed after input.
+		/// </summary>
 		private bool _processLostFocus = false;
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// True if next property should get focus after TAB/ENTER press
+		/// </summary>
 		private bool _processNextFocus = true;
 
 		#endregion
