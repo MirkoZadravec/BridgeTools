@@ -10,6 +10,7 @@
 ////////////////////////////
 
 using BridgeTools.PropertyGrid.Categories;
+using BridgeTools.PropertyGrid.Controls;
 using BridgeTools.PropertyGrid.Converters;
 using BridgeTools.PropertyGrid.Resources;
 using BridgeTools.PropertyGrid.Validations;
@@ -17,7 +18,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
@@ -38,7 +38,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <summary>
 		/// Text edit field.
 		/// </summary>
-		private TextBox _textBox = null;
+		private ABTextBox _textBox = null;
 
 		private bool _selectText = true;
 		private bool _processLostFocus = false;
@@ -121,7 +121,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				dockPanelVal.Children.Add( propSymbol );
 			}
 
-			_textBox = new TextBox()
+			_textBox = new ABTextBox()
 			{
 				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 			};
@@ -136,41 +136,6 @@ namespace BridgeTools.PropertyGrid.Properties
 		#endregion
 
 		#region Private Methods
-
-		#if TODO
-		//------------------------------------------------------------------------------------------
-		/// <summary>
-		/// Set error state.
-		/// </summary>
-		/// <param name="isError"></param>
-		/// <param name="setErrorBackground"></param>
-		private void SetErrorState( bool isError, bool setErrorBackground = false )
-		{
-			if( _textBox == null )
-				return;
-
-			_textBox.BorderBrush = Brushes.Red;
-			_textBox.SelectionBrush = H.SelBrush;
-
-			if( _readOnly )
-				_textBox.Background = new SolidColorBrush( Color.FromRgb( 238, 238, 239 ) );//#eeeeef
-			else
-				_textBox.Background = new SolidColorBrush( Color.FromRgb( 255, 255, 255 ) );//#ffffff
-
-			if( isError )
-			{
-				_textBox.BorderThickness = new Thickness( 1, 1, 1, 1 );
-				if( setErrorBackground )
-				{
-					_textBox.Background = Brushes.Pink;
-				}
-			}
-			else
-			{
-				_textBox.BorderBrush = Brushes.Transparent;
-			}
-		}
-		#endif
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>

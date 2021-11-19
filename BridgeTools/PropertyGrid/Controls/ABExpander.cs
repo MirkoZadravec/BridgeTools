@@ -27,7 +27,7 @@ namespace BridgeTools.PropertyGrid.Controls
         /// Level dependency property.
         /// </summary>
         public static readonly DependencyProperty LevelProperty = DependencyProperty.Register(
-            "Level", typeof( int ),
+            nameof( Level ), typeof( int ),
             typeof( ABExpander )
             );
 

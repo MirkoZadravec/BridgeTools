@@ -10,6 +10,7 @@
 ////////////////////////////
 
 using BridgeTools.PropertyGrid.Categories;
+using BridgeTools.PropertyGrid.Controls;
 using BridgeTools.PropertyGrid.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,7 +35,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <summary>
 		/// Text edit field.
 		/// </summary>
-		private TextBox _textBox = null;
+		private ABTextBox _textBox = null;
 
 		#endregion
 
@@ -65,7 +66,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			DockPanel.SetDock( propKey, Dock.Left );
 			dockPanel.Children.Add( propKey );
 
-			_textBox = new TextBox()
+			_textBox = new ABTextBox()
 			{
 				Style = parent.FindResource( ABStyles.ABPropValTextBoxStyle ) as Style,
 				IsTabStop = true,
