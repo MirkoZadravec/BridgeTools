@@ -79,7 +79,7 @@
     <Style x:Key="ABPropValTextBoxStyle" TargetType="{x:Type controls:ABTextBox}">
         <Setter Property="Background" Value="{StaticResource ABPropGridTextBackgroundColor}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="BorderBrush" Value="LightGray"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Margin" Value="0,1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -88,19 +88,17 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEnabled" Value="True"/>
-                    <Condition Property="ErrorState" Value="ERROR"/>
+                    <Condition Property="ShowErrorBorder" Value="True"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderBrush" Value="{StaticResource ABPropGridTextErrorBorderColor}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEnabled" Value="True"/>
-                    <Condition Property="ErrorState" Value="ERROR_BACKGROUND"/>
+                    <Condition Property="ShowErrorBackground" Value="True"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="Background" Value="Pink"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="Background" Value="{StaticResource ABPropGridTextErrorBackgroundColor}"/>
             </MultiTrigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="SelectionBrush" Value="#eeeeef"/>

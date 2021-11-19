@@ -24,22 +24,42 @@ namespace BridgeTools.PropertyGrid.Controls
 
         //----------------------------------------------------------------------------------------------
         /// <summary>
-        /// Error state dependency property.
+        /// Error border visibility dependency property.
         /// </summary>
-        public static readonly DependencyProperty ErrorStateProperty = DependencyProperty.Register(
-            nameof( ErrorState ), typeof( ABTextErrorState ),
+        public static readonly DependencyProperty ShowErrorBorderProperty = DependencyProperty.Register(
+            nameof( ShowErrorBorder ), typeof( bool ),
             typeof( ABTextBox ), 
-            new FrameworkPropertyMetadata( ABTextErrorState.NONE )
+            new FrameworkPropertyMetadata( false )
             );
 
         //----------------------------------------------------------------------------------------------
         /// <summary>
-        /// Error state property.
+        /// Error border visibility property.
         /// </summary>
-        public ABTextErrorState ErrorState
+        public bool ShowErrorBorder
         {
-            get => (ABTextErrorState) GetValue( ErrorStateProperty );
-            set => SetValue( ErrorStateProperty, value );
+            get => (bool) GetValue( ShowErrorBorderProperty );
+            set => SetValue( ShowErrorBorderProperty, value );
+        }
+
+        //----------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Error background visibility dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ShowErrorBackgroundProperty = DependencyProperty.Register(
+            nameof( ShowErrorBackground ), typeof( bool ),
+            typeof( ABTextBox ),
+            new FrameworkPropertyMetadata( false )
+            );
+
+        //----------------------------------------------------------------------------------------------
+        /// <summary>
+        /// Error background visibility property.
+        /// </summary>
+        public bool ShowErrorBackground
+        {
+            get => (bool) GetValue( ShowErrorBackgroundProperty );
+            set => SetValue( ShowErrorBackgroundProperty, value );
         }
 
         #endregion

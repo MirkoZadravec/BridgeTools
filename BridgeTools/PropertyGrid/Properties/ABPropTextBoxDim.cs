@@ -278,6 +278,54 @@ namespace BridgeTools.PropertyGrid.Properties
 			_textBox.GetBindingExpression( TextBox.TextProperty ).UpdateSource();
 		}
 
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Error state binding (field border).
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindShowErrorBorder(
+			object bSource,
+			string bPath)
+		{
+			if( null == _textBox )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource,
+			};
+
+			_textBox.SetBinding( ABTextBox.ShowErrorBorderProperty, b );
+		}
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Error state binding (field background).
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindShowErrorBackground(
+			object bSource,
+			string bPath )
+		{
+			if( null == _textBox )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource,
+			};
+
+			_textBox.SetBinding( ABTextBox.ShowErrorBackgroundProperty, b );
+		}
+
 		#endregion
 	}
 }

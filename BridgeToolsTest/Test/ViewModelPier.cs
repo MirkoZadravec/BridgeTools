@@ -10,6 +10,7 @@
 ////////////////////////////
 
 using BridgeTools.PropertyGrid;
+using BridgeTools.PropertyGrid.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Media;
@@ -37,6 +38,8 @@ namespace BridgeToolsTest.Test
 		public bool IsEnabled { get; set; }
 		public bool IsVisible { get; set; } = true;
 		public string Offset { get; set; }
+		public bool OffsetErrorBorder { get; set; } = false;
+		public bool OffsetErrorBackground { get; set; } = false;
 		public double Darkness { get; set; }
 		public ViewModelGeoPos GeoPos { get; set; } = new ViewModelGeoPos() { Description = "This is a geometric position", Date = DateTime.Now, Color = Colors.Red };
 		public List<ViewModelAnimal> Animals = new List<ViewModelAnimal>()

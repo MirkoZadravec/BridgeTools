@@ -76,6 +76,8 @@ namespace BridgeToolsTest.Test
 					var td = new ABPropTextBoxDim( catPier1, "Offset", "[m]" );
 					// bindings
 					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ), ABEnumRangeRule.MIN_MAX, 10, 100 );
+					td.BindShowErrorBorder( vm.Pier1, nameof( vm.Pier1.OffsetErrorBorder ) );
+					td.BindShowErrorBackground( vm.Pier1, nameof( vm.Pier1.OffsetErrorBackground ) );
 
 					// dynamic list of properties at level 2
 					foreach( var animal in vm.Pier1.Animals )
