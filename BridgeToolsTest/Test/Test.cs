@@ -24,6 +24,7 @@
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
 using BridgeTools.PropertyGrid.Validations;
+using System.Collections.Generic;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -110,7 +111,11 @@ namespace BridgeToolsTest.Test
 							// select in multi-column combo box
 							lion.InitComboOptionMulti( lion.ComboOptionsMulti[1] );
 							// property at level 2 ( multi-column combo box )
-							var cbLionMulti = new ABPropMultiColComboBox<ComboOptionsEnum>( catPier1, "Multi options", lion.ComboOptionsMulti );
+							var cbLionMulti = new ABPropMultiColComboBox<ComboOptionsEnum>( 
+								catPier1, 
+								"Multi options", 
+								lion.ComboOptionsMulti, 
+								new List<string>() { "Col 1", "Col 2" } );
 							// bindings
 							cbLionMulti.BindSelectedItem( lion, nameof( lion.ComboOptionMulti ) );
 						}

@@ -12,6 +12,7 @@
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Resources;
 using Syncfusion.UI.Xaml.Grid;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,7 +22,7 @@ namespace BridgeTools.PropertyGrid.Properties
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Property with multi-column combo box.
+	/// Property with multi-column combo box. Showing of columns header is optional.
 	/// </summary>
 	/// <example>
 	/// +------------+--------------------------------------------------------+------------------------|
@@ -39,6 +40,12 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <remarks>Using Syncfusion.Data.WPF.dll and Syncfusion.SfGrid.WPF.dll</remarks>
 		private SfMultiColumnDropDownControl _comboBox = null;
 
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Show columns header in multi-column combo box.
+		/// </summary>
+		private bool _showComboColHeader = true;
+
 		#endregion
 
 		#region Constructor
@@ -50,10 +57,13 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
 		/// <param name="values">Combo box items (per column)</param>
+		/// <param name="columns">Column headers (if all names are null, no header is shown).
+		/// The size of this list determines total number of columns.</param>
 		public ABPropMultiColComboBox(
 			ABCat parent,
 			string key,
-			List<GroupItemMulti<T>> values ) : base()
+			List<GroupItemMulti<T>> values,
+			List<string> columns ) : base()
 		{
 			InitStyle( parent, false );
 
@@ -84,31 +94,64 @@ namespace BridgeTools.PropertyGrid.Properties
 				Template = parent.FindResource( ABStyles.ABDropDownControlTemplate ) as ControlTemplate,
 				ItemsSource = values,
 			};
+			_comboBox.Loaded += OnComboBoxLoaded;
 
-			_comboBox.Columns.Add( new GridTextColumn()
-			{
-				MappingName = nameof( GroupItemMulti<T>.ObjTexts ) + "[0]",
-				HeaderStyle = parent.FindResource( ABStyles.ABDropDownGridHeaderStyle ) as Style,
-				HorizontalHeaderContentAlignment = HorizontalAlignment.Left,
-				HeaderText = "Column1",
-				TextAlignment = TextAlignment.Left,
-				ColumnSizer = GridLengthUnitType.Star,
-				MinimumWidth = 100,
-			} );
+			_showComboColHeader = false;
 
-			_comboBox.Columns.Add( new GridTextColumn()
+			var ncol = columns != null ? columns.Count : 0;
+			foreach( var val in values )
 			{
-				MappingName = nameof( GroupItemMulti<T>.ObjTexts ) + "[1]",
-				HeaderStyle = parent.FindResource( ABStyles.ABDropDownGridHeaderStyle ) as Style,
-				HorizontalHeaderContentAlignment = HorizontalAlignment.Left,
-				HeaderText = "Column2",
-				TextAlignment = TextAlignment.Left,
-				ColumnSizer = GridLengthUnitType.AutoLastColumnFill,
-				MinimumWidth = 100,
-			} );
+				// reduce number of columns if no value exists (avoid binding exception)
+				var nvalCol = val.ObjTexts != null ? val.ObjTexts.Count : 0;
+				ncol = Math.Min( nvalCol , ncol );
+			}
+
+			for( int icol = 0 ; icol<ncol ; icol++ )
+			{
+				var headerText = columns[icol];
+
+				if( !string.IsNullOrEmpty( headerText ) )
+				{
+					// hide columns header
+					_showComboColHeader = true;
+				}
+
+				_comboBox.Columns.Add( new GridTextColumn()
+				{
+					MappingName = nameof( GroupItemMulti<T>.ObjTexts ) + "[" + icol + "]",
+					HeaderStyle = parent.FindResource( ABStyles.ABDropDownGridHeaderStyle ) as Style,
+					HorizontalHeaderContentAlignment = HorizontalAlignment.Left,
+					HeaderText = headerText,
+					TextAlignment = TextAlignment.Left,
+					ColumnSizer = ( icol == ncol -1 ) ? GridLengthUnitType.AutoLastColumnFill : GridLengthUnitType.Star,
+					MinimumWidth = 100,
+				} );
+			}
 			propVal.Children.Add( _comboBox );
 
 			parent.AddProperty( this, dockPanel );
+		}
+
+		#endregion
+
+		#region Events
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Combo box loaded event.
+		/// </summary>
+		/// <param name="sender">Sender</param>
+		/// <param name="e">Event arguments</param>
+		private void OnComboBoxLoaded( object sender, RoutedEventArgs e )
+		{
+			// need for initial loading only
+			_comboBox.Loaded -= OnComboBoxLoaded;
+
+			if( !_showComboColHeader )
+			{
+				// hide columns header
+				_comboBox.GetDropDownGrid().HeaderRowHeight = 0;
+			}
 		}
 
 		#endregion
