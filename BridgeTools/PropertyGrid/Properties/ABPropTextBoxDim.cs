@@ -21,12 +21,12 @@ namespace BridgeTools.PropertyGrid.Properties
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Property with text box and dimension label (optional).
+	/// Property with text box and dimension symbol (optional).
 	/// </summary>
 	/// <example>
-	/// +------------+----------------------------------------------------+
-	/// | Key label  | Editable text box     | Dimension label (optional) |
-	/// +------------+----------------------------------------------------+
+	/// +------------+-------------------------------------------+
+	/// | Key label  | Editable text box     | Symbol (optional) |
+	/// +------------+-------------------------------------------+
 	/// </example>
 	public class ABPropTextBoxDim : ABProp
 	{
@@ -48,7 +48,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
-		/// <param name="symbol">Dimension symbol label (set null for no label)</param>
+		/// <param name="symbol">Dimension symbol (set null for no symbol)</param>
 		/// <param name="readOnly">Initial read-only state</param>
 		/// <param name="selectText">Initial focus and text selection</param>
 		/// <param name="processLostFocus">True if lost focus should be processed after input</param>
@@ -156,7 +156,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Text box binding.
+		/// Text box binding double type value.
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>
@@ -196,7 +196,7 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		//----------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Text box binding.
+		/// Text box binding for int type value.
 		/// </summary>
 		/// <param name="bSource">Source object</param>
 		/// <param name="bPath">Property path</param>

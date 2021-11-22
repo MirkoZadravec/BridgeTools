@@ -19,13 +19,13 @@ namespace BridgeTools.PropertyGrid.Properties
 {
 	//----------------------------------------------------------------------------------------------
 	/// <summary>
-	/// Property with slider with its value and symbol.
+	/// Property with slider with its value and dimension symbol.
 	/// </summary>
 	/// <example>
-	/// +------------+------------------------+
-	/// |            | Value           Symbol |
-	/// | Key label  | --------Slider-------- |
-	/// +------------+------------------------+
+	/// +------------+-----------------------------------+
+	/// |            | Value           Symbol (optional) |
+	/// | Key label  | --------Slider------------------- |
+	/// +------------+-----------------------------------+
 	/// </example>
 	public class ABPropSlider : ABProp
 	{
@@ -53,7 +53,7 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
-		/// <param name="symbol">Value symbol</param>
+		/// <param name="symbol">Dimension symbol (set null for no symbol)</param>
 		/// <param name="sliderMin">Minimum</param>
 		/// <param name="sliderMax">Maximum</param>
 		/// <param name="sliderStep">Step</param>
@@ -92,12 +92,15 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			propVal.Children.Add( dockPanelVal );
 
-			var propSliderSymbol = new TextBlock()
+			if( !string.IsNullOrEmpty( symbol ) )
 			{
-				Text = symbol,
-			};
-			DockPanel.SetDock( propSliderSymbol, Dock.Right );
-			dockPanelVal.Children.Add( propSliderSymbol );
+				var propSliderSymbol = new TextBlock()
+				{
+					Text = symbol,
+				};
+				DockPanel.SetDock( propSliderSymbol, Dock.Right );
+				dockPanelVal.Children.Add( propSliderSymbol );
+			}
 
 			_sliderTextBox = new TextBlock()
 			{
