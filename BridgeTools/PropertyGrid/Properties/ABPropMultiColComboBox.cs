@@ -56,14 +56,14 @@ namespace BridgeTools.PropertyGrid.Properties
 		/// </summary>
 		/// <param name="parent">Parent category</param>
 		/// <param name="key">Property key label</param>
-		/// <param name="values">Combo box items (per column)</param>
-		/// <param name="columns">Column headers (if all names are null, no header is shown).
-		/// The size of this list determines total number of columns.</param>
+		/// <param name="values">Combo box items (per column). First column is used as selected item text.</param>
+		/// <param name="columns">Column headers (if all headers are null, no header is shown).
+		/// The size of this and values list determines total number of columns.</param>
 		public ABPropMultiColComboBox(
 			ABCat parent,
 			string key,
 			List<GroupItemMulti<T>> values,
-			List<string> columns ) : base()
+			List<GroupItemColInfo> columns ) : base()
 		{
 			InitStyle( parent, false );
 
@@ -90,9 +90,9 @@ namespace BridgeTools.PropertyGrid.Properties
 			var ncol = columns != null ? columns.Count : 0;
 			foreach( var val in values )
 			{
-				// reduce number of columns if no value exists (avoid binding exception)
-				var nvalCol = val.ObjTexts != null ? val.ObjTexts.Count : 0;
-				ncol = Math.Min( nvalCol, ncol );
+				// reduce number of columns if no value exists in particular column (avoid binding exception)
+				var ncolWithVal = val.ObjTexts != null ? val.ObjTexts.Count : 0;
+				ncol = Math.Min( ncolWithVal, ncol );
 			}
 
 			_comboBox = new SfMultiColumnDropDownControl()
@@ -104,30 +104,44 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			_comboBox.Loaded += OnComboBoxLoaded;
 
+			// detect auto-fill column (first col with no width specified)
+			int autoFillCol = 0;
+			for( int icol = 0 ; icol < ncol ; icol++ )
+			{
+				var col = columns[icol];
+
+				if( col == null || double.IsNaN( col.Width ) )
+				{
+					autoFillCol = icol;
+					break;
+				}
+			}
+
 			// detect if column header is empty
 			_showComboColHeader = false;
 
 			// create columns
 			for( int icol = 0 ; icol<ncol ; icol++ )
 			{
-				var headerText = columns[icol];
+				var col = columns[icol];
 
-				if( !string.IsNullOrEmpty( headerText ) )
+				if( col != null )
 				{
 					// hide columns header
 					_showComboColHeader = true;
 				}
 
-				_comboBox.Columns.Add( new GridTextColumn()
+				var gridCol = new GridTextColumn()
 				{
 					MappingName = nameof( GroupItemMulti<T>.ObjTexts ) + "[" + icol + "]",
 					HeaderStyle = parent.FindResource( ABStyles.ABPropValMultiComboHeaderStyle ) as Style,
 					HorizontalHeaderContentAlignment = HorizontalAlignment.Left,
-					HeaderText = headerText,
 					TextAlignment = TextAlignment.Left,
-					ColumnSizer = ( icol == ncol -1 ) ? GridLengthUnitType.AutoLastColumnFill : GridLengthUnitType.Star,
-					MinimumWidth = 100,
-				} );
+					ColumnSizer = ( icol == autoFillCol ) ? GridLengthUnitType.AutoLastColumnFill : GridLengthUnitType.Star,
+					HeaderText = col?.Text,
+					Width = col != null ? col.Width : double.NaN,
+				};
+				_comboBox.Columns.Add( gridCol );
 			}
 			propVal.Children.Add( _comboBox );
 

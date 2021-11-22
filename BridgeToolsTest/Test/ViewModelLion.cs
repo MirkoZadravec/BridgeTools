@@ -42,14 +42,24 @@ namespace BridgeToolsTest.Test
 			_comboOption = comboOption;
 		}
 
-		public List<GroupItemMulti<ComboOptionsEnum>> ComboOptionsMulti = new List<GroupItemMulti<ComboOptionsEnum>>()
+		public List<GroupItemMulti<int>> ComboOptionsMulti = new List<GroupItemMulti<int>>()
 		{
-			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.First,  new List<string>() { "First",  "[m]" } ),
-			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.Second, new List<string>() { "Second", "[in]" } ),
-			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.Third,  new List<string>() { "Third",  "[m]" } )
+			new GroupItemMulti<int>( 10,  new List<string>() { 10.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 20,  new List<string>() { 20.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 30,  new List<string>() { 30.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 40,  new List<string>() { 40.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 50,  new List<string>() { 50.ToString(), "[in]" } ),
+			new GroupItemMulti<int>( 60,  new List<string>() { 60.ToString(), "[in]" } ),
+			new GroupItemMulti<int>( 70,  new List<string>() { 70.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 80,  new List<string>() { 80.ToString(), "[in]" } ),
+			new GroupItemMulti<int>( 90,  new List<string>() { 90.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 100,  new List<string>() { 100.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 110,  new List<string>() { 110.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 120,  new List<string>() { 120.ToString(), "[m]" } ),
+			new GroupItemMulti<int>( 130,  new List<string>() { 130.ToString(), "[m]" } ),
 		};
-		private GroupItemMulti<ComboOptionsEnum> _comboOptionMulti = null;
-		public GroupItemMulti<ComboOptionsEnum> ComboOptionMulti
+		private GroupItemMulti<int> _comboOptionMulti = null;
+		public GroupItemMulti<int> ComboOptionMulti
 		{
 			get { return _comboOptionMulti; }
 			set
@@ -59,7 +69,7 @@ namespace BridgeToolsTest.Test
 			}
 		}
 
-		public void InitComboOptionMulti( GroupItemMulti<ComboOptionsEnum> comboOptionMulti )
+		public void InitComboOptionMulti( GroupItemMulti<int> comboOptionMulti )
 		{
 			_comboOptionMulti = comboOptionMulti;
 		}

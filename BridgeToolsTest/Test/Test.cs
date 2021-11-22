@@ -21,6 +21,7 @@
 //   - Text for category is too high or expander too low
 //   - Get rid of setting styles in runtime
 
+using BridgeTools.PropertyGrid;
 using BridgeTools.PropertyGrid.Categories;
 using BridgeTools.PropertyGrid.Properties;
 using BridgeTools.PropertyGrid.Validations;
@@ -111,11 +112,15 @@ namespace BridgeToolsTest.Test
 							// select in multi-column combo box
 							lion.InitComboOptionMulti( lion.ComboOptionsMulti[1] );
 							// property at level 2 ( multi-column combo box )
-							var cbLionMulti = new ABPropMultiColComboBox<ComboOptionsEnum>( 
+							var cbLionMulti = new ABPropMultiColComboBox<int>( 
 								catPier1, 
 								"Multi options", 
 								lion.ComboOptionsMulti, 
-								new List<string>() { "Col 1", "Col 2" } );
+								new List<GroupItemColInfo>() 
+								{
+									new GroupItemColInfo( "Col 1" ),
+									new GroupItemColInfo( "Col 2", 30 ),
+								} );
 							// bindings
 							cbLionMulti.BindSelectedItem( lion, nameof( lion.ComboOptionMulti ) );
 						}
