@@ -31,7 +31,7 @@
     <SolidColorBrush x:Key="abmCBDropDownFieldBrush" Color="#FFE8ECEE" />
     <SolidColorBrush x:Key="abmCBComboBoxOpenBrush" Color="#FFC6E5F5" />
 
-    <Style TargetType="{x:Type syncfusion:GridHeaderCellControl}" x:Key="ABDropDownGridHeaderStyle">
+    <Style TargetType="{x:Type syncfusion:GridHeaderCellControl}" x:Key="ABPropValMultiComboHeaderStyle">
         <Setter Property="Background" Value="{StaticResource abmPaletteHeaderColor}"/>
         <Setter Property="Foreground" Value="{StaticResource abmGeneralFontColor}"/>
         <Setter Property="FontSize" Value="{StaticResource abmGeneralFontSize}"/>
@@ -167,7 +167,7 @@
                                     AllowFiltering="False"
                                     AllowRowHoverHighlighting="True"
                                     BorderThickness="0"
-                                    HeaderStyle="{StaticResource ABDropDownGridHeaderStyle}"
+                                    HeaderStyle="{StaticResource ABPropValMultiComboHeaderStyle}"
                                     Background="{TemplateBinding PopupDropDownGridBackground}"
                                     RowSelectionBrush="{StaticResource abmCBComboBoxOpenBrush}"
                                     RowHoverHighlightingBrush="{StaticResource abmCBActiveBackgroundBrush}"
@@ -418,7 +418,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="ABDropDownStyle" TargetType="{x:Type syncfusion:SfMultiColumnDropDownControl}">
+    <Style x:Key="ABPropValMultiComboStyle" TargetType="{x:Type syncfusion:SfMultiColumnDropDownControl}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Height" Value="20"/>

@@ -90,7 +90,7 @@ namespace BridgeTools.PropertyGrid.Properties
 			{
 				DisplayMember = nameof( GroupItemMulti<T>.ObjTexts ) + "[0]",
 				SelectedValue = nameof( GroupItem<T>.Obj ),
-				Style = parent.FindResource( ABStyles.ABDropDownStyle ) as Style,
+				Style = parent.FindResource( ABStyles.ABPropValMultiComboStyle ) as Style,
 				Template = parent.FindResource( ABStyles.ABDropDownControlTemplate ) as ControlTemplate,
 				ItemsSource = values,
 			};
@@ -119,7 +119,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				_comboBox.Columns.Add( new GridTextColumn()
 				{
 					MappingName = nameof( GroupItemMulti<T>.ObjTexts ) + "[" + icol + "]",
-					HeaderStyle = parent.FindResource( ABStyles.ABDropDownGridHeaderStyle ) as Style,
+					HeaderStyle = parent.FindResource( ABStyles.ABPropValMultiComboHeaderStyle ) as Style,
 					HorizontalHeaderContentAlignment = HorizontalAlignment.Left,
 					HeaderText = headerText,
 					TextAlignment = TextAlignment.Left,

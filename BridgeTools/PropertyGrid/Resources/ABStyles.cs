@@ -37,8 +37,8 @@ namespace BridgeTools.PropertyGrid.Resources
 		public static string ABPropValDateStyle => "ABPropValDateStyle";
 		public static string ABPropValButtonStyle => "ABPropValButtonStyle";
 
-		public static string ABDropDownGridHeaderStyle => "ABDropDownGridHeaderStyle";
-		public static string ABDropDownStyle => "ABDropDownStyle";
+		public static string ABPropValMultiComboHeaderStyle => "ABPropValMultiComboHeaderStyle";
+		public static string ABPropValMultiComboStyle => "ABPropValMultiComboStyle";
 		public static string ABDropDownControlTemplate => "ABDropDownControlTemplate";
 	}
 }
