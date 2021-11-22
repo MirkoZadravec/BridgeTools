@@ -15,6 +15,7 @@ using Syncfusion.UI.Xaml.Grid;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace BridgeTools.PropertyGrid.Properties
 {
@@ -94,7 +95,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				//GridColumnSizer = GridLengthUnitType.Star,
 				//Style = Application.Current.Resources["abmDropDownStyle2"] as Style,
 				//Template = Application.Current.Resources["abmDropDownControlTemplate2"] as ControlTemplate,
-				//IsEnabled = _isEnabled,
+				//IsEnabled = true,
 			};
 
 			_comboBox.Columns.Add( new GridTextColumn()
@@ -118,6 +119,7 @@ namespace BridgeTools.PropertyGrid.Properties
 				ColumnSizer = GridLengthUnitType.AutoLastColumnFill,
 				Width = 108,
 			} );
+			propVal.Children.Add( _comboBox );
 
 			/*			_comboBox = new ComboBox()
 						{
@@ -135,5 +137,32 @@ namespace BridgeTools.PropertyGrid.Properties
 
 		#endregion
 
+		#region Bindings
+
+		//----------------------------------------------------------------------------------------------
+		/// <summary>
+		/// Selected combo box item binding.
+		/// </summary>
+		/// <param name="bSource">Source object</param>
+		/// <param name="bPath">Property path</param>
+		public void BindSelectedItem(
+			object bSource,
+			string bPath )
+		{
+			if( null == _comboBox )
+				return;
+
+			if( null == bSource || string.IsNullOrEmpty( bPath ) )
+				return;
+
+			var b = new Binding( bPath )
+			{
+				Source = bSource
+			};
+
+			_comboBox.SetBinding( ComboBox.SelectedItemProperty, b );
+		}
+
+		#endregion
 	}
 }

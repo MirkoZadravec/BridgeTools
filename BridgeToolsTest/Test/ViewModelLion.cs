@@ -41,5 +41,27 @@ namespace BridgeToolsTest.Test
 		{
 			_comboOption = comboOption;
 		}
+
+		public List<GroupItemMulti<ComboOptionsEnum>> ComboOptionsMulti = new List<GroupItemMulti<ComboOptionsEnum>>()
+		{
+			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.First,  new List<string>() { "First",  "[m]" } ),
+			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.Second, new List<string>() { "Second", "[in]" } ),
+			new GroupItemMulti<ComboOptionsEnum>( ComboOptionsEnum.Third,  new List<string>() { "Third",  "[m]" } )
+		};
+		private GroupItemMulti<ComboOptionsEnum> _comboOptionMulti = null;
+		public GroupItemMulti<ComboOptionsEnum> ComboOptionMulti
+		{
+			get { return _comboOptionMulti; }
+			set
+			{
+				_comboOptionMulti = value;
+				OnPropertyChanged( nameof( ComboOptionMulti ) );
+			}
+		}
+
+		public void InitComboOptionMulti( GroupItemMulti<ComboOptionsEnum> comboOptionMulti )
+		{
+			_comboOptionMulti = comboOptionMulti;
+		}
 	}
 }

@@ -102,11 +102,17 @@ namespace BridgeToolsTest.Test
 						{
 							// select in combo box
 							lion.InitComboOption( lion.ComboOptions[1] );
-
 							// property at level 2 ( combo box )
 							var cbLion = new ABPropComboBox<ComboOptionsEnum>( catPier1, "Lion options", lion.ComboOptions );
 							// bindings
 							cbLion.BindSelectedItem( lion, nameof( lion.ComboOption ) );
+
+							// select in multi-column combo box
+							lion.InitComboOptionMulti( lion.ComboOptionsMulti[1] );
+							// property at level 2 ( multi-column combo box )
+							var cbLionMulti = new ABPropMultiColComboBox<ComboOptionsEnum>( catPier1, "Multi options", lion.ComboOptionsMulti );
+							// bindings
+							cbLionMulti.BindSelectedItem( lion, nameof( lion.ComboOptionMulti ) );
 						}
 					}
 
