@@ -86,26 +86,28 @@ namespace BridgeTools.PropertyGrid.Properties
 			};
 			dockPanel.Children.Add( propVal );
 
-			_comboBox = new SfMultiColumnDropDownControl()
-			{
-				DisplayMember = nameof( GroupItemMulti<T>.ObjTexts ) + "[0]",
-				SelectedValue = nameof( GroupItem<T>.Obj ),
-				Style = parent.FindResource( ABStyles.ABPropValMultiComboStyle ) as Style,
-				Template = parent.FindResource( ABStyles.ABDropDownControlTemplate ) as ControlTemplate,
-				ItemsSource = values,
-			};
-			_comboBox.Loaded += OnComboBoxLoaded;
-
-			_showComboColHeader = false;
-
+			// detect number of columns
 			var ncol = columns != null ? columns.Count : 0;
 			foreach( var val in values )
 			{
 				// reduce number of columns if no value exists (avoid binding exception)
 				var nvalCol = val.ObjTexts != null ? val.ObjTexts.Count : 0;
-				ncol = Math.Min( nvalCol , ncol );
+				ncol = Math.Min( nvalCol, ncol );
 			}
 
+			_comboBox = new SfMultiColumnDropDownControl()
+			{
+				DisplayMember = ncol > 0 ? nameof( GroupItemMulti<T>.ObjTexts ) + "[0]" : null,
+				SelectedValue = nameof( GroupItem<T>.Obj ),
+				Style = parent.FindResource( ABStyles.ABPropValMultiComboStyle ) as Style,
+				ItemsSource = values,
+			};
+			_comboBox.Loaded += OnComboBoxLoaded;
+
+			// detect if column header is empty
+			_showComboColHeader = false;
+
+			// create columns
 			for( int icol = 0 ; icol<ncol ; icol++ )
 			{
 				var headerText = columns[icol];

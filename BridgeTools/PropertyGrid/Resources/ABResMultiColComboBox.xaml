@@ -440,6 +440,7 @@
         <Setter Property="PopupBackground" Value="#ff1873ae"/>
         <Setter Property="PopupBorderBrush" Value="#ffadd8e6"/>
         <Setter Property="PopupDropDownGridBackground" Value="White"/>
+        <Setter Property="Template" Value="{StaticResource ABDropDownControlTemplate}"/>
     </Style>
 
 </ResourceDictionary>
