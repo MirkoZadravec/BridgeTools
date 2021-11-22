@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Resources/AbResColors.xaml" />
                 <ResourceDictionary Source="Resources/AbResDatePicker.xaml" />
                 <ResourceDictionary Source="Resources/AbResComboBox.xaml" />
+                <ResourceDictionary Source="Resources/AbResMultiColComboBox.xaml" />
                 <ResourceDictionary Source="Resources/AbResButton.xaml" />
                 <ResourceDictionary Source="Resources/AbResSlider.xaml" />
                 <ResourceDictionary Source="Resources/AbResExpander.xaml" />

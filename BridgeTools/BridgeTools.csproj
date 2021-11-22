@@ -122,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PropertyGrid\Resources\ABResMultiColComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PropertyGrid\Resources\ABResProp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
