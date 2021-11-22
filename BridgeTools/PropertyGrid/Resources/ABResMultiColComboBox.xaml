@@ -421,8 +421,8 @@
     <Style x:Key="ABPropValMultiComboStyle" TargetType="{x:Type syncfusion:SfMultiColumnDropDownControl}">
         <Setter Property="Background" Value="White"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Margin" Value="1,0"/>
+        <Setter Property="Height" Value="18"/>
+        <Setter Property="Margin" Value="0,1"/>
         <Setter Property="IsEnabled" Value="True"/>
         <Setter Property="IsAutoPopupSize" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>

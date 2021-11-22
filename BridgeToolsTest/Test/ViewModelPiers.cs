@@ -22,7 +22,7 @@ namespace BridgeToolsTest.Test
 		{
 			Name = "Pier 1",
 			Description = "Long pier",
-			Offset = "7.5",
+			Offset = "7,1",
 			IsDone = false,
 			IsReady = false,
 			IsEnabledReady = false,
@@ -32,7 +32,7 @@ namespace BridgeToolsTest.Test
 		{
 			Name = "Pier 2",
 			Description = "Short pier",
-			Offset = "5.3",
+			Offset = "5",
 			IsDone = true,
 			IsReady = null,
 			IsEnabledReady = false,

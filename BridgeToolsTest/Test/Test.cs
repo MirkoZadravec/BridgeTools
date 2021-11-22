@@ -76,7 +76,7 @@ namespace BridgeToolsTest.Test
 					// property at level 2 ( key/value pair with dimension )
 					var td = new ABPropTextBoxDim( catPier1, "Offset", "[m]" );
 					// bindings
-					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ), ABEnumRangeRule.MIN_MAX, 10, 100 );
+					td.BindText( vm.Pier1, nameof( vm.Pier1.Offset ), ABEnumRangeRule.MIN_MAX, 0.0, 100.0 );
 					td.BindShowErrorBorder( vm.Pier1, nameof( vm.Pier1.OffsetErrorBorder ) );
 					td.BindShowErrorBackground( vm.Pier1, nameof( vm.Pier1.OffsetErrorBackground ) );
 
