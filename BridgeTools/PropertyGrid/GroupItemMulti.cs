@@ -1,6 +1,6 @@
 ﻿//
 // Copyright: (c) Allplan Infrastructure 2021
-// GroupItem.cs
+// GroupItemMulti.cs
 //
 // Author: Mirko Zadravec
 //
@@ -8,6 +8,8 @@
 ////////////////////////////
 // NAMESPACES AND CLASSES //
 ////////////////////////////
+
+using System.Collections.Generic;
 
 namespace BridgeTools.PropertyGrid
 {
@@ -17,7 +19,7 @@ namespace BridgeTools.PropertyGrid
 	/// The item connects object with its representation text.
 	/// </summary>
 	/// <typeparam name="T">Item object type</typeparam>
-	public class GroupItem<T>
+	public class GroupItemMulti<T>
 	{
 		#region Properties
 
@@ -29,9 +31,9 @@ namespace BridgeTools.PropertyGrid
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Object representation text.
+		/// Object representation texts (multi-column combo box etc).
 		/// </summary>
-		public string ObjText { get; private set; }
+		public List<string> ObjTexts { get; private set; }
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
@@ -48,12 +50,12 @@ namespace BridgeTools.PropertyGrid
 		/// Constructor
 		/// </summary>
 		/// <param name="obj">Object</param>
-		/// <param name="objText">Object text</param>
+		/// <param name="objTexts">Object texts (multi-column combo box etc)</param>
 		/// <param name="objInfo">Object info (tooltip etc) - optional</param>
-		public GroupItem( T obj, string objText, string objInfo = null )
+		public GroupItemMulti( T obj, List<string> objTexts, string objInfo = null )
 		{
 			Obj = obj;
-			ObjText = objText;
+			ObjTexts = objTexts;
 			ObjInfo = objInfo;
 		}
 

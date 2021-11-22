@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.Data.WPF">
+      <HintPath>..\extlib\syncfusion\Syncfusion.Data.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfGrid.WPF">
+      <HintPath>..\extlib\syncfusion\Syncfusion.SfGrid.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.Shared.Wpf">
       <HintPath>..\extlib\syncfusion\Syncfusion.Shared.Wpf.dll</HintPath>
     </Reference>
@@ -60,6 +66,8 @@
     <Compile Include="PropertyGrid\Categories\ABCatText.cs" />
     <Compile Include="PropertyGrid\Controls\ABTextBox.cs" />
     <Compile Include="PropertyGrid\Converters\ABConvDecimalComma.cs" />
+    <Compile Include="PropertyGrid\GroupItemMulti.cs" />
+    <Compile Include="PropertyGrid\Properties\ABPropMultiColComboBox.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropButton.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropColorPickerPalette.cs" />
     <Compile Include="PropertyGrid\Properties\ABPropComboBox.cs" />
