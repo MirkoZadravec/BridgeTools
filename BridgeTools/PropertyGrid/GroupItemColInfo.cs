@@ -40,7 +40,7 @@ namespace BridgeTools.PropertyGrid
 		/// Constructor.
 		/// </summary>
 		/// <param name="text">Column text</param>
-		/// <param name="width">Column width. First found column with with of doubleNaN 
+		/// <param name="width">Column width. First found column with width of double.NaN 
 		/// auto-fills the remaining area.</param>
 		public GroupItemColInfo( 
 			string text, 
