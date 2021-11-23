@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="abmControls.PropertyGrid.ABPropertyGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:abmControls.PropertyGrid"
+             xmlns:categories="clr-namespace:abmControls.PropertyGrid.Categories"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/AbResColors.xaml" />
+                <ResourceDictionary Source="Resources/AbResDatePicker.xaml" />
+                <ResourceDictionary Source="Resources/AbResComboBox.xaml" />
+                <ResourceDictionary Source="Resources/AbResMultiColComboBox.xaml" />
+                <ResourceDictionary Source="Resources/AbResButton.xaml" />
+                <ResourceDictionary Source="Resources/AbResSlider.xaml" />
+                <ResourceDictionary Source="Resources/AbResExpander.xaml" />
+                <ResourceDictionary Source="Resources/AbResCat.xaml" />
+                <ResourceDictionary Source="Resources/AbResProp.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Background="{StaticResource ABPropGridBackgroundColor}">
+
+        <Grid Panel.ZIndex="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border IsHitTestVisible="False" x:Name="ABSplitter" Background="Transparent" BorderThickness="0"/>
+            <GridSplitter Grid.Column="1" IsTabStop="False" Width="5" Foreground="Transparent" Background="Transparent" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" HorizontalAlignment="Stretch"/>
+            <Border IsHitTestVisible="False" Background="Transparent" BorderThickness="0"/>
+        </Grid>
+        <!--ScrollViewer.CanContentScroll="False" turns virtualisation OFF!!!-->
+        <categories:ABCat
+            x:Name="Container"
+            ScrollViewer.CanContentScroll="False"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ItemContainerStyle="{StaticResource ABCatItemsStyle}"/>
+        <!--Important: Do not assign the Style="ABCatStyle" here, otherwise the scrollbar is not visible-->
+
+    </Grid>
+</UserControl>
