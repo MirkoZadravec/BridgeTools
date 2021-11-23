@@ -135,12 +135,13 @@ namespace BridgeTools.PropertyGrid.Controls
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Get textbox control.
+		/// Loaded event.
 		/// </summary>
 		/// <param name="sender">Sender</param>
 		/// <param name="e">Event arguments</param>
 		private void OnTextBoxLoaded( object sender, RoutedEventArgs e )
 		{
+			// process initial focus and text selection
 			if( !_selectText )
 				return;
 
@@ -152,7 +153,7 @@ namespace BridgeTools.PropertyGrid.Controls
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Text key down
+		/// Text key down event.
 		/// </summary>
 		/// <param name="sender">Sender</param>
 		/// <param name="e">Event arguments</param>
@@ -194,7 +195,7 @@ namespace BridgeTools.PropertyGrid.Controls
 
 		//------------------------------------------------------------------------------------------
 		/// <summary>
-		/// Processa lost focus.
+		/// Lost focus event.
 		/// </summary>
 		/// <param name="sender">Sender</param>
 		/// <param name="e">Event arguments</param>
