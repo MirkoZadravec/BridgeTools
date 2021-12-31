@@ -54,6 +54,7 @@ namespace abmControls.PropertyGrid.Converters
 			if( values[1] is double valSplitter )
 				width += valSplitter;
 
+			// set the width
 			return Math.Max( 0, width );
 		}
 
